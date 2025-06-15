@@ -21,16 +21,16 @@ I felt I was wasn't appreciated by my manages. They always were saying "You will
 So, I met my wife in a weird way at work. She showed me that I'm worthy. Went on an open day to a course about Cyber Security and I was amazed.
 
 ### Now?
-Now I know that the more I learn, the more I show, the more provide- **I woth more**. So I study until the little hours of the night, after everyone is sleeping, I'm trying the Python code one more time, running the pipeline again just to see if it's going to work without and bugs.
+Now I know that the more I learn, the more I show, the more provide- **I worth more**. So I study until the little hours of the night, after everyone is sleeping, I'm trying the Python code one more time, running the pipeline again just to see if it's going to work without and bugs.
 
 ### Goals:
 1. To be better. Everyday, Everytime.
 2. Learn from everyone. In the bible there is a say that says "I learned from all my teachers, and from my students I learned even more".
 3. Get that better role. Now I work as a System in mid level company. I was to get:
-  A. DevOps Engineer
-  B. (Linux) System Administrator
+  - DevOps Engineer
+  - (Linux) System Administrator
 
-
-Best regards,
-..Be your best,
-....Moriel Mauni 
+--- 
+> Best regards,
+>> Be your best,
+>>> Moriel Mauni 

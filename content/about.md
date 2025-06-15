@@ -5,7 +5,7 @@ title = 'About'
 auther = 'Moriel Mauni'
 +++
 
-# About Me:
+## About Me:
 
 Hello, My name is Moriel Mauni, I'm  a DevOps engineer / System Administrator based in TLV/IL.
 I'm a **fast learner** **quick to adapt**, used to **work under pressure** (FKA EMT)
@@ -16,16 +16,16 @@ Until age of 27 (around the start of 2023) my focus was on my carrier as an EMT.
 
 #### I like PC gaming, mostly play:
 1. Call of Duty: really love MW.
-2. Yu-Gi-Oh! Duel Links and Master Duel
-  A. Fun Fact, I went to Worlds at 2019 as a gust.
-3. Maplestory: sometimes it's fun and brainless.
+2. Yu-Gi-Oh! Duel Links and Master Duel.
+  - Fun Fact, I went to Worlds at 2019 as a gust.
+4. Maplestory: sometimes it's fun and brainless.
 
 
 ### My tech slack:
 1. Linux
-  A. Server
-  B. Different distributions
-  C. dotfiles management with chezmoi and mise.
+  - Server
+  - Different distributions
+  - dotfiles management with chezmoi and mise.
 2. AWS 
 3. Azure
 4. Terraform
@@ -35,4 +35,3 @@ Until age of 27 (around the start of 2023) my focus was on my carrier as an EMT.
 8. Python
 9. Bash 
 10. GO
-
