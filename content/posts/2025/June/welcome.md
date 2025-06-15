@@ -6,14 +6,14 @@ auther = 'Moriel Mauni'
 +++
 
 
-### About the blog:
+## About the blog:
 I'm going to share my work here, new and old stuff that I made, way I picked something above something else.
 Even will show my notes sometimes.
 
 ## Introduction:
 
-# Hi, name is Moriel Mauni.
-## Back in 2022 I made a choice to leave EMT behind and trying to get myself a job that will give me more.
+## Hi, name is Moriel Mauni.
+#### Back in 2022 I made a choice to leave EMT behind and trying to get myself a job that will give me more.
 I like to study, for real. It's the one of the greatest way to be odd but in a good way. Before the Corona virus, I was in university studying in nursing school. Man, I was learning 16 hours a day and having fun with it, also keeping a full time day job because someone needs to pay the bill.
 
 ### So what happened?
@@ -32,5 +32,5 @@ Now I know that the more I learn, the more I show, the more provide- **I woth mo
 
 
 Best regards,
-  Be your best,
-    Moriel Mauni 
+..Be your best,
+....Moriel Mauni 

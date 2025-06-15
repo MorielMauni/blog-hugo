@@ -1,40 +1,90 @@
-baseURL = 'https://blog.morielclouds.com/'
-languageCode = 'en-us'
-title = "Morile's Mauni Blog"
-theme = 'hugo-blog-awesome'
+title = "Moriel's Mauni blog"
+baseURL = 'https://blog.morielclouds.com'
 
-# ~~~~~~~~~~~~~~~~~~ Top ~~~~~~~~~~~~~~~~~~~~~ 
-[menu]
-[[menu.main]]
-name = 'Home'
-url = '/'
+languageCode = 'en-us'
+
+defaultContentLanguage = "en-gb"
+
+ignoreErrors = ["additional-script-loading-error"]
+
+theme = "hugo-blog-awesome"
+
+[services]
+enableEmoji = true
+[services.googleAnalytics]
+id = '' # G-MEASUREMENT_ID
+
+[markup]
+[markup.highlight]
+noClasses = false
+[markup.goldmark.renderer]
+unsafe = true
+[markup.tableOfContents]
+startLevel = 2  # ToC starts from H2
+endLevel = 4    # ToC ends at H4
+ordered = false # generates <ul> instead of <ol>
+
+############################## English language ################################
+[Languages.en-gb]
+languageName = "English"
+languageCode = "en-gb"
+contentDir = "content"
 weight = 1
 
-[[menu.main]]
+[Languages.en-gb.menu]
+[[Languages.en-gb.menu.main]]
+pageRef = "/"
+name = 'Home'
+url = '/'
+weight = 10
+[[Languages.en-gb.menu.main]]
+pageRef = "posts"
 name = 'Posts'
-url = '/posts'
-weight = 2
+url = '/posts/'
+weight = 20
+[[Languages.en-gb.menu.main]]
+pageRef = "about"
+name = 'About'
+url = '/about/'
+weight = 30
 
-# ~~~~~~~~~~~~~~~~ Middle ~~~~~~~~~~~~~~~~~~~~
-[params]
-description = 'Head of the tech table'
-mainSections = ['posts']
+[Languages.en-gb.params]
 sitename = "Moriel's Mauni blog"
-defaultColor = 'dark'
+defaultColor = "dark"                                  # set color mode: dark, light, auto
+description = "My journey in DevOps"
+mainSections = ['posts']
+toc = true                                             # set to false to disable table of contents 'globally'
+tocOpen = false                                        # set to true to open table of contents by default
+goToTop = true                                         # set to false to disable 'go to top' button
+additionalScripts = ['js/custom.js', 'js/custom-2.js']
+dateFormat = ""                                        # date format used to show dates on various pages. If nothing is specified, then "2 Jan 2006" format is used.
+rssFeedDescription = "summary"                         # available options: 1) summary 2) full
 
-[params.author]
-avatar = 'img/profile.jpeg'
-intro = 'Moriel Mauni'
-description = 'DevOps'
+[Languages.en-gb.params.author]
+avatar = "avatar.jpg"                # put the file in assets folder; also ensure that image has same height and width
+intro = "Moriel Mauni blog"
+name = "Moriel Mauni"
+description = "My journey in DevOps"
+
+[Languages.en-gb.params.webmanifest]
+name = "sitename"         # will use "params.sitename" or "title" by default
+short_name = "sitename"   # same as name
+start_url = "/"           # will use homepage url by default
+theme_color = "#434648"   # default is "#434648" (base color of text). Also will override html `<meta name="theme-color" />`
+background_color = "#fff" # by default depend on "params.defaultColor" for "light" or "auto" will be set to "#fff" for dark will be "#131418" (color of dark mode background)
+display = "standalone"
+
+[params.browserconfig]
+TileColor = "#2d89ef" # default windows 10 blue tile color
 
 [[params.socialIcons]]
-name = 'github'
-url = 'https://github.com/MorielMauni'
+name = "github"
+url = "https://github.com/MorielMauni"
 
 [[params.socialIcons]]
-name = 'linkedin'
-url = 'https://www.linkedin.com/in/morielmauni/'
+name = "linkedin"
+url = "https://www.linkedin.com/in/morielmauni/"
 
 [[params.socialIcons]]
-name = 'email'
-url = 'morielmauni@gmail.com'
+name = "email"
+url = "morielmauni@gmail.com"

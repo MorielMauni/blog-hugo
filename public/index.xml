@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Morile&#39;s Mauni Blog</title>
+    <title>Home on Moriel&#39;s Mauni blog</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Home on Morile&#39;s Mauni Blog</description>
+    <description>Recent content in Home on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jun 2025 12:12:17 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 15 Jun 2025 19:59:29 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 15 Jun 2025 19:59:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      
+      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me:&lt;/h1&gt;
+&lt;p&gt;Hello, My name is Moriel Mauni, I&amp;rsquo;m  a DevOps engineer / System Administrator based in TLV/IL.
+I&amp;rsquo;m a &lt;strong&gt;fast learner&lt;/strong&gt; &lt;strong&gt;quick to adapt&lt;/strong&gt;, used to &lt;strong&gt;work under pressure&lt;/strong&gt; (FKA EMT)&lt;/p&gt;
+&lt;h3 id=&#34;personal-life&#34;&gt;Personal life:&lt;/h3&gt;
+&lt;p&gt;As for now, I&amp;rsquo;m 29 y/o, married with 1 boy.
+Until age of 27 (around the start of 2023) my focus was on my carrier as an EMT. After this I was all in about tech.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>The first post!</title>
       <link>http://localhost:1313/posts/2025/june/welcome/</link>
@@ -14,12 +30,12 @@
       
       <guid>http://localhost:1313/posts/2025/june/welcome/</guid>
       
-      <description>&lt;h3 id=&#34;about-the-blog&#34;&gt;About the blog:&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;about-the-blog&#34;&gt;About the blog:&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;m going to share my work here, new and old stuff that I made, way I picked something above something else.
 Even will show my notes sometimes.&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction:&lt;/h2&gt;
-&lt;h1 id=&#34;hi-name-is-moriel-mauni&#34;&gt;Hi, name is Moriel Mauni.&lt;/h1&gt;
-&lt;h2 id=&#34;back-in-2022-i-made-a-choice-to-leave-emt-behind-and-trying-to-get-myself-a-job-that-will-give-me-more&#34;&gt;Back in 2022 I made a choice to leave EMT behind and trying to get myself a job that will give me more.&lt;/h2&gt;
+&lt;h2 id=&#34;hi-name-is-moriel-mauni&#34;&gt;Hi, name is Moriel Mauni.&lt;/h2&gt;
+&lt;h4 id=&#34;back-in-2022-i-made-a-choice-to-leave-emt-behind-and-trying-to-get-myself-a-job-that-will-give-me-more&#34;&gt;Back in 2022 I made a choice to leave EMT behind and trying to get myself a job that will give me more.&lt;/h4&gt;
 &lt;p&gt;I like to study, for real. It&amp;rsquo;s the one of the greatest way to be odd but in a good way. Before the Corona virus, I was in university studying in nursing school. Man, I was learning 16 hours a day and having fun with it, also keeping a full time day job because someone needs to pay the bill.&lt;/p&gt;</description>
       
     </item>

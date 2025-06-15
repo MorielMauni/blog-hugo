@@ -1,9 +1,9 @@
 {
-    "name": "Moriel's Mauni blog",
-    "short_name": "Moriel's Mauni blog",
-    "start_url": "http://localhost:1313/",
+    "name": "sitename",
+    "short_name": "sitename",
+    "start_url": "/",
     "theme_color": "#434648",
-    "background_color": "#131418",
+    "background_color": "#fff",
     "display": "standalone",
     "icons": [
         {
