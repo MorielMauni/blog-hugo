@@ -1,4 +1,23 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://blog.morielclouds.com/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'hugo-blog-awesome'
+
+[[params.socialIcons]]
+name = 'github'
+url = 'https://github.com/MorielMauni'
+
+[[params.socialIcons]]
+name = 'linkedin'
+url = 'https://www.linkedin.com/in/morielmauni/'
+
+[[params.socialIcons]]
+name = 'email'
+url = 'morielmauni@gmail.com'
+
+[parmas.author]
+name = 'Moriel Mauni'
+
+[parmas]
+description = 'DevOps Engineer / System Administrator'
+profilePicture = 'static/images/profile.jpeg'
