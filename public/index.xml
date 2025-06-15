@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Jun 2025 12:12:17 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome</title>
+      <link>http://localhost:1313/2025/june/welcome/</link>
+      <pubDate>Sun, 15 Jun 2025 12:12:17 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2025/june/welcome/</guid>
+      
+      <description>&lt;p&gt;2025/June/.
+This is the first block of content for the blog.
+If you see it, you looking the commit history.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>http://localhost:1313/welcome/</link>
+      <pubDate>Sun, 15 Jun 2025 12:08:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/welcome/</guid>
+      
+      <description>&lt;p&gt;This is the first block of content for the blog.
+If you see it, you looking the commit history.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
