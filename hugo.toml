@@ -1,7 +1,31 @@
 baseURL = 'https://blog.morielclouds.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Morile's Mauni Blog"
 theme = 'hugo-blog-awesome'
+
+# ~~~~~~~~~~~~~~~~~~ Top ~~~~~~~~~~~~~~~~~~~~~ 
+[menu]
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 1
+
+[[menu.main]]
+name = 'Posts'
+url = '/posts'
+weight = 2
+
+# ~~~~~~~~~~~~~~~~ Middle ~~~~~~~~~~~~~~~~~~~~
+[params]
+description = 'Head of the tech table'
+mainSections = ['posts']
+sitename = "Moriel's Mauni blog"
+defaultColor = 'dark'
+
+[params.author]
+avatar = 'img/profile.jpeg'
+intro = 'Moriel Mauni'
+description = 'DevOps'
 
 [[params.socialIcons]]
 name = 'github'
@@ -14,10 +38,3 @@ url = 'https://www.linkedin.com/in/morielmauni/'
 [[params.socialIcons]]
 name = 'email'
 url = 'morielmauni@gmail.com'
-
-[parmas.author]
-name = 'Moriel Mauni'
-
-[parmas]
-description = 'DevOps Engineer / System Administrator'
-profilePicture = 'static/images/profile.jpeg'

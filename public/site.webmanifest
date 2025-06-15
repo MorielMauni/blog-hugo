@@ -1,9 +1,9 @@
 {
-    "name": "My New Hugo Site",
-    "short_name": "My New Hugo Site",
+    "name": "Moriel's Mauni blog",
+    "short_name": "Moriel's Mauni blog",
     "start_url": "http://localhost:1313/",
     "theme_color": "#434648",
-    "background_color": "#ffffff",
+    "background_color": "#131418",
     "display": "standalone",
     "icons": [
         {
