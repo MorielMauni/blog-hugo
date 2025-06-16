@@ -49,7 +49,7 @@ All the base framework is done as you can see in the repository I already made a
 
 I got a 2 domains to date:
 1. [morielmauni.com](https://morielmauni.com): I bought this domain from AWS Route 53 almost a year ago. I host there my protfolio. To be honest, the service is very expensive for static web.
-2. [morielclouds.com](morielclouds.com) I bought it around 2-3 months ago to host my apps from my [HomeLab](https://github.com/MorielMauni/homelab-2025) from CloudFlare. 
+2. [morielclouds.com](https://morielclouds.com) I bought it around 2-3 months ago to host my apps from my [HomeLab](https://github.com/MorielMauni/homelab-2025) from CloudFlare. 
 
 The obvious thing is to host it on CloudFlare, it's just more easy. But when I looked on how to host a Python web app I found out that I need a service that can run the Python and then CName the service to CloudFlare. Well, this sucks. 
 
