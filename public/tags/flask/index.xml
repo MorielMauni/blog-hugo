@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on Moriel&#39;s Mauni blog</title>
+    <link>http://localhost:1313/tags/flask/</link>
+    <description>Recent content in Flask on Moriel&#39;s Mauni blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 16 Jun 2025 11:36:17 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo vs Flask</title>
+      <link>http://localhost:1313/posts/2025/june/about_the_blog/</link>
+      <pubDate>Mon, 16 Jun 2025 11:36:17 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/about_the_blog/</guid>
+      
+      <description>&lt;h2 id=&#34;choices&#34;&gt;Choices&lt;/h2&gt;
+&lt;p&gt;At first, I wanted to make this blog with Python Flask. That the framework I know how to work with, not flawless but I know my way in it.
+I come from the world of System and DevOps and I don&amp;rsquo;t know any &amp;ldquo;Web building frameworks&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;flask&#34;&gt;Flask&lt;/h3&gt;
+&lt;p&gt;I met Flask the first time a year ago, I was learning Python and part of the course was about web apps and I mage a demo blog just to get the experience.
+&lt;a href=&#34;https://github.com/MorielMauni/Blog_With_Flask&#34;&gt;Blog with Flask repository&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

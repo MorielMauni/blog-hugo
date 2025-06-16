@@ -3,6 +3,9 @@ date = '2025-06-15T12:12:17Z'
 draft = false
 title = 'The first post!'
 auther = 'Moriel Mauni'
+tags = ["blog", "hugo", "start"]
+categories = ["welcome"]
+description = "The first post, the fresh start."
 +++
 
 
@@ -27,10 +30,10 @@ Now I know that the more I learn, the more I show, the more provide- **I worth m
 1. To be better. Everyday, Everytime.
 2. Learn from everyone. In the bible there is a say that says "I learned from all my teachers, and from my students I learned even more".
 3. Get that better role. Now I work as a System in mid level company. I was to get:
-  - DevOps Engineer
-  - (Linux) System Administrator
+  - DevOps Engineer.
+  - (Linux) System Administrator.
 
 --- 
-> Best regards,
->> Be your best,
->>> Moriel Mauni 
+Best regards,
+Be your best,
+Moriel Mauni 
