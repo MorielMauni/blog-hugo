@@ -6,7 +6,25 @@
     <description>Recent content in Home on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 16 Jun 2025 11:36:17 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jun 2025 01:44:06 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making the blog</title>
+      <link>http://localhost:1313/posts/2025/june/making/</link>
+      <pubDate>Tue, 17 Jun 2025 00:10:20 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/making/</guid>
+      
+      <description>&lt;h3 id=&#34;the-setup&#34;&gt;The Setup:&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m working with DevPods, it&amp;rsquo;s making my main setup clean, I don&amp;rsquo;t need to install on it all the packages I use in all the projects. Also, the DevPod is connected to GitHub repository.&lt;/p&gt;
+&lt;p&gt;Every DevPod need a .devcontainer.json file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;image&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;mcr.microsoft.com/devcontainers/base:debian&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;forwardPorts&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1313&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &amp;ldquo;forwardPorts: [1313]&amp;rdquo; is to open the Devpod to be open to post 1313 (which is the port hugo uses) so I could see website to check on it.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Hugo vs Flask</title>
       <link>http://localhost:1313/posts/2025/june/about_the_blog/</link>
