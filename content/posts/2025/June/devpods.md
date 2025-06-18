@@ -1,7 +1,7 @@
 +++
 date = '2025-06-18T19:57:39Z'
 draft = false
-title = 'Developer enviorment'
+title = 'Developer enviornment'
 author = 'Moriel Mauni'
 tags = ["devpod", "container", "docker"]
 categories = ["devpod", "container", "docker"]
@@ -11,8 +11,6 @@ description = "About Dev-containers and working enviorments"
 ### Intro 
 
 In the world of development, Docker often comes up, and the classic “It worked for me” discussions follow. We all know the power of Docker containers in testing, deploying code, and packaging applications.
-
-However, thanks to the mentorship of @misch at @KubeCraft, I learned about **Developer Pods (DevPods)**, a tool designed to create reproducible environments for developers.
 
 ### What are DevPods?
 
