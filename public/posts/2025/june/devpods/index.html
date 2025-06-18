@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Developer enviorment | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="Developer enviorment | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="Developer enviorment | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="Developer enviorment | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="Developer enviorment | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content="About Dev-containers and working enviorments">
+<meta itemprop="description" content="About Dev-containers and working enviorments" />
+<meta property="og:description" content="About Dev-containers and working enviorments" />
+<meta name="twitter:description" content="About Dev-containers and working enviorments" />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/june/devpods/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-06-18T19:57:39Z />
+    <meta property="article:published_time" content=2025-06-18T19:57:39Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/devpods/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Developer enviorment",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-06-18",
+        "description": "About Dev-containers and working enviorments",
+        "wordCount":  553 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-06-18",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/devpods/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="Developer enviorment">
+  <meta property="og:description" content="About Dev-containers and working enviorments">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-18T19:57:39+00:00">
+    <meta property="article:modified_time" content="2025-06-18T19:57:39+00:00">
+    <meta property="article:tag" content="Devpod">
+    <meta property="article:tag" content="Container">
+    <meta property="article:tag" content="Docker">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Developer enviorment">
+  <meta name="twitter:description" content="About Dev-containers and working enviorments">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/june/devpods/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Developer enviorment</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-06-18T19:57:39&#43;00:00" itemprop="datePublished"> 18 Jun 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#what-are-devpods">What are DevPods?</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#first-use-configurations">First use configurations</a></li>
+        <li><a href="#devcontainerjson">.devcontainer.json</a></li>
+        <li><a href="#starting-the-devcontainer">Starting the devcontainer</a>
+          <ul>
+            <li><a href="#useful-flags">Useful flags</a></li>
+            <li><a href="#connect">Connect</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h3 id="intro">Intro</h3>
+<p>In the world of development, Docker often comes up, and the classic “It worked for me” discussions follow. We all know the power of Docker containers in testing, deploying code, and packaging applications.</p>
+<p>However, thanks to the mentorship of @misch at @KubeCraft, I learned about <strong>Developer Pods (DevPods)</strong>, a tool designed to create reproducible environments for developers.</p>
+<h3 id="what-are-devpods">What are DevPods?</h3>
+<p>DevPods allow each developer environment to run in a <strong>separate container</strong>, specified through the <code>devcontainer.json</code> file. The containers are created <strong>locally using Docker</strong>.</p>
+<p>One of the best features? DevPods come with a <strong>beautiful GUI</strong> that simplifies the process, and there&rsquo;s even a solid <strong>VS Code extension</strong> to manage them. But, as DevOps professionals, we tend to lean on the <strong>CLI</strong> for automation. Here’s why:</p>
+<ul>
+<li>
+<p>Automating DevPod creation becomes much easier.</p>
+</li>
+<li>
+<p>We can quickly copy, delete, or change configurations (like swapping IDEs).</p>
+</li>
+<li>
+<p><strong>GUI is for the weak</strong> – we thrive on efficiency with the CLI.</p>
+</li>
+</ul>
+<p><a href="https://devpod.sh/docs/getting-started">DevPods: getting-started</a></p>
+<h3 id="install">Install</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L -o devpod <span class="s2">&#34;https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64&#34;</span> <span class="o">&amp;&amp;</span> sudo install -c -m <span class="m">0755</span> devpod /usr/local/bin <span class="o">&amp;&amp;</span> rm -f devpod
+</span></span></code></pre></div><p>If you use Arch (BTW), there is a simpler option:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yay -S devpod-bin
+</span></span></code></pre></div><p>let&rsquo;s verify the install with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod-cli --version
+</span></span></code></pre></div><p>Also, I will make an alias for devpod-cli in my ~/.bashrc:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> devpod-cli<span class="o">=</span><span class="s1">&#39;devpod&#39;</span>
+</span></span></code></pre></div><p>Another great thing with DevPod, that you can get you environment into GitOps apps so you can work on it on every machine when you clone it.</p>
+<h3 id="first-use-configurations">First use configurations</h3>
+<p>We got the list of providers for DePod:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod provider list-available
+</span></span></code></pre></div><p>We will get this output:</p>
+<pre tabindex="0"><code>List of available providers from loft:
+	aws
+	azure
+	civo
+	digitalocean
+</code></pre><p>There is no Docker? no problem, let&rsquo;s add it as a provider:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod provider add docker
+</span></span></code></pre></div><p>then we can see it in the providers list:</p>
+<pre tabindex="0"><code>     NAME  | VERSION | DEFAULT | INITIALIZED |   DESCRIPTION     
+  ---------+---------+---------+-------------+-------------------
+    docker | v0.0.1  | true    | true        | DevPod on Docker  
+  
+</code></pre><p>Let&rsquo;s see the IDEs we can pick with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod ide list
+</span></span></code></pre></div><p>The output:</p>
+<pre tabindex="0"><code>         NAME       | DEFAULT  
+  ------------------+----------
+    clion           | false    
+    codium          | false    
+    cursor          | false    
+    dataspell       | false    
+    fleet           | false    
+    goland          | false    
+    intellij        | false    
+    jupyternotebook | false    
+    none            | false    
+    openvscode      | false    
+    phpstorm        | false    
+    positron        | false    
+    pycharm         | false    
+    rider           | false    
+    rstudio         | false    
+    rubymine        | false    
+    rustrover       | false    
+    vscode          | false    
+    vscode-insiders | false    
+    webstorm        | false    
+    zed             | false  
+</code></pre><p>To pick a provider we going to use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod ise use &lt;ide-name&gt;
+</span></span></code></pre></div><p>After picking an ide, the false going to change to true next to it.</p>
+<h3 id="devcontainerjson">.devcontainer.json</h3>
+<p>We going to configure the Dev container with devcontainer.json file:</p>
+<p>Image lists: <a href="https://github.com/devcontainers/images/tree/main/src">https://github.com/devcontainers/images/tree/main/src</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;mcr.microsoft.com/devcontainers/base:ubuntu&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>After setting the image, we can also add features and there is no limits.</p>
+<p><a href="https://containers.dev/features">Features docs</a></p>
+<p>Can look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;mcr.microsoft.com/devcontainers/base:ubuntu&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;features&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ghcr.io/devcontainers-extra/features/neovim-homebrew:1&#34;</span><span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ghcr.io/rio/features/chezmoi&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="starting-the-devcontainer">Starting the devcontainer</h3>
+<p>To create the DevPod we run: (in the devcontainer directory)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod up .
+</span></span></code></pre></div><h4 id="useful-flags">Useful flags</h4>
+<p>If wanted there are a lot of flags you can use as well:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">--dotfiles https://github.com/MorielMauni/dotfiles.git
+</span></span><span class="line"><span class="cl">--ide none/vscode/openvscode/jupyternotebook
+</span></span><span class="line"><span class="cl">--recreate 
+</span></span><span class="line"><span class="cl">--debug 
+</span></span></code></pre></div><h4 id="connect">Connect</h4>
+<p>When it&rsquo;s successfully done, run and connect to the pod:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">devpod ssh
+</span></span></code></pre></div><p>Pick the devpod you created (same name as the directory you worked on).
+The ide of pick will be open, if you picked none just the terminal going to be connected to the devpod like a ssh connection.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

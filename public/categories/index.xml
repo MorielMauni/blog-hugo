@@ -6,7 +6,40 @@
     <description>Recent content in Categories on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 17 Jun 2025 00:10:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Jun 2025 19:57:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Container</title>
+      <link>http://localhost:1313/categories/container/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/container/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Devpod</title>
+      <link>http://localhost:1313/categories/devpod/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/devpod/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/categories/docker/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/docker/</guid>
+      
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Code</title>
       <link>http://localhost:1313/categories/code/</link>
