@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 17 Jun 2025 00:10:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making the blog</title>
-      <link>http://localhost:1313/posts/2025/june/making/</link>
+      <link>http://localhost:1313/posts/2025/june/hugo/</link>
       <pubDate>Tue, 17 Jun 2025 00:10:20 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/making/</guid>
+      <guid>http://localhost:1313/posts/2025/june/hugo/</guid>
       
       <description>&lt;h3 id=&#34;the-setup&#34;&gt;The Setup:&lt;/h3&gt;
 &lt;p&gt;I&amp;rsquo;m working with DevPods, it&amp;rsquo;s making my main setup clean, I don&amp;rsquo;t need to install on it all the packages I use in all the projects. Also, the DevPod is connected to GitHub repository.&lt;/p&gt;

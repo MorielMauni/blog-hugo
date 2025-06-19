@@ -8,7 +8,7 @@
     <language>en-gb</language>
     <lastBuildDate>Wed, 18 Jun 2025 19:57:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/devpod/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Developer enviorment</title>
+      <title>Developer enviornment</title>
       <link>http://localhost:1313/posts/2025/june/devpods/</link>
       <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
       
@@ -16,9 +16,9 @@
       
       <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
 &lt;p&gt;In the world of development, Docker often comes up, and the classic “It worked for me” discussions follow. We all know the power of Docker containers in testing, deploying code, and packaging applications.&lt;/p&gt;
-&lt;p&gt;However, thanks to the mentorship of @misch at @KubeCraft, I learned about &lt;strong&gt;Developer Pods (DevPods)&lt;/strong&gt;, a tool designed to create reproducible environments for developers.&lt;/p&gt;
 &lt;h3 id=&#34;what-are-devpods&#34;&gt;What are DevPods?&lt;/h3&gt;
-&lt;p&gt;DevPods allow each developer environment to run in a &lt;strong&gt;separate container&lt;/strong&gt;, specified through the &lt;code&gt;devcontainer.json&lt;/code&gt; file. The containers are created &lt;strong&gt;locally using Docker&lt;/strong&gt;.&lt;/p&gt;</description>
+&lt;p&gt;DevPods allow each developer environment to run in a &lt;strong&gt;separate container&lt;/strong&gt;, specified through the &lt;code&gt;devcontainer.json&lt;/code&gt; file. The containers are created &lt;strong&gt;locally using Docker&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;One of the best features? DevPods come with a &lt;strong&gt;beautiful GUI&lt;/strong&gt; that simplifies the process, and there&amp;rsquo;s even a solid &lt;strong&gt;VS Code extension&lt;/strong&gt; to manage them. But, as DevOps professionals, we tend to lean on the &lt;strong&gt;CLI&lt;/strong&gt; for automation. Here’s why:&lt;/p&gt;</description>
       
     </item>
     
