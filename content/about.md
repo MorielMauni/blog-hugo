@@ -8,7 +8,7 @@ auther = 'Moriel Mauni'
 ## About Me:
 
 Hello, My name is Moriel Mauni, I'm  a DevOps engineer / System Administrator based in TLV/IL.
-I'm a **fast learner** **quick to adapt**, used to **work under pressure** (FKA EMT)
+I'm a **fast learner**, **quick to adapt**, and used to **work under pressure** (FKA EMT)
 
 ### Personal life:
 As for now, I'm 29 y/o, married with 1 boy.
@@ -22,11 +22,8 @@ Until age of 27 (around the start of 2023) my focus was on my carrier as an EMT.
 
 
 ### My tech slack:
-1. Linux
-  - Server
-  - Different distributions
-  - dotfiles management with chezmoi and mise.
-2. AWS 
+1. Linux: Server, Different distributions (Debian based, Pacman-based, RPM-based), and dotfiles management with chezmoi and mise.
+2. AWS
 3. Azure
 4. Terraform
 5. Docker

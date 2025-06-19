@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Container on Moriel&#39;s Mauni blog</title>
-    <link>http://localhost:1313/tags/container/</link>
-    <description>Recent content in Container on Moriel&#39;s Mauni blog</description>
+    <title>Kubernertes on Moriel&#39;s Mauni blog</title>
+    <link>http://localhost:1313/categories/kubernertes/</link>
+    <description>Recent content in Kubernertes on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/kubernertes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes</title>
       <link>http://localhost:1313/posts/2025/june/kubernetes/</link>
@@ -27,21 +27,6 @@
 &lt;img src=&#34;http://localhost:1313/images/rancher-desktop.jpg&#34; alt=&#34;Rancher Desktop&#34;&gt;
 Lorem spazm&lt;/li&gt;
 &lt;/ul&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Developer enviornment</title>
-      <link>http://localhost:1313/posts/2025/june/devpods/</link>
-      <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2025/june/devpods/</guid>
-      
-      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
-&lt;p&gt;In the world of development, Docker often comes up, and the classic “It worked for me” discussions follow. We all know the power of Docker containers in testing, deploying code, and packaging applications.&lt;/p&gt;
-&lt;h3 id=&#34;what-are-devpods&#34;&gt;What are DevPods?&lt;/h3&gt;
-&lt;p&gt;DevPods allow each developer environment to run in a &lt;strong&gt;separate container&lt;/strong&gt;, specified through the &lt;code&gt;devcontainer.json&lt;/code&gt; file. The containers are created &lt;strong&gt;locally using Docker&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;One of the best features? DevPods come with a &lt;strong&gt;beautiful GUI&lt;/strong&gt; that simplifies the process, and there&amp;rsquo;s even a solid &lt;strong&gt;VS Code extension&lt;/strong&gt; to manage them. But, as DevOps professionals, we tend to lean on the &lt;strong&gt;CLI&lt;/strong&gt; for automation. Here’s why:&lt;/p&gt;</description>
       
     </item>
     
