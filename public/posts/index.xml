@@ -6,7 +6,58 @@
     <description>Recent content in Posts on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 21 Jun 2025 22:50:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jun 2025 22:10:18 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps Study app</title>
+      <link>http://localhost:1313/posts/2025/june/cicd_env/</link>
+      <pubDate>Sun, 22 Jun 2025 22:10:18 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cicd_env/</guid>
+      
+      <description>&lt;p&gt;My GitHub repository for the project: &lt;a href=&#34;https://github.com/MorielMauni/devops-study-app&#34;&gt;https://github.com/MorielMauni/devops-study-app&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-the-devpod&#34;&gt;Setting up the DevPod&lt;/h2&gt;
+&lt;h3 id=&#34;make-a-github-repository&#34;&gt;Make a GitHub repository&lt;/h3&gt;
+&lt;p&gt;I will name main as &lt;strong&gt;devops-study-app&lt;/strong&gt; and this will be the root directory as well.&lt;/p&gt;
+&lt;h3 id=&#34;devcontainerdevcontainerjson&#34;&gt;.devcontainer/devcontainer.json&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Building a Dockerfile and after the creation going to run &amp;ldquo;scripts/setup&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;We install the &amp;ldquo;Docker in Docker&amp;rdquo; feature.&lt;/li&gt;
+&lt;li&gt;Open ports 22111, 22112&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;build&amp;#34;: {
+    &amp;#34;context&amp;#34;: &amp;#34;..&amp;#34;,
+    &amp;#34;dockerfile&amp;#34;: &amp;#34;Dockerfile&amp;#34;
+  },
+  &amp;#34;postCreateCommand&amp;#34;: &amp;#34;scripts/setup&amp;#34;,
+  &amp;#34;features&amp;#34;: {
+    &amp;#34;ghcr.io/devcontainers/features/docker-in-docker:2&amp;#34;: {}
+  },
+  &amp;#34;forwardPorts&amp;#34;: [
+    &amp;#34;22111&amp;#34;,
+    &amp;#34;22112&amp;#34;
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;devcontainerdockerfile&#34;&gt;.devcontainer/Dockerfile&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Base image of Ubuntu&lt;/li&gt;
+&lt;li&gt;installing mise&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+
+COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
+
+RUN echo &amp;#39;eval &amp;#34;$(mise activate bash)&amp;#34;&amp;#39; &amp;gt;&amp;gt; /home/vscode/.bashrc &amp;amp;&amp;amp; \
+  echo &amp;#39;eval &amp;#34;$(mise activate zsh)&amp;#34;&amp;#39; &amp;gt;&amp;gt; /home/vscode/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;scriptssetup&#34;&gt;scripts/setup&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir scripts
+nvim scripts/setup
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;This is a placeholder for the script to run&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;chmod +x setup
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Run in the root directory :&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Moving from AWS to Cloudflare</title>
       <link>http://localhost:1313/posts/2025/june/cloudflare/</link>

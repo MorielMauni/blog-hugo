@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps Study app | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps Study app | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps Study app | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps Study app | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps Study app | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/june/cicd_env/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-06-22T22:10:18Z />
+    <meta property="article:published_time" content=2025-06-22T22:10:18Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_env/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps Study app",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-06-22",
+        "description": " ",
+        "wordCount":  804 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-06-22",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_env/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps Study app">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-22T22:10:18+00:00">
+    <meta property="article:modified_time" content="2025-06-22T22:10:18+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps Study app">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/june/cicd_env/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps Study app</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-06-22T22:10:18&#43;00:00" itemprop="datePublished"> 22 Jun 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setting-up-the-devpod">Setting up the DevPod</a>
+      <ul>
+        <li><a href="#make-a-github-repository">Make a GitHub repository</a></li>
+        <li><a href="#devcontainerdevcontainerjson">.devcontainer/devcontainer.json</a></li>
+        <li><a href="#devcontainerdockerfile">.devcontainer/Dockerfile</a></li>
+        <li><a href="#scriptssetup">scripts/setup</a></li>
+        <li><a href="#installing-with-mise">Installing with mise</a>
+          <ul>
+            <li><a href="#trust-mise--install-using-the-setup-script">Trust mise &amp; install using the setup script</a></li>
+          </ul>
+        </li>
+        <li><a href="#install-commitizan-and-pre-commit">Install Commitizan and pre-commit</a>
+          <ul>
+            <li><a href="#insallation">Insallation</a></li>
+          </ul>
+        </li>
+        <li><a href="#first-commit">First commit</a></li>
+      </ul>
+    </li>
+    <li><a href="#this-is-part-15-i-will-update-as-i-got">This is part 1/5, I will update as I got.</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>My GitHub repository for the project: <a href="https://github.com/MorielMauni/devops-study-app">https://github.com/MorielMauni/devops-study-app</a></p>
+<h2 id="setting-up-the-devpod">Setting up the DevPod</h2>
+<h3 id="make-a-github-repository">Make a GitHub repository</h3>
+<p>I will name main as <strong>devops-study-app</strong> and this will be the root directory as well.</p>
+<h3 id="devcontainerdevcontainerjson">.devcontainer/devcontainer.json</h3>
+<ul>
+<li>Building a Dockerfile and after the creation going to run &ldquo;scripts/setup&rdquo;.</li>
+<li>We install the &ldquo;Docker in Docker&rdquo; feature.</li>
+<li>Open ports 22111, 22112</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;build&#34;: {
+    &#34;context&#34;: &#34;..&#34;,
+    &#34;dockerfile&#34;: &#34;Dockerfile&#34;
+  },
+  &#34;postCreateCommand&#34;: &#34;scripts/setup&#34;,
+  &#34;features&#34;: {
+    &#34;ghcr.io/devcontainers/features/docker-in-docker:2&#34;: {}
+  },
+  &#34;forwardPorts&#34;: [
+    &#34;22111&#34;,
+    &#34;22112&#34;
+  ]
+}
+</code></pre><h3 id="devcontainerdockerfile">.devcontainer/Dockerfile</h3>
+<ul>
+<li>Base image of Ubuntu</li>
+<li>installing mise</li>
+</ul>
+<pre tabindex="0"><code>FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+
+COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
+
+RUN echo &#39;eval &#34;$(mise activate bash)&#34;&#39; &gt;&gt; /home/vscode/.bashrc &amp;&amp; \
+  echo &#39;eval &#34;$(mise activate zsh)&#34;&#39; &gt;&gt; /home/vscode/.zshrc
+</code></pre><h3 id="scriptssetup">scripts/setup</h3>
+<pre tabindex="0"><code>mkdir scripts
+nvim scripts/setup
+</code></pre><pre tabindex="0"><code>echo &#34;This is a placeholder for the script to run&#34;
+</code></pre><pre tabindex="0"><code>chmod +x setup
+</code></pre><p>Run in the root directory :</p>
+<pre tabindex="0"><code>devpod up . 
+</code></pre><h3 id="installing-with-mise">Installing with mise</h3>
+<pre tabindex="0"><code>mise use python@3.13
+</code></pre><p>We now have a mise.toml file and we can add it this:</p>
+<pre tabindex="0"><code>[tools]
+python = &#34;3.13&#34;
+uv = &#34;latest&#34;
+
+[settings]
+python.uv_venv_auto = true
+idiomatic_version_file_enable_tools = [&#34;python&#34;]
+experimental = true
+
+[env]
+APP_REPO = &#39;&lt;GitHub-repository-name&gt;&#39;
+GITOPS_REPO = &#39;&lt;GitOps-repository-name&gt;&#39;
+</code></pre><p>In this we:
+mise settings:</p>
+<ul>
+<li>Adding uv (Python package) to the container.</li>
+<li>python.uv_venv_auto = true : when running uv inside the project it detect the virtual environment and activate it.</li>
+<li>Work with:
+<ul>
+<li>idiomatic_version_file_enable_tools = [&ldquo;python&rdquo;]</li>
+<li>experimental = true</li>
+</ul>
+</li>
+</ul>
+<h4 id="trust-mise--install-using-the-setup-script">Trust mise &amp; install using the setup script</h4>
+<p>In scripts/setup, edit the file to contain this:</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+/usr/local/bin/mise trust /workspaces/&#34;$DEVPOD_WORKSPACE_ID&#34;/mise.toml &amp;&amp; /usr/local/bin/mise install
+</code></pre><p>now run:</p>
+<pre tabindex="0"><code>./scripts/setup
+</code></pre><p>Now all the apps, settings and environments are up with the changes we made.</p>
+<h3 id="install-commitizan-and-pre-commit">Install Commitizan and pre-commit</h3>
+<p><strong>Commitizan</strong>: A tool that&rsquo;s help to create commit messages. <a href="https://commitizen-tools.github.io/commitizen/">Commitizan</a>  helps to write good commits.
+<strong>pre-commit</strong>: A framework for managing and maintaining multi-language pre-commit hooks. <a href="https://pre-commit.com/">pre-commit</a> .</p>
+<p>Add this to mise.toml</p>
+<pre tabindex="0"><code>[hooks]
+enter = &#34;bash ./scripts/setup_project&#34;
+</code></pre><ul>
+<li>triggered when entering to the project</li>
+</ul>
+<p>scripts/setup_project</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+if ! command -v cz &gt;/dev/null &amp;&amp; [ &#34;$DEVPOD&#34; = &#34;true&#34; ]; then
+  git config --global push.autoSetupRemote true
+  git config --global --add safe.directory /workspaces/$DEVPOD_WORKSPACE_ID
+  pip install --user pipx
+  pipx install commitizen
+  pre-commit install
+  pre-commit install --hook-type commit-msg
+fi
+</code></pre><ul>
+<li>Checks if Commitizan is  not installed and we inside a DevPod, it runs:
+<ul>
+<li>Setup git configs</li>
+<li>Install pipx</li>
+<li>Install Commitizan</li>
+<li>Install pre-commit hooks</li>
+</ul>
+</li>
+</ul>
+<h4 id="insallation">Insallation</h4>
+<pre tabindex="0"><code>mise use pre-commit
+</code></pre><p>settings up the pre-commit hook:</p>
+<p>.pre-commit-config.yaml</p>
+<pre tabindex="0"><code>repos:
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v1.17.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+</code></pre><p>Now if we exit the DevPod and ssh back in, it going to install all the configuration we did:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ devpod ssh
+</span></span><span class="line"><span class="cl">Collecting pipx
+</span></span><span class="line"><span class="cl">  Downloading pipx-1.7.1-py3-none-any.whl.metadata <span class="o">(</span><span class="m">18</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Collecting argcomplete&gt;<span class="o">=</span>1.9.4 <span class="o">(</span>from pipx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Downloading argcomplete-3.6.2-py3-none-any.whl.metadata <span class="o">(</span><span class="m">16</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Collecting packaging&gt;<span class="o">=</span><span class="m">20</span> <span class="o">(</span>from pipx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Downloading packaging-25.0-py3-none-any.whl.metadata <span class="o">(</span>3.3 kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Collecting platformdirs&gt;<span class="o">=</span>2.1 <span class="o">(</span>from pipx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Downloading platformdirs-4.3.8-py3-none-any.whl.metadata <span class="o">(</span><span class="m">12</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Collecting userpath!<span class="o">=</span>1.9,&gt;<span class="o">=</span>1.6 <span class="o">(</span>from pipx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Downloading userpath-1.9.2-py3-none-any.whl.metadata <span class="o">(</span>3.0 kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Collecting click <span class="o">(</span>from userpath!<span class="o">=</span>1.9,&gt;<span class="o">=</span>1.6-&gt;pipx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Downloading click-8.2.1-py3-none-any.whl.metadata <span class="o">(</span>2.5 kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading pipx-1.7.1-py3-none-any.whl <span class="o">(</span><span class="m">78</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading argcomplete-3.6.2-py3-none-any.whl <span class="o">(</span><span class="m">43</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading packaging-25.0-py3-none-any.whl <span class="o">(</span><span class="m">66</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading platformdirs-4.3.8-py3-none-any.whl <span class="o">(</span><span class="m">18</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading userpath-1.9.2-py3-none-any.whl <span class="o">(</span>9.1 kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Downloading click-8.2.1-py3-none-any.whl <span class="o">(</span><span class="m">102</span> kB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Installing collected packages: platformdirs, packaging, click, argcomplete, userpath, pipx
+</span></span><span class="line"><span class="cl">Successfully installed argcomplete-3.6.2 click-8.2.1 packaging-25.0 pipx-1.7.1 platformdirs-4.3.8 userpath-1.9.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>notice<span class="o">]</span> A new release of pip is available: 24.3.1 -&gt; 25.1.1
+</span></span><span class="line"><span class="cl"><span class="o">[</span>notice<span class="o">]</span> To update, run: pip install --upgrade pip
+</span></span><span class="line"><span class="cl">  installed package commitizen 4.8.3, installed using Python 3.13.5
+</span></span><span class="line"><span class="cl">  These apps are now globally available
+</span></span><span class="line"><span class="cl">    - cz
+</span></span><span class="line"><span class="cl">    - git-cz
+</span></span><span class="line"><span class="cl"><span class="k">done</span>! ✨ 🌟 ✨
+</span></span><span class="line"><span class="cl">pre-commit installed at .git/hooks/pre-commit
+</span></span><span class="line"><span class="cl">pre-commit installed at .git/hooks/commit-msg
+</span></span></code></pre></div><h3 id="first-commit">First commit</h3>
+<p>now when we</p>
+<pre tabindex="0"><code>git commit -m &#34;first commit&#34;
+</code></pre><p>Commitizen will activate and check the commit if it&rsquo;s valid:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>                                                            
+</span></span><span class="line"><span class="cl"><span class="o">[</span>INFO<span class="o">]</span> Initializing environment <span class="k">for</span> https://github.com/commitizen-tools/commitizen.       
+</span></span><span class="line"><span class="cl"><span class="o">[</span>INFO<span class="o">]</span> Installing environment <span class="k">for</span> https://github.com/commitizen-tools/commitizen.         
+</span></span><span class="line"><span class="cl"><span class="o">[</span>INFO<span class="o">]</span> Once installed this environment will be reused.                                    
+</span></span><span class="line"><span class="cl"><span class="o">[</span>INFO<span class="o">]</span> This may take a few minutes...                                                     
+</span></span><span class="line"><span class="cl">commitizen check.........................................................Failed           
+</span></span><span class="line"><span class="cl">- hook id: commitizen                                                                     
+</span></span><span class="line"><span class="cl">- <span class="nb">exit</span> code: <span class="m">14</span>                                                                  
+</span></span><span class="line"><span class="cl">commit validation: failed!                                                                
+</span></span><span class="line"><span class="cl">please enter a commit message in the commitizen format.                                   
+</span></span><span class="line"><span class="cl">commit: first commit                                                             
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pattern: <span class="o">(</span>build<span class="p">|</span>ci<span class="p">|</span>docs<span class="p">|</span>feat<span class="p">|</span>fix<span class="p">|</span>perf<span class="p">|</span>refactor<span class="p">|</span>style<span class="p">|</span>test<span class="p">|</span>chore<span class="p">|</span>revert<span class="p">|</span>bump<span class="o">)(</span><span class="se">\(\S</span>+<span class="se">\)</span><span class="o">)</span>?:<span class="se">\s</span>.
+</span></span><span class="line"><span class="cl">*   
+</span></span></code></pre></div><p>So, we can use cz to commit a message:</p>
+<pre tabindex="0"><code>cz commit
+</code></pre><p>Follow the QA and then it will commit it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cz commit                                                                               
+</span></span><span class="line"><span class="cl">? Select the <span class="nb">type</span> of change you are committing feat: A new feature. Correlates with MINOR 
+</span></span><span class="line"><span class="cl">in SemVer                                                                                 
+</span></span><span class="line"><span class="cl">? What is the scope of this change? <span class="o">(</span>class or file name<span class="o">)</span>: <span class="o">(</span>press <span class="o">[</span>enter<span class="o">]</span> to skip<span class="o">)</span>         
+</span></span><span class="line"><span class="cl"> Adding the files, first commit                                                           
+</span></span><span class="line"><span class="cl">? Write a short and imperative summary of the code changes: <span class="o">(</span>lower <span class="k">case</span> and no period<span class="o">)</span>    
+</span></span><span class="line"><span class="cl"> Adding the first files, first commit                                                     
+</span></span><span class="line"><span class="cl">? Provide additional contextual information about the code changes: <span class="o">(</span>press <span class="o">[</span>enter<span class="o">]</span> to skip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">? Is this a BREAKING CHANGE? Correlates with MAJOR in SemVer No                           
+</span></span><span class="line"><span class="cl">? Footer. Information about Breaking Changes and reference issues that this commit closes:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">feat<span class="o">(</span>Adding-the-files,-first-commit<span class="o">)</span>: Adding the first files, first commit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commitizen check.........................................................Passed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> c38633d<span class="o">]</span> feat<span class="o">(</span>Adding-the-files,-first-commit<span class="o">)</span>: Adding the first file
+</span></span><span class="line"><span class="cl">s, first commit
+</span></span><span class="line"><span class="cl"> <span class="m">7</span> files changed, <span class="m">53</span> insertions<span class="o">(</span>+<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100644</span> .devcontainer/.devcontainer.json
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100644</span> .devcontainer/Dockerfile
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100644</span> .devcontainer/devcontainer.json
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100644</span> .pre-commit-config.yaml
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100644</span> mise.toml
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100755</span> scripts/setup
+</span></span><span class="line"><span class="cl"> create mode <span class="m">100755</span> scripts/setup_project
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Commit successful!
+</span></span></code></pre></div><h2 id="this-is-part-15-i-will-update-as-i-got">This is part 1/5, I will update as I got.</h2>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
