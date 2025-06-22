@@ -1,43 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on Moriel&#39;s Mauni blog</title>
-    <link>http://localhost:1313/tags/docker/</link>
-    <description>Recent content in Docker on Moriel&#39;s Mauni blog</description>
+    <title>Kubernetes on Moriel&#39;s Mauni blog</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kubernetes</title>
-      <link>http://localhost:1313/posts/2025/june/kubernetes/</link>
-      <pubDate>Thu, 19 Jun 2025 12:52:20 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2025/june/kubernetes/</guid>
-      
-      <description>&lt;h3 id=&#34;into&#34;&gt;Into&lt;/h3&gt;
-&lt;p&gt;I made back some almost 6 months ago a 2 Kubernetes slide shows. But I left that aside because I wasn&amp;rsquo;t Learning in good, I felt week in Kubernetes.&lt;/p&gt;
-&lt;p&gt;Few weeks ago, I upgraded my &lt;a href=&#34;https://github.com/MorielMauni/homelab-2025&#34;&gt;Home-Lab&lt;/a&gt; using Kubernetes and leaned a lot. I want to share some of my notes from the time I made it.&lt;/p&gt;
-&lt;h3 id=&#34;setup&#34;&gt;Setup&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Rancher-Desktop: helps me to manage the pods, containers, and images with GUI when I need it.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;I&amp;rsquo;m not using the GUI a lot, but sometimes it&amp;rsquo;s nice.&lt;/li&gt;
-&lt;li&gt;The best thing is when something is messed up, I can just have a clean start. Because I work with yaml files, it&amp;rsquo;s ok for me to have this restarts and clean state I can work a weird error or if I bricked something.
-&lt;img src=&#34;http://localhost:1313/images/rancher-desktop.jpg&#34; alt=&#34;Rancher Desktop&#34;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;K9S: terminal GUI app that helps you manage all the Kubernetes.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;Personal note: I use it to see all the workspaces, logs, see the YAMLs, execute shells commands.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;kubectl: the Kubernetes CLI tool.&lt;/p&gt;</description>
-      
-    </item>
-    
+    <lastBuildDate>Thu, 19 Jun 2025 12:29:41 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mini-Homelab</title>
       <link>http://localhost:1313/posts/2025/june/homelab/</link>
@@ -93,21 +62,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl version --client
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl&#34;&gt;kubectl&lt;/h3&gt;
 &lt;p&gt;This is Kubernetes CLI tool. &lt;a href=&#34;https://kubernetes.io/docs/reference/kubectl/&#34;&gt;kubectl docs&lt;/a&gt;.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Developer enviornment</title>
-      <link>http://localhost:1313/posts/2025/june/devpods/</link>
-      <pubDate>Wed, 18 Jun 2025 19:57:39 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2025/june/devpods/</guid>
-      
-      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
-&lt;p&gt;In the world of development, Docker often comes up, and the classic “It worked for me” discussions follow. We all know the power of Docker containers in testing, deploying code, and packaging applications.&lt;/p&gt;
-&lt;h3 id=&#34;what-are-devpods&#34;&gt;What are DevPods?&lt;/h3&gt;
-&lt;p&gt;DevPods allow each developer environment to run in a &lt;strong&gt;separate container&lt;/strong&gt;, specified through the &lt;code&gt;devcontainer.json&lt;/code&gt; file. The containers are created &lt;strong&gt;locally using Docker&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;One of the best features? DevPods come with a &lt;strong&gt;beautiful GUI&lt;/strong&gt; that simplifies the process, and there&amp;rsquo;s even a solid &lt;strong&gt;VS Code extension&lt;/strong&gt; to manage them. But, as DevOps professionals, we tend to lean on the &lt;strong&gt;CLI&lt;/strong&gt; for automation. Here’s why:&lt;/p&gt;</description>
       
     </item>
     

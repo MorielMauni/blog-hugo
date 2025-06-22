@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CloudFlare on Moriel&#39;s Mauni blog</title>
+    <link>http://localhost:1313/tags/cloudflare/</link>
+    <description>Recent content in CloudFlare on Moriel&#39;s Mauni blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 21 Jun 2025 22:50:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from AWS to Cloudflare</title>
+      <link>http://localhost:1313/posts/2025/june/cloudflare/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cloudflare/</guid>
+      
+      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
+&lt;p&gt;My protfolio website is hosted on AWS with S3 bucket to store the files, AWS Route 53 to manage the domain, and AWS Amplify to host the app (as they said, serverless is the best). But, it&amp;rsquo;s getting a little bit pricey for static website, so I want to move it to be managed by CloudFlare.&lt;/p&gt;
+&lt;h3 id=&#34;tldr&#34;&gt;TL;DR&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;In Route 53 checking that the &amp;ldquo;Transfer Lock&amp;rdquo; is set to off&lt;/li&gt;
+&lt;li&gt;Getting the code from &amp;ldquo;Transfer out&amp;rdquo; -&amp;gt; &amp;ldquo;Transfer to another registrar&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Registrar the AWS domain in CloudFlare&lt;/li&gt;
+&lt;li&gt;Adding the CloudFlare nameservers in AWS Route 53&lt;/li&gt;
+&lt;li&gt;Delete the old name servers&lt;/li&gt;
+&lt;li&gt;Waiting to CloudFlare to active the domain&lt;/li&gt;
+&lt;li&gt;Deleting all AWS services except Route 53&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;aws&#34;&gt;AWS&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s really easy to be honest.
+Need to check that &amp;ldquo;&lt;strong&gt;Transfer Lock&lt;/strong&gt;&amp;rdquo; is set to &lt;strong&gt;Off&lt;/strong&gt; and changes the Name Servers to CloudFlare&amp;rsquo;s ones and deleting the AWS ones.
+The CloudFlare name servers:&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

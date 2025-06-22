@@ -6,7 +6,29 @@
     <description>Recent content in Tags on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Jun 2025 22:50:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>http://localhost:1313/tags/aws/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/aws/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CloudFlare</title>
+      <link>http://localhost:1313/tags/cloudflare/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/cloudflare/</guid>
+      
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Container</title>
       <link>http://localhost:1313/tags/container/</link>
@@ -35,6 +57,28 @@
       <pubDate>Thu, 19 Jun 2025 12:52:20 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/kubernertes/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Homelab</title>
+      <link>http://localhost:1313/tags/homelab/</link>
+      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/homelab/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
       
       <description></description>
       

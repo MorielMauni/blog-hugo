@@ -6,7 +6,33 @@
     <description>Recent content in Home on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Jun 2025 22:50:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from AWS to Cloudflare</title>
+      <link>http://localhost:1313/posts/2025/june/cloudflare/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cloudflare/</guid>
+      
+      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
+&lt;p&gt;My protfolio website is hosted on AWS with S3 bucket to store the files, AWS Route 53 to manage the domain, and AWS Amplify to host the app (as they said, serverless is the best). But, it&amp;rsquo;s getting a little bit pricey for static website, so I want to move it to be managed by CloudFlare.&lt;/p&gt;
+&lt;h3 id=&#34;tldr&#34;&gt;TL;DR&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;In Route 53 checking that the &amp;ldquo;Transfer Lock&amp;rdquo; is set to off&lt;/li&gt;
+&lt;li&gt;Getting the code from &amp;ldquo;Transfer out&amp;rdquo; -&amp;gt; &amp;ldquo;Transfer to another registrar&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Registrar the AWS domain in CloudFlare&lt;/li&gt;
+&lt;li&gt;Adding the CloudFlare nameservers in AWS Route 53&lt;/li&gt;
+&lt;li&gt;Delete the old name servers&lt;/li&gt;
+&lt;li&gt;Waiting to CloudFlare to active the domain&lt;/li&gt;
+&lt;li&gt;Deleting all AWS services except Route 53&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;aws&#34;&gt;AWS&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s really easy to be honest.
+Need to check that &amp;ldquo;&lt;strong&gt;Transfer Lock&lt;/strong&gt;&amp;rdquo; is set to &lt;strong&gt;Off&lt;/strong&gt; and changes the Name Servers to CloudFlare&amp;rsquo;s ones and deleting the AWS ones.
+The CloudFlare name servers:&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Kubernetes</title>
       <link>http://localhost:1313/posts/2025/june/kubernetes/</link>
@@ -24,9 +50,75 @@
 &lt;ul&gt;
 &lt;li&gt;I&amp;rsquo;m not using the GUI a lot, but sometimes it&amp;rsquo;s nice.&lt;/li&gt;
 &lt;li&gt;The best thing is when something is messed up, I can just have a clean start. Because I work with yaml files, it&amp;rsquo;s ok for me to have this restarts and clean state I can work a weird error or if I bricked something.
-&lt;img src=&#34;http://localhost:1313/images/rancher-desktop.jpg&#34; alt=&#34;Rancher Desktop&#34;&gt;
-Lorem spazm&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;img src=&#34;http://localhost:1313/images/rancher-desktop.jpg&#34; alt=&#34;Rancher Desktop&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;K9S: terminal GUI app that helps you manage all the Kubernetes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Personal note: I use it to see all the workspaces, logs, see the YAMLs, execute shells commands.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;kubectl: the Kubernetes CLI tool.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Mini-Homelab</title>
+      <link>http://localhost:1313/posts/2025/june/homelab/</link>
+      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/homelab/</guid>
+      
+      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
+&lt;p&gt;The full Kubernetes home-lab is very interesting. You have an open hand to do what ever you want, how ever you want it, and the best thing, it&amp;rsquo;s going to help you learn about Kubernetes the best way you can - Hands-on.&lt;/p&gt;
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Linux machine: any will work.&lt;/li&gt;
+&lt;li&gt;A server: can be old laptop, PC or Raspberry Pi.&lt;/li&gt;
+&lt;li&gt;Wired internet connection.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;installations&#34;&gt;Installations&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Update the machine.&lt;/li&gt;
+&lt;li&gt;Install Rancher Desktop: will help manage containers with GUI when needed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -s https://download.rancherdesktop.io/install.sh &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install -y rancher-desktop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Install K9S&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -sLO https://github.com/derailed/k9s/releases/download/&amp;lt;version&amp;gt;/k9s_Linux_amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Extract the tarball&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -xzf k9s_Linux_amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Move k9s to /usr/local/bin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv k9s /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make it executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x /usr/local/bin/k9s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Clean up&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm k9s_Linux_amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Install kubectl&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Download the latest kubectl binary&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -LO &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://dl.k8s.io/release/&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -L -s https://dl.k8s.io/release/stable.txt&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/bin/linux/amd64/kubectl&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make the binary executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod +x kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Move kubectl to /usr/local/bin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv kubectl /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Verify installation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl version --client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl&#34;&gt;kubectl&lt;/h3&gt;
+&lt;p&gt;This is Kubernetes CLI tool. &lt;a href=&#34;https://kubernetes.io/docs/reference/kubectl/&#34;&gt;kubectl docs&lt;/a&gt;.&lt;/p&gt;</description>
       
     </item>
     

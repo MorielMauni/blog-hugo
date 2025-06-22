@@ -6,7 +6,29 @@
     <description>Recent content in Categories on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Jun 2025 12:52:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Jun 2025 22:50:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>http://localhost:1313/categories/aws/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/aws/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CloudFlare</title>
+      <link>http://localhost:1313/categories/cloudflare/</link>
+      <pubDate>Sat, 21 Jun 2025 22:50:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/cloudflare/</guid>
+      
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Container</title>
       <link>http://localhost:1313/categories/container/</link>
@@ -35,6 +57,28 @@
       <pubDate>Thu, 19 Jun 2025 12:52:20 +0000</pubDate>
       
       <guid>http://localhost:1313/categories/kubernertes/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Homelab</title>
+      <link>http://localhost:1313/categories/homelab/</link>
+      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/homelab/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/categories/kubernetes/</link>
+      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/kubernetes/</guid>
       
       <description></description>
       

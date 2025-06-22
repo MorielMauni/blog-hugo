@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/categories/aws/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/aws/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-19T12:52:20+00:00</lastmod>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/cloudflare/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cloudflare/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/june/cloudflare/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-21T22:50:51+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/container/</loc>
     <lastmod>2025-06-19T12:52:20+00:00</lastmod>
@@ -17,9 +41,6 @@
     <loc>http://localhost:1313/tags/docker/</loc>
     <lastmod>2025-06-19T12:52:20+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-19T12:52:20+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/kubernertes/</loc>
     <lastmod>2025-06-19T12:52:20+00:00</lastmod>
   </url><url>
@@ -29,11 +50,20 @@
     <loc>http://localhost:1313/posts/2025/june/kubernetes/</loc>
     <lastmod>2025-06-19T12:52:20+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-19T12:52:20+00:00</lastmod>
+    <loc>http://localhost:1313/categories/homelab/</loc>
+    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-06-19T12:52:20+00:00</lastmod>
+    <loc>http://localhost:1313/tags/homelab/</loc>
+    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/kubernetes/</loc>
+    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/june/homelab/</loc>
+    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/june/devpods/</loc>
     <lastmod>2025-06-18T19:57:39+00:00</lastmod>
