@@ -54,7 +54,7 @@ name = "study-tracker-backend"
 version = "0.0.0"
 description = "Backend API for tracking study time for DevOps certifications"
 readme = "README.md"
-authors = [{ name = "Mischa van den Burg", email = "mischa@gmail.com" }]
+authors = [{ name = "Moriel Mauni", email = "morielmauni@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = []
 │
