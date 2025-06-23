@@ -1,7 +1,7 @@
 +++
 date = '2025-06-22T22:10:18Z'
 draft = false
-title = 'DevOps study app'
+title = 'DevOps study app: The environment'
 author = 'Moriel Mauni'
 tags = [" "]
 categories = [" "]
@@ -118,8 +118,8 @@ Now all the apps, settings and environments are up with the changes we made.
 
 ### Install Commitizan and pre-commit
 
-**Commitizan**: A tool that's help to create commit messages. [Commitizan](https://commitizen-tools.github.io/commitizen/)  helps to write good commits. 
-**pre-commit**: A framework for managing and maintaining multi-language pre-commit hooks. [pre-commit](https://pre-commit.com/) .
+**Commitizan**: A tool that's help to create commit messages. [Commitizan](https://commitizen-tools.github.io/commitizen/) helps to write good commits.
+**pre-commit**: A framework for managing and maintaining multi-language pre-commit hooks. [pre-commit](https://pre-commit.com/).
 
 Add this to mise.toml
 ```
@@ -266,4 +266,4 @@ s, first commit
 Commit successful!
 ```
 
-## This is part 1/5, I will update as I got.
+## This is part 1/5, I will update as I go.

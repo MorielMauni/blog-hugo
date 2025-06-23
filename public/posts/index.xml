@@ -6,9 +6,45 @@
     <description>Recent content in Posts on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 22 Jun 2025 22:10:18 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jun 2025 21:03:07 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DevOps Study app</title>
+      <title>DevOps study app: The backend</title>
+      <link>http://localhost:1313/posts/2025/june/cicd_backend/</link>
+      <pubDate>Mon, 23 Jun 2025 21:03:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cicd_backend/</guid>
+      
+      <description>&lt;p&gt;My GitHub repository for the project: &lt;a href=&#34;https://github.com/MorielMauni/devops-study-app&#34;&gt;https://github.com/MorielMauni/devops-study-app&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;uv&#34;&gt;UV&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Projects:&lt;/strong&gt; help manage Python code spanning multiple files.
+&lt;ul&gt;
+&lt;li&gt;Create a new project with: &lt;code&gt;uv init&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Creates following files: &amp;ldquo;.python-version&amp;rdquo;, &amp;ldquo;README.MD&amp;rdquo;, &amp;ldquo;main.py&amp;rdquo;, and &amp;ldquo;pyproject.toml&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dependencies&lt;/strong&gt;: When you import a library to the project, the project is depend on it.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;uv add &amp;lt;library-name&amp;gt; &lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python Package&lt;/strong&gt;: a Python project must be build to be installed.
+&lt;ul&gt;
+&lt;li&gt;Add commands to the project.&lt;/li&gt;
+&lt;li&gt;Distribute the project to others.&lt;/li&gt;
+&lt;li&gt;Use a &amp;ldquo;src&amp;rdquo; and &amp;ldquo;test&amp;rdquo; layout.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;building-the-backend-with-uv&#34;&gt;Building the backend with UV&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir src &amp;amp;&amp;amp; cd src
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;uv init --package backend
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Tree:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>DevOps study app: The environment</title>
       <link>http://localhost:1313/posts/2025/june/cicd_env/</link>
       <pubDate>Sun, 22 Jun 2025 22:10:18 +0000</pubDate>
       
@@ -112,64 +148,6 @@ The CloudFlare name servers:&lt;/p&gt;</description>
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;kubectl: the Kubernetes CLI tool.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Mini-Homelab</title>
-      <link>http://localhost:1313/posts/2025/june/homelab/</link>
-      <pubDate>Thu, 19 Jun 2025 12:29:41 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2025/june/homelab/</guid>
-      
-      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
-&lt;p&gt;The full Kubernetes home-lab is very interesting. You have an open hand to do what ever you want, how ever you want it, and the best thing, it&amp;rsquo;s going to help you learn about Kubernetes the best way you can - Hands-on.&lt;/p&gt;
-&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Linux machine: any will work.&lt;/li&gt;
-&lt;li&gt;A server: can be old laptop, PC or Raspberry Pi.&lt;/li&gt;
-&lt;li&gt;Wired internet connection.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;installations&#34;&gt;Installations&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Update the machine.&lt;/li&gt;
-&lt;li&gt;Install Rancher Desktop: will help manage containers with GUI when needed.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -s https://download.rancherdesktop.io/install.sh &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install -y rancher-desktop
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Install K9S&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -sLO https://github.com/derailed/k9s/releases/download/&amp;lt;version&amp;gt;/k9s_Linux_amd64.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Extract the tarball&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -xzf k9s_Linux_amd64.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Move k9s to /usr/local/bin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv k9s /usr/local/bin/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make it executable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x /usr/local/bin/k9s
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Clean up&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm k9s_Linux_amd64.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Install kubectl&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Download the latest kubectl binary&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -LO &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://dl.k8s.io/release/&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -L -s https://dl.k8s.io/release/stable.txt&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/bin/linux/amd64/kubectl&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make the binary executable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod +x kubectl
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Move kubectl to /usr/local/bin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv kubectl /usr/local/bin/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Verify installation&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl version --client
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl&#34;&gt;kubectl&lt;/h3&gt;
-&lt;p&gt;This is Kubernetes CLI tool. &lt;a href=&#34;https://kubernetes.io/docs/reference/kubectl/&#34;&gt;kubectl docs&lt;/a&gt;.&lt;/p&gt;</description>
       
     </item>
     
