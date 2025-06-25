@@ -1,7 +1,7 @@
 +++
 date = '2025-06-23T21:03:07Z'
 draft = false
-title = 'DevOps study app: The backend'
+title = 'DevOps study app: The Back-End'
 author = 'Moriel Mauni'
 tags = [" "]
 categories = [" "]
