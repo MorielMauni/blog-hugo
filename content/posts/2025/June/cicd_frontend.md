@@ -292,4 +292,4 @@ To run the project:
 uv run study-tracker-frontend
 ```
 
-
+![frontend](/images/frontend.jpg)
