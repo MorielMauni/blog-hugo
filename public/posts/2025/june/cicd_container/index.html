@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps study app: Containers | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps study app: Containers | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps study app: Containers | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps study app: Containers | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps study app: Containers | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/june/cicd_container/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-06-26T19:34:09Z />
+    <meta property="article:published_time" content=2025-06-26T19:34:09Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_container/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps study app: Containers",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-06-26",
+        "description": " ",
+        "wordCount":  1505 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-06-26",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_container/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps study app: Containers">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-26T19:34:09+00:00">
+    <meta property="article:modified_time" content="2025-06-26T19:34:09+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps study app: Containers">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/june/cicd_container/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps study app: Containers</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-06-26T19:34:09&#43;00:00" itemprop="datePublished"> 26 Jun 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#example">Example:</a></li>
+        <li><a href="#containerized-demo">Containerized demo:</a>
+          <ul>
+            <li><a href="#build">Build:</a></li>
+            <li><a href="#add-layers">Add layers:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#containerized-the-back-end">Containerized the back-end</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#dockerfile">Dockerfile</a></li>
+            <li><a href="#tag-and-build">Tag and build</a></li>
+            <li><a href="#trivy">Trivy</a></li>
+          </ul>
+        </li>
+        <li><a href="#optimizing-the-image">Optimizing the image</a>
+          <ul>
+            <li></li>
+            <li><a href="#other-tag-options">Other tag options</a></li>
+          </ul>
+        </li>
+        <li><a href="#implement-caching--multi-stage-builds">Implement caching &amp; multi-stage builds</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#securing-the-image">Securing the image</a></li>
+      </ul>
+    </li>
+    <li><a href="#containerized-the-front-end">Containerized the front-end</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#dockerfile-1">Dockerfile</a></li>
+            <li><a href="#tag-and-build-1">Tag and build</a></li>
+          </ul>
+        </li>
+        <li><a href="#implement-caching--multi-stage-builds-1">Implement caching &amp; multi-stage builds</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#securing-the-image-1">Securing the image</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h3 id="intro">Intro</h3>
+<p>We going to take the Python app we have in <code>/src/</code> and upload it to Docker to make it a Docker image.</p>
+<h3 id="example">Example:</h3>
+<p>We going to test everything with a demo project:
+/src/</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init demo
+</span></span></code></pre></div><h3 id="containerized-demo">Containerized demo:</h3>
+<p>src/demo/Dockerfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:latest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;main.py&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li>Taking the latest Python image that is in docker-hub.</li>
+<li>The working directory is /app</li>
+<li>We coping all the content in <code>.</code> which is  <code>/src/demo</code> into <code>/app</code>.</li>
+<li>Run the command <code>python main.py</code>.</li>
+</ul>
+<h4 id="build">Build:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build -t demo:01 .
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker build -t demo:01 .
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Building 54.3s <span class="o">(</span>8/8<span class="o">)</span> FINISHED                                          docker:default
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build definition from Dockerfile                                 0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring dockerfile: 107B                                                 0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load metadata <span class="k">for</span> docker.io/library/python:latest                     7.9s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load .dockerignore                                                    0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring context: 2B                                                      0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>1/3<span class="o">]</span> FROM docker.io/library/python:latest@sha256:5f69d22a88dd4cc4ee1576def19a  44.9s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; resolve docker.io/library/python:latest@sha256:5f69d22a88dd4cc4ee1576def19ae  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a3 48.49MB / 48.49MB  8.3s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92 64.40MB / 64.40MB  30.9s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:3b29f43b7fff1f92cbea7613c52afd7725af4fec4862126311438 6.32kB / 6.32kB  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb 24.02MB / 24.02MB  5.9s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:5f69d22a88dd4cc4ee1576def19aef48c8faa1b566054c4429118 9.72kB / 9.72kB  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:1ae8a7a2503de66cd1398659363f8ea92db4a634bffab4dfb074a 2.32kB / 2.32kB  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4 211.37MB / 211.37MB  37.5s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9  1.3s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:20d0b4e6a2e6295e295119126082b4f39882f50278611e48580e 6.16MB / 6.16MB  10.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275  0.4s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:77a6ac598bc154025b4b2e393a3ca959116e0d8af9c31659a8 27.39MB / 27.39MB  20.6s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; sha256:5cc4a19fbac0d0fb7423535182443188713730a05b7ab1104f211605 250B / 250B  26.3s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec987440  1.9s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727  5.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:20d0b4e6a2e6295e295119126082b4f39882f50278611e48580e8fbef7  0.2s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:77a6ac598bc154025b4b2e393a3ca959116e0d8af9c31659a857ac05ab  0.6s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; extracting sha256:5cc4a19fbac0d0fb7423535182443188713730a05b7ab1104f21160554  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build context                                                    0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring context: 527B                                                    0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>2/3<span class="o">]</span> WORKDIR /app                                                               1.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>3/3<span class="o">]</span> COPY . /app                                                                0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; exporting to image                                                               0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; exporting layers                                                              0.1s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; writing image sha256:80d267af8e21f5f8f01dc8fe411c48a3a4c1d1c1ef17875e38981ca  0.0s
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/demo:01      
+</span></span></code></pre></div><p>Now, we can see the docker images list with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker image ls
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker image ls
+</span></span><span class="line"><span class="cl">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+</span></span><span class="line"><span class="cl">demo         <span class="m">01</span>        80d267af8e21   <span class="m">54</span> seconds ago   1.02GB
+</span></span></code></pre></div><p>To run the container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run demo:01
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ docker run demo:01
+</span></span><span class="line"><span class="cl">Hello from demo!
+</span></span><span class="line"><span class="cl">This is a demo
+</span></span></code></pre></div><p>We can get more information about the image with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker image inspect &lt;image-name&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">history</span> &lt;image-name&gt;
+</span></span></code></pre></div><h4 id="add-layers">Add layers:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:latest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Add some silly layers</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> touch file1.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;hello&#34;</span> &gt; file2.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir -p /app/test<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;main.py&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h2 id="containerized-the-back-end">Containerized the back-end</h2>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>Create a new Dockerfile under <code>/src/backend</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:latest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;uv&#34;</span><span class="p">,</span> <span class="s2">&#34;run&#34;</span><span class="p">,</span> <span class="s2">&#34;study-tracker-api&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li>We are copying from <code>ghcr.io/astral-sh/uv:latest</code> into <code>/bin</code>, <code>/uv</code>, and <code>/uvx</code>.</li>
+<li>Work directory is <code>app</code>.</li>
+<li>Copying everything from <code>/src/backend</code> into <code>app</code>.</li>
+<li>Terminal will run <code>uv run study-tracker-api</code>.</li>
+</ul>
+<h4 id="tag-and-build">Tag and build</h4>
+<p>We going to run 2 commends at once.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TAG</span><span class="o">=</span><span class="m">00</span> <span class="o">&amp;&amp;</span> docker build -t backend:<span class="nv">$TAG</span> .
+</span></span></code></pre></div><ul>
+<li>Making a variable for the &ldquo;TAG&rdquo; so we can change it every build.</li>
+<li>The build command.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker image ls
+</span></span><span class="line"><span class="cl">REPOSITORY   TAG       IMAGE ID       CREATED             SIZE
+</span></span><span class="line"><span class="cl">backend      <span class="m">00</span>        3c963e717333   About an hour ago   1.09GB
+</span></span></code></pre></div><h4 id="trivy">Trivy</h4>
+<p><a href="https://trivy.dev/latest/docs/">Trivy</a>: The all in one open source security scanner, find vulnerabilities (CVE) &amp; miscommunications (IaC) across repositories, containers images, Kubernetes clusters, and more.</p>
+<p>Install:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mise use trivy
+</span></span></code></pre></div><p>Use Trivy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TAG</span><span class="o">=</span><span class="m">00</span> <span class="o">&amp;&amp;</span> trivy image --format table --severity CRITICAL,HIGH backend:<span class="nv">$TAG</span>
+</span></span></code></pre></div><ul>
+<li>&ldquo;&ndash;format table&rdquo;: the format of the data.</li>
+<li>&ldquo;&ndash;severity CRITICAL, HIGH&rdquo;: what CVEs we want to see.
+This is just a little bit, there are a lot more and it&rsquo;s like this most of the time.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Legend:                                                                         
+</span></span><span class="line"><span class="cl">- <span class="s1">&#39;-&#39;</span>: Not scanned                                                              
+</span></span><span class="line"><span class="cl">- <span class="s1">&#39;0&#39;</span>: Clean <span class="o">(</span>no security findings detected<span class="o">)</span>                                    
+</span></span><span class="line"><span class="cl">backend:00 <span class="o">(</span>debian 12.11<span class="o">)</span>                                                                                                                                        
+</span></span><span class="line"><span class="cl">Total: <span class="m">178</span> <span class="o">(</span>HIGH: 169, CRITICAL: 9<span class="o">)</span>                                                                                                                              
+</span></span><span class="line"><span class="cl">│      Library       │ Vulnerability  │ Severity │    Status    │    Installed Version    │ Fixed Version │                            Title                             │                
+</span></span><span class="line"><span class="cl">├────────────────────┼────────────────┼──────────┼──────────────┼─────────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤                
+</span></span><span class="line"><span class="cl">│ icu-devtools       │ CVE-2025-5222  │ HIGH     │ affected     │ 72.1-3                  │               │ icu: Stack buffer overflow in the SRBRoot::addTag <span class="k">function</span>   │                
+</span></span><span class="line"><span class="cl">│                    │                │          │              │                         │               │ https://avd.aquasec.com/nvd/cve-2025-5222                    │
+</span></span><span class="line"><span class="cl">├────────────────────┼────────────────┼──────────┤              ├─────────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│ libaom3            │ CVE-2023-6879  │ CRITICAL │              │ 3.6.0-1+deb12u1         │               │ aom: heap-buffer-overflow on frame size change               │
+</span></span><span class="line"><span class="cl">│                    │                │          │              │                         │               │ https://avd.aquasec.com/nvd/cve-2023-6879                    │
+</span></span><span class="line"><span class="cl">│                    ├────────────────┼──────────┼──────────────┤                         ├───────────────┼──────────────────────────────────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│                    │ CVE-2023-39616 │ HIGH     │ will_not_fix │                         │               │ AOMedia v3.0.0 to v3.5.0 was discovered to contain an        │
+</span></span><span class="line"><span class="cl">│                    │                │          │              │                         │               │ invalid <span class="nb">read</span> mem...                                          │
+</span></span><span class="line"><span class="cl">│                    │                │          │              │                         │               │ https://avd.aquasec.com/nvd/cve-2023-39616                   │
+</span></span></code></pre></div><h3 id="optimizing-the-image">Optimizing the image</h3>
+<h5 id="starting-size-109gb">Starting size: 1.09GB</h5>
+<p>Making the image we copying more specific: version, and slim variant.
+/src/backend/Dockerfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;main.py&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h5 id="after-version-specific-190mb">After version specific: 190MB</h5>
+<p>We can see that even the Trivy report is better:</p>
+<h4 id="other-tag-options">Other tag options</h4>
+<ul>
+<li><a href="https://www.alpinelinux.org/">alpineLinux</a>.</li>
+<li><a href="https://www.chainguard.dev/">chainguard</a>- not fully free.</li>
+</ul>
+<h5 id="note-with-alpine-tag-i-got-115mb"><strong>NOTE</strong>: with alpine tag I got 115MB.</h5>
+<h3 id="implement-caching--multi-stage-builds">Implement caching &amp; multi-stage builds</h3>
+<p>/src/backend/Dockerfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install uv</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change the working directory to the `app` directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install dependencies in a cache layer. This speeds up build time</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-install-project --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the project into the intermediate image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Sync the project and install it, now that we have access to the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.13-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the environment, but not the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app/.venv /app/.venv<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run the application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/app/.venv/bin/study-tracker-api&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li><code> </code>:</li>
+<li><code>FROM python:3.13-alpine AS builder</code>: making the image as small as possible.
+<ul>
+<li><code>AS builder</code>:  <strong>multi-stage build</strong>, which helps create smaller final images.</li>
+</ul>
+</li>
+<li><code>--mount=type=cache,target=/root/.cache/uv \</code> : Installing dependencies in a cached layer, and when it&rsquo;s update it don&rsquo;t need to pull all the dependencies again &ndash;&gt; faster rebuild.</li>
+<li><code>--mount=type=bind,source=uv.lock,target=uv.lock \</code>: mounting files from local file system to the builder stage.</li>
+<li><code>--mount=type=bind,source=pyproject.toml,target=pyproject.toml \</code>: mounting files from local file system to the builder stage.</li>
+<li><code>uv sync --locked --no-install-project --no-editable</code>: install all the dependencies in the cache layer.</li>
+<li><code>COPY --from=builder --chown=app:app /app/.venv /app/.venv</code>:</li>
+</ul>
+<h5 id="now-the-image-is-564mb">Now the image is 56.4MB</h5>
+<h3 id="securing-the-image">Securing the image</h3>
+<p>The securing going to be through creating a non-root user and using him instead of root.</p>
+<p>/src/backend/Dockerfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change the working directory to the `app` directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install dependencies in a cache layer. This speeds up build time</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-install-project --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the project into the intermediate image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Sync the project and install it, now that we have access to the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.13-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create a non-root user and group with specific IDs</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -S -g <span class="m">1000</span> app <span class="o">&amp;&amp;</span> adduser -S -u <span class="m">1000</span> -G app app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the environment, but not the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app/.venv /app/.venv<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Switch to the non-root user</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Expose the correct port</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 22112</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run the application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/app/.venv/bin/study-tracker-api&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li><code>RUN addgroup -S -g 1000 app &amp;&amp; adduser -S -u 1000 -G app app</code>: creating a non-root user.</li>
+<li><code>USER app</code>: switching to the user we created above.</li>
+<li><code>EXPOSE 22112</code>: exposing the right port.</li>
+</ul>
+<h2 id="containerized-the-front-end">Containerized the front-end</h2>
+<h4 id="dockerfile-1">Dockerfile</h4>
+<p>Create a new Dockerfile under <code>/src/backend</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:latest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;uv&#34;</span><span class="p">,</span> <span class="s2">&#34;run&#34;</span><span class="p">,</span> <span class="s2">&#34;study-tracker-fronend&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h4 id="tag-and-build-1">Tag and build</h4>
+<p>We going to run 2 commends at once.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TAG</span><span class="o">=</span><span class="m">00</span> <span class="o">&amp;&amp;</span> docker build -t frontend:<span class="nv">$TAG</span> .
+</span></span></code></pre></div><h5 id="size-107gb">Size: 1.07GB</h5>
+<p>Making the image we copying more specific: version, and slim variant.
+/src/frontend/Dockerfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;main.py&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h5 id="size-128mb">Size: 128MB</h5>
+<h3 id="implement-caching--multi-stage-builds-1">Implement caching &amp; multi-stage builds</h3>
+<p>/src/frontend/Dockerfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install uv</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change the working directory to the `app` directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install dependencies in a cache layer. This speeds up build time</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-install-project --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the project into the intermediate image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Sync the project and install it, now that we have access to the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.13-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the environment, but not the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app/.venv /app/.venv<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run the application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/app/.venv/bin/study-tracker-frontend&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h5 id="size-492mb">Size: 49.2MB</h5>
+<h3 id="securing-the-image-1">Securing the image</h3>
+<p>The securing going to be through creating a non-root user and using him instead of root.</p>
+<p>/src/frontend/Dockerfile</p>
+<pre tabindex="0"><code>FROM python:3.13-alpine AS builder
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Change the working directory to the `app` directory
+WORKDIR /app
+
+# Install dependencies in a cache layer. This speeds up build time
+RUN --mount=type=cache,target=/root/.cache/uv \
+  --mount=type=bind,source=uv.lock,target=uv.lock \
+  --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+  uv sync --locked --no-install-project --no-editable
+
+# Copy the project into the intermediate image
+COPY . /app
+
+# Sync the project and install it, now that we have access to the source code
+RUN --mount=type=cache,target=/root/.cache/uv \
+  uv sync --locked --no-editable
+
+FROM python:3.13-alpine
+
+# Create a non-root user and group with specific IDs
+RUN addgroup -S -g 1000 app &amp;&amp; adduser -S -u 1000 -G app app
+
+# Copy the environment, but not the source code
+COPY --from=builder --chown=app:app /app/.venv /app/.venv
+
+# Switch to the non-root user
+USER app
+
+# Expose the correct port
+EXPOSE 22111cd 
+
+# Run the application
+CMD [&#34;/app/.venv/bin/study-tracker-frontend&#34;]
+</code></pre>
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -3,24 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/-/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/-/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/2025/june/cicd_frontend/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <loc>http://localhost:1313/posts/2025/june/cicd_container/</loc>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-25T16:04:27+00:00</lastmod>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-26T19:34:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/june/cicd_frontend/</loc>
     <lastmod>2025-06-25T16:04:27+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/june/cicd_backend/</loc>
@@ -64,21 +67,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/2025/june/kubernetes/</loc>
     <lastmod>2025-06-19T12:52:20+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/homelab/</loc>
-    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/homelab/</loc>
-    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/kubernetes/</loc>
-    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
-    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2025/june/homelab/</loc>
-    <lastmod>2025-06-19T12:29:41+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/june/devpods/</loc>
     <lastmod>2025-06-18T19:57:39+00:00</lastmod>

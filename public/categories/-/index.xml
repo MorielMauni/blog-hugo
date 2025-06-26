@@ -6,7 +6,38 @@
     <description>Recent content in   on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 25 Jun 2025 16:04:27 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Jun 2025 19:34:09 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps study app: Containers</title>
+      <link>http://localhost:1313/posts/2025/june/cicd_container/</link>
+      <pubDate>Thu, 26 Jun 2025 19:34:09 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cicd_container/</guid>
+      
+      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;
+&lt;p&gt;We going to take the Python app we have in &lt;code&gt;/src/&lt;/code&gt; and upload it to Docker to make it a Docker image.&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example:&lt;/h3&gt;
+&lt;p&gt;We going to test everything with a demo project:
+/src/&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uv init demo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;containerized-demo&#34;&gt;Containerized demo:&lt;/h3&gt;
+&lt;p&gt;src/demo/Dockerfile:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; python:latest&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WORKDIR&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; /app&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; . /app&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CMD&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;python&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;main.py&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Taking the latest Python image that is in docker-hub.&lt;/li&gt;
+&lt;li&gt;The working directory is /app&lt;/li&gt;
+&lt;li&gt;We coping all the content in &lt;code&gt;.&lt;/code&gt; which is  &lt;code&gt;/src/demo&lt;/code&gt; into &lt;code&gt;/app&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run the command &lt;code&gt;python main.py&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;build&#34;&gt;Build:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker build -t demo:01 .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Output:&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>DevOps study app: The Front-End</title>
       <link>http://localhost:1313/posts/2025/june/cicd_frontend/</link>
