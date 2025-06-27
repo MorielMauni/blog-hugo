@@ -402,7 +402,7 @@ CMD ["/app/.venv/bin/study-tracker-frontend"]
 The securing going to be through creating a non-root user and using him instead of root. 
 
 /src/frontend/Dockerfile
-```
+```dockerfile 
 FROM python:3.13-alpine AS builder
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
