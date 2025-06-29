@@ -6,7 +6,32 @@
     <description>Recent content in Home on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 26 Jun 2025 19:34:09 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Jun 2025 21:01:25 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps study app: GitHub Action</title>
+      <link>http://localhost:1313/posts/2025/june/cicd_gha/</link>
+      <pubDate>Sun, 29 Jun 2025 21:01:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/cicd_gha/</guid>
+      
+      <description>&lt;h3 id=&#34;cicd&#34;&gt;CI/CD&lt;/h3&gt;
+&lt;h4 id=&#34;ci&#34;&gt;CI&lt;/h4&gt;
+&lt;p&gt;Continuous Integration &amp;ndash;&amp;gt; is our code ready to deploy? &amp;ndash;&amp;gt; linting, testing, and scanning.&lt;/p&gt;
+&lt;h4 id=&#34;cd&#34;&gt;CD&lt;/h4&gt;
+&lt;p&gt;Continuous Deployment &amp;ndash;&amp;gt; Deploy code as safely, quickly, and easily as possible &amp;ndash;&amp;gt; GitOps.&lt;/p&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Jenkins: using groovy.&lt;/li&gt;
+&lt;li&gt;GitLab: using YAML.&lt;/li&gt;
+&lt;li&gt;Azure DevOps: using YAML.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;idea-behind-the-tool&#34;&gt;Idea behind the tool&lt;/h3&gt;
+&lt;p&gt;There is an event &amp;ndash;&amp;gt; Trigger a script.&lt;/p&gt;
+&lt;h3 id=&#34;github-actions&#34;&gt;GitHub Actions&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/actions/get-started/quickstart&#34;&gt;GitHub Actions&lt;/a&gt; is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>DevOps study app: Containers</title>
       <link>http://localhost:1313/posts/2025/june/cicd_container/</link>

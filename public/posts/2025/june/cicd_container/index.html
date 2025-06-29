@@ -557,43 +557,43 @@ This is just a little bit, there are a lot more and it&rsquo;s like this most of
 <h3 id="securing-the-image-1">Securing the image</h3>
 <p>The securing going to be through creating a non-root user and using him instead of root.</p>
 <p>/src/frontend/Dockerfile</p>
-<pre tabindex="0"><code>FROM python:3.13-alpine AS builder
-
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
-# Change the working directory to the `app` directory
-WORKDIR /app
-
-# Install dependencies in a cache layer. This speeds up build time
-RUN --mount=type=cache,target=/root/.cache/uv \
-  --mount=type=bind,source=uv.lock,target=uv.lock \
-  --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-  uv sync --locked --no-install-project --no-editable
-
-# Copy the project into the intermediate image
-COPY . /app
-
-# Sync the project and install it, now that we have access to the source code
-RUN --mount=type=cache,target=/root/.cache/uv \
-  uv sync --locked --no-editable
-
-FROM python:3.13-alpine
-
-# Create a non-root user and group with specific IDs
-RUN addgroup -S -g 1000 app &amp;&amp; adduser -S -u 1000 -G app app
-
-# Copy the environment, but not the source code
-COPY --from=builder --chown=app:app /app/.venv /app/.venv
-
-# Switch to the non-root user
-USER app
-
-# Expose the correct port
-EXPOSE 22111cd 
-
-# Run the application
-CMD [&#34;/app/.venv/bin/study-tracker-frontend&#34;]
-</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.13-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>ghcr.io/astral-sh/uv:latest /uv /uvx /bin/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change the working directory to the `app` directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install dependencies in a cache layer. This speeds up build time</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>uv.lock,target<span class="o">=</span>uv.lock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>pyproject.toml,target<span class="o">=</span>pyproject.toml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-install-project --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the project into the intermediate image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Sync the project and install it, now that we have access to the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> --mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/uv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uv sync --locked --no-editable<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.13-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create a non-root user and group with specific IDs</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -S -g <span class="m">1000</span> app <span class="o">&amp;&amp;</span> adduser -S -u <span class="m">1000</span> -G app app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the environment, but not the source code</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder --chown<span class="o">=</span>app:app /app/.venv /app/.venv<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Switch to the non-root user</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Expose the correct port</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 22111cd </span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run the application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/app/.venv/bin/study-tracker-frontend&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div>
             </div>
         </article></main>
 </div>
