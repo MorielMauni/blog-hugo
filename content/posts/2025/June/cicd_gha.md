@@ -38,7 +38,7 @@ mise use docker-compose
 ```
 
 /docker-compose.yaml
-```
+```yaml 
 services:
   backend:
     build:
@@ -98,20 +98,20 @@ In the git repository:
 [Ruff](https://github.com/astral-sh/ruff): An extremely fast Python linter and code formatter, written in Rust.
 
 Install ruff:
-```
+```bash 
 mise use ruff
 ```
 
 And with UV is needed:
 /src/backend
-```
+```bash 
 uv add ruff
 ```
 
 don't forget to: ```uv sync```
 
 Let's run:
-```
+```bash 
 ruff check
 ```
 
@@ -121,7 +121,7 @@ All checks passed!
 ```
 
 We going to add this to the .pre-commit-config.yaml:
-```
+```yaml 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
     rev: v0.12.1 # Check for your version with 'ruff --version'
@@ -138,7 +138,7 @@ We going to add this to the .pre-commit-config.yaml:
 ### Creating a new branch
 
 Creating a new branch and switching to him:
-```
+```bash 
 git switch -c ci/add-ruff-linting
 ```
 
@@ -189,7 +189,7 @@ mkdir -p .github/workflows
 
 And create backend-tests.yaml file --> a GitHub Action workflow file.
 /.github/workflows/backend-tests.yaml
-```
+```yaml 
 name: Backend Tests
 
 on:
