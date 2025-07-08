@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps Study app: GitHub Actions- Part 2 | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps Study app: GitHub Actions- Part 2 | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps Study app: GitHub Actions- Part 2 | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps Study app: GitHub Actions- Part 2 | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps Study app: GitHub Actions- Part 2 | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/june/cicd_gha-2/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-06-30T21:49:42Z />
+    <meta property="article:published_time" content=2025-06-30T21:49:42Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_gha-2/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps Study app: GitHub Actions- Part 2",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-06-30",
+        "description": " ",
+        "wordCount":  2224 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-06-30",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/june/cicd_gha-2/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps Study app: GitHub Actions- Part 2">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-30T21:49:42+00:00">
+    <meta property="article:modified_time" content="2025-06-30T21:49:42+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps Study app: GitHub Actions- Part 2">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/june/cicd_gha-2/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps Study app: GitHub Actions- Part 2</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-06-30T21:49:42&#43;00:00" itemprop="datePublished"> 30 Jun 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tests">Tests</a>
+          <ul>
+            <li><a href="#__-init__py">__ init__.py</a></li>
+            <li><a href="#test_configpy">test_config.py</a></li>
+            <li><a href="#test_mainpy">test_main.py</a></li>
+            <li><a href="#test_storagepy">test_storage.py</a></li>
+          </ul>
+        </li>
+        <li><a href="#add-dependencies">Add dependencies</a>
+          <ul>
+            <li><a href="#troubleshoot">Troubleshoot</a></li>
+          </ul>
+        </li>
+        <li><a href="#add-to-the-pipeline">Add to the pipeline</a></li>
+        <li><a href="#test-coverage">Test coverage</a>
+          <ul>
+            <li><a href="#test-it-locally">Test it locally</a></li>
+            <li><a href="#troubleshoot-1">Troubleshoot</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h3 id="tests">Tests</h3>
+<h4 id="__-init__py">__ init__.py</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"></code></pre></div><h4 id="test_configpy">test_config.py</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.config</span> <span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">APP_NAME</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">API_HOST</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">API_PORT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DATA_DIR</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CORS_ALLOW_ORIGINS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CORS_ALLOW_METHODS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CORS_ALLOW_HEADERS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CORS_ALLOW_CREDENTIALS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_settings_default_values</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test that Settings has the expected default values.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">APP_NAME</span> <span class="o">==</span> <span class="s2">&#34;DevOps Study Tracker&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">API_HOST</span> <span class="o">==</span> <span class="s2">&#34;0.0.0.0&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">API_PORT</span> <span class="o">==</span> <span class="mi">22112</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">DATA_DIR</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Test CORS default values</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_ORIGINS</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_METHODS</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_HEADERS</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_CREDENTIALS</span> <span class="ow">is</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@mock.patch.dict</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;API_HOST&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;API_PORT&#34;</span><span class="p">:</span> <span class="s2">&#34;9000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CORS_ALLOW_ORIGINS&#34;</span><span class="p">:</span> <span class="s2">&#34;https://example.com,https://api.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CORS_ALLOW_METHODS&#34;</span><span class="p">:</span> <span class="s2">&#34;GET,POST,PUT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CORS_ALLOW_HEADERS&#34;</span><span class="p">:</span> <span class="s2">&#34;Content-Type,Authorization&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CORS_ALLOW_CREDENTIALS&#34;</span><span class="p">:</span> <span class="s2">&#34;false&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_settings_from_env</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test that Settings loads values from environment variables.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Force reload of the config module to get updated environment variables</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">importlib</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">backend.config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">backend</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Import the settings again after reload</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">backend.config</span> <span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">API_HOST</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">API_PORT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CORS_ALLOW_ORIGINS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CORS_ALLOW_METHODS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CORS_ALLOW_HEADERS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CORS_ALLOW_CREDENTIALS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">API_HOST</span> <span class="o">==</span> <span class="s2">&#34;127.0.0.1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">API_PORT</span> <span class="o">==</span> <span class="mi">9000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Test CORS values from environment</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_ORIGINS</span> <span class="o">==</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://api.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_METHODS</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="s2">&#34;POST&#34;</span><span class="p">,</span> <span class="s2">&#34;PUT&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_HEADERS</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s2">&#34;Authorization&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">CORS_ALLOW_CREDENTIALS</span> <span class="ow">is</span> <span class="kc">False</span>
+</span></span></code></pre></div><h4 id="test_mainpy">test_main.py</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytest</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytest_asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">httpx</span> <span class="kn">import</span> <span class="n">AsyncClient</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import the FastAPI app and models from the proper package path</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.main</span> <span class="kn">import</span> <span class="n">app</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.models</span> <span class="kn">import</span> <span class="n">StudySessionCreate</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.storage</span> <span class="kn">import</span> <span class="n">save_session</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import the storage module itself</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">backend.storage</span> <span class="k">as</span> <span class="nn">storage_module</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define the path for a temporary test data file using relative paths</span>
+</span></span><span class="line"><span class="cl"><span class="n">TEST_DATA_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&#34;test_sessions.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&#34;session&#34;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">setup_test_environment</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Fixture to set up the test environment before any tests run.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ensure the test data directory exists</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ensure the test data file does not exist before tests</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Override the SESSIONS_FILE path in the storage module for testing</span>
+</span></span><span class="line"><span class="cl">    <span class="n">storage_module</span><span class="o">.</span><span class="n">SESSIONS_FILE</span> <span class="o">=</span> <span class="n">TEST_DATA_FILE</span>  <span class="c1"># Use the imported module alias</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Clean up the test data file after all tests run</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest_asyncio.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&#34;function&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Provides an async test client for the FastAPI app.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Use ASGITransport instead of direct app parameter - newer httpx client syntax</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">httpx</span> <span class="kn">import</span> <span class="n">ASGITransport</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">transport</span> <span class="o">=</span> <span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">transport</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">&#34;http://test&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">client</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&#34;function&#34;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reset_test_data</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Fixture to reset the test data file before each test function.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create an empty file with headers using CSV, similar to how the main app does it</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;timestamp&#34;</span><span class="p">,</span> <span class="s2">&#34;minutes&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_root</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the root endpoint.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;DevOps Study Tracker API&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_create_session</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test creating a new study session.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;AWS&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/sessions&#34;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">session_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;minutes&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;AWS&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;id&#34;</span> <span class="ow">in</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;timestamp&#34;</span> <span class="ow">in</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify data was saved using CSV</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reader</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;minutes&#34;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;AWS&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_read_sessions_empty</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test reading sessions when none exist.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_read_sessions_all</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test reading all sessions.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create some sessions first using the storage function directly for setup</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;AWS&#34;</span><span class="p">))</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Kubernetes&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;AWS&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_read_sessions_by_tag</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test reading sessions filtered by tag.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;AWS&#34;</span><span class="p">))</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions?tag=Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Kubernetes&#34;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions?tag=AWS&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;AWS&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions?tag=NonExistent&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_read_stats</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test reading statistics.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;AWS&#34;</span><span class="p">))</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>  <span class="c1"># Use imported save_session</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/stats&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;total_sessions&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;total_time&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">90</span>  <span class="c1"># 25 + 50 + 15</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;time_by_tag&#34;</span> <span class="ow">in</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;sessions_by_tag&#34;</span><span class="p">][</span><span class="s2">&#34;Kubernetes&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;sessions_by_tag&#34;</span><span class="p">][</span><span class="s2">&#34;AWS&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_read_stats_empty</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test reading statistics when no sessions exist.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/stats&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;total_sessions&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;total_time&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;time_by_tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;sessions_by_tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_error_handling_create_session</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test error handling in create_session endpoint.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock save_session to raise an exception</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mock_save_session</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Test error&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&#34;backend.main.save_session&#34;</span><span class="p">,</span> <span class="n">mock_save_session</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">session_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;AWS&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/sessions&#34;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">session_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;Error creating session&#34;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&#34;detail&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_error_handling_read_sessions</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test error handling in read_sessions endpoint.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock get_all_sessions to raise an exception</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mock_get_all_sessions</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Test error&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&#34;backend.main.get_all_sessions&#34;</span><span class="p">,</span> <span class="n">mock_get_all_sessions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;Error fetching sessions&#34;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&#34;detail&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_error_handling_read_sessions_by_tag</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test error handling in read_sessions endpoint with tag filter.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock get_sessions_by_tag to raise an exception</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mock_get_sessions_by_tag</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Test error&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&#34;backend.main.get_sessions_by_tag&#34;</span><span class="p">,</span> <span class="n">mock_get_sessions_by_tag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/sessions?tag=AWS&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;Error fetching sessions&#34;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&#34;detail&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.mark.asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">test_error_handling_read_stats</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">AsyncClient</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test error handling in read_stats endpoint.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock get_statistics to raise an exception</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mock_get_statistics</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Test error&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&#34;backend.main.get_statistics&#34;</span><span class="p">,</span> <span class="n">mock_get_statistics</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/stats&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="s2">&#34;Error fetching statistics&#34;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&#34;detail&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Test for the main function</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_main_function</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the main() function that starts the uvicorn server.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock uvicorn.run to prevent actually starting the server</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mock_run</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Mock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&#34;uvicorn.run&#34;</span><span class="p">,</span> <span class="n">mock_run</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Call the main function</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">backend.main</span> <span class="kn">import</span> <span class="n">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Check that uvicorn.run was called with the expected arguments</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mock_run</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;backend.main:app&#34;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">22112</span><span class="p">,</span> <span class="n">reload</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Checking for test file.
+<ul>
+<li>If don&rsquo;t exist, creating a test file.</li>
+</ul>
+</li>
+<li>Setting up a test client for fastapi.</li>
+<li>Calling functions to test the client:
+<ul>
+<li>test_root()</li>
+<li>test_create_session()</li>
+</ul>
+</li>
+</ul>
+<h4 id="test_storagepy">test_storage.py</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytest</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">uuid</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import functions and variables from storage.py using new package structure</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.storage</span> <span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">get_all_sessions</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">get_sessions_by_tag</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">get_statistics</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">backend.models</span> <span class="kn">import</span> <span class="n">StudySessionCreate</span><span class="p">,</span> <span class="n">StudySession</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import the storage module itself</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">backend.storage</span> <span class="k">as</span> <span class="nn">storage_module</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define the path for a temporary test data file using relative paths</span>
+</span></span><span class="line"><span class="cl"><span class="n">TEST_DATA_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&#34;test_storage_sessions.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&#34;module&#34;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">setup_test_data_file</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Fixture to set up the test data file path for the storage module tests.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ensure the test data directory exists</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">original_data_file</span> <span class="o">=</span> <span class="n">storage_module</span><span class="o">.</span><span class="n">SESSIONS_FILE</span>  <span class="c1"># Use alias</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Override the SESSIONS_FILE path in the storage module for testing</span>
+</span></span><span class="line"><span class="cl">    <span class="n">storage_module</span><span class="o">.</span><span class="n">SESSIONS_FILE</span> <span class="o">=</span> <span class="n">TEST_DATA_FILE</span>  <span class="c1"># Use alias</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Restore the original data file path and clean up</span>
+</span></span><span class="line"><span class="cl">    <span class="n">storage_module</span><span class="o">.</span><span class="n">SESSIONS_FILE</span> <span class="o">=</span> <span class="n">original_data_file</span>  <span class="c1"># Use alias</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&#34;function&#34;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reset_test_data</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Fixture to reset the test data file before each test function.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create an empty file with headers using CSV</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;timestamp&#34;</span><span class="p">,</span> <span class="s2">&#34;minutes&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_save_session</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test saving a single session.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session_create</span> <span class="o">=</span> <span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Terraform&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">saved_session</span> <span class="o">=</span> <span class="n">save_session</span><span class="p">(</span><span class="n">session_create</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">saved_session</span><span class="p">,</span> <span class="n">StudySession</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">saved_session</span><span class="o">.</span><span class="n">minutes</span> <span class="o">==</span> <span class="mi">45</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">saved_session</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;Terraform&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">saved_session</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>  <span class="c1"># ID is stored as string in the model</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="n">saved_session</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>  <span class="c1"># Verify it&#39;s a valid UUID string</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">saved_session</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">datetime</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify with CSV reader</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reader</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;minutes&#34;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">45</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Terraform&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">saved_session</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;id&#34;</span><span class="p">]</span>  <span class="c1"># Compare as strings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_save_multiple_sessions</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test saving multiple sessions sequentially.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Docker&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Python&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reader</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">reader</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Docker&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">reader</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Python&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_get_all_sessions</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test retrieving all sessions.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Git&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;CI/CD&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sessions</span> <span class="o">=</span> <span class="n">get_all_sessions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">StudySession</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;Git&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">sessions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;CI/CD&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_get_all_sessions_empty</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test retrieving all sessions when none exist.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sessions</span> <span class="o">=</span> <span class="n">get_all_sessions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">sessions</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_get_sessions_by_tag</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test retrieving sessions filtered by tag.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;AWS&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Azure&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;AWS&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">aws_sessions</span> <span class="o">=</span> <span class="n">get_sessions_by_tag</span><span class="p">(</span><span class="s2">&#34;AWS&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">aws_sessions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;AWS&#34;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">aws_sessions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">azure_sessions</span> <span class="o">=</span> <span class="n">get_sessions_by_tag</span><span class="p">(</span><span class="s2">&#34;Azure&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">azure_sessions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">azure_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;Azure&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">gcp_sessions</span> <span class="o">=</span> <span class="n">get_sessions_by_tag</span><span class="p">(</span><span class="s2">&#34;GCP&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">gcp_sessions</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_get_statistics</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test calculating statistics.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Linux&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Networking&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_session</span><span class="p">(</span><span class="n">StudySessionCreate</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&#34;Linux&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">stats</span> <span class="o">=</span> <span class="n">get_statistics</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_sessions</span> <span class="o">==</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_time</span> <span class="o">==</span> <span class="mi">60</span>  <span class="c1"># 10 + 20 + 30</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Calculate average manually if needed</span>
+</span></span><span class="line"><span class="cl">    <span class="n">average_minutes</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_time</span> <span class="o">/</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_sessions</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">average_minutes</span> <span class="o">==</span> <span class="mf">20.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">sessions_by_tag</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&#34;Linux&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&#34;Networking&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_get_statistics_empty</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test calculating statistics when no sessions exist.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stats</span> <span class="o">=</span> <span class="n">get_statistics</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_sessions</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">total_time</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Can&#39;t calculate average with zero sessions</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">time_by_tag</span> <span class="o">==</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">stats</span><span class="o">.</span><span class="n">sessions_by_tag</span> <span class="o">==</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_create_and_read_sessions</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test creating sessions and then reading them back.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create test CSV file with two sessions</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;timestamp&#34;</span><span class="p">,</span> <span class="s2">&#34;minutes&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;TestTag1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;TestTag2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Read sessions</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sessions</span> <span class="o">=</span> <span class="n">get_all_sessions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&#34;TestTag1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">sessions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">minutes</span> <span class="o">==</span> <span class="mi">45</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_file_not_exists_handling</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test handling when the data file doesn&#39;t exist.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Rename the test file temporarily</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">TEST_DATA_FILE</span><span class="si">}</span><span class="s2">.bak&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># This should create the data file</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sessions</span> <span class="o">=</span> <span class="n">get_all_sessions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">sessions</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Verify the file was created with headers</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">assert</span> <span class="s2">&#34;id,timestamp,minutes,tag&#34;</span> <span class="ow">in</span> <span class="n">content</span>
+</span></span><span class="line"><span class="cl">    <span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Restore the original file if it existed</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">TEST_DATA_FILE</span><span class="si">}</span><span class="s2">.bak&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">TEST_DATA_FILE</span><span class="si">}</span><span class="s2">.bak&#34;</span><span class="p">,</span> <span class="n">TEST_DATA_FILE</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="add-dependencies">Add dependencies</h3>
+<pre tabindex="0"><code>uv add pytest
+</code></pre><pre tabindex="0"><code>uv add pytest_asyncio
+</code></pre><p>Now we can run <code>pytest</code> to test out files:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">==================================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">===================================</span>
+</span></span><span class="line"><span class="cl"><span class="n">platform</span> <span class="n">linux</span> <span class="o">--</span> <span class="n">Python</span> <span class="mf">3.13.5</span><span class="p">,</span> <span class="n">pytest</span><span class="o">-</span><span class="mf">8.4.1</span><span class="p">,</span> <span class="n">pluggy</span><span class="o">-</span><span class="mf">1.6.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">rootdir</span><span class="p">:</span> <span class="o">/</span><span class="n">workspaces</span><span class="o">/</span><span class="n">devops</span><span class="o">-</span><span class="n">study</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backend</span>
+</span></span><span class="line"><span class="cl"><span class="n">configfile</span><span class="p">:</span> <span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span>
+</span></span><span class="line"><span class="cl"><span class="n">plugins</span><span class="p">:</span> <span class="n">anyio</span><span class="o">-</span><span class="mf">4.9.0</span><span class="p">,</span> <span class="n">asyncio</span><span class="o">-</span><span class="mf">1.0.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="p">:</span> <span class="n">mode</span><span class="o">=</span><span class="n">Mode</span><span class="o">.</span><span class="n">STRICT</span><span class="p">,</span> <span class="n">asyncio_default_fixture_loop_scope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">asyncio_default_test_loop_scope</span><span class="o">=</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl"><span class="n">collected</span> <span class="mi">23</span> <span class="n">items</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_config</span><span class="o">.</span><span class="n">py</span> <span class="o">..</span>                                                            <span class="p">[</span>  <span class="mi">8</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_main</span><span class="o">.</span><span class="n">py</span> <span class="o">............</span>                                                    <span class="p">[</span> <span class="mi">60</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_storage</span><span class="o">.</span><span class="n">py</span> <span class="o">.........</span>                                                    <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===================================</span> <span class="mi">23</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">1.27</span><span class="n">s</span> <span class="o">===================================</span>
+</span></span></code></pre></div><h4 id="troubleshoot">Troubleshoot</h4>
+<p>If you get this error:</p>
+<pre tabindex="0"><code class="language-pyton" data-lang="pyton">The configuration option &#34;asyncio_default_fixture_loop_scoop&#34; is unset.
+</code></pre><p>We set it in pyproject.toml:</p>
+<pre tabindex="0"><code>[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = &#34;function&#34;
+</code></pre><p>And the output of <code>pytest</code> again will look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">==================================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">===================================</span>
+</span></span><span class="line"><span class="cl"><span class="n">platform</span> <span class="n">linux</span> <span class="o">--</span> <span class="n">Python</span> <span class="mf">3.13.5</span><span class="p">,</span> <span class="n">pytest</span><span class="o">-</span><span class="mf">8.4.1</span><span class="p">,</span> <span class="n">pluggy</span><span class="o">-</span><span class="mf">1.6.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">rootdir</span><span class="p">:</span> <span class="o">/</span><span class="n">workspaces</span><span class="o">/</span><span class="n">devops</span><span class="o">-</span><span class="n">study</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">backend</span>
+</span></span><span class="line"><span class="cl"><span class="n">configfile</span><span class="p">:</span> <span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span>
+</span></span><span class="line"><span class="cl"><span class="n">plugins</span><span class="p">:</span> <span class="n">anyio</span><span class="o">-</span><span class="mf">4.9.0</span><span class="p">,</span> <span class="n">asyncio</span><span class="o">-</span><span class="mf">1.0.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="p">:</span> <span class="n">mode</span><span class="o">=</span><span class="n">Mode</span><span class="o">.</span><span class="n">STRICT</span><span class="p">,</span> <span class="n">asyncio_default_fixture_loop_scope</span><span class="o">=</span><span class="n">function</span><span class="p">,</span> <span class="n">asyncio_default_test_loop_scope</span><span class="o">=</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl"><span class="n">collected</span> <span class="mi">23</span> <span class="n">items</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_config</span><span class="o">.</span><span class="n">py</span> <span class="o">..</span>                                                            <span class="p">[</span>  <span class="mi">8</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_main</span><span class="o">.</span><span class="n">py</span> <span class="o">............</span>                                                    <span class="p">[</span> <span class="mi">60</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span><span class="n">test_storage</span><span class="o">.</span><span class="n">py</span> <span class="o">.........</span>                                                    <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===================================</span> <span class="mi">23</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.89</span><span class="n">s</span> <span class="o">===================================</span>
+</span></span></code></pre></div><h3 id="add-to-the-pipeline">Add to the pipeline</h3>
+<p>Add the step for pytest in the backend-tests.yaml</p>
+<p>/.github/workflows/backend-tests.yaml</p>
+<pre tabindex="0"><code>      - name: Run tests with coverage
+        run: |
+          uv run pytest
+</code></pre><p>Commit, Push, on GitHub squash and merge.
+Switch back to main with <code>git switch main</code> and pull the updated main <code>git pull</code>.
+make a new branch <code>git switch -c ci/add-coverage-testing</code></p>
+<h3 id="test-coverage">Test coverage</h3>
+<p>Under /.github/workflows/backend-tests.yaml remove the last step we put and add this instead:</p>
+<pre tabindex="0"><code>      - name: Run tests with coverage
+        run: |
+          uv run pytest tests/ -v --cov=src/backend --cov-report=xml --cov-fail-under=80
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: ./src/backend/coverage.xml
+          retention-days: 7
+        if: ${{ always() }}
+
+      - name: Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./src/backend/coverage.xml
+          badge: true
+          format: markdown
+          output: both
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == &#39;pull_request&#39;
+        with:
+          header: test-coverage
+          recreate: true
+          path: code-coverage-results.md
+</code></pre><ul>
+<li><code>uv run pytest tests/ -v --cov=src/backend --cov-report=xml --cov-fail-under=80</code>
+<ul>
+<li><code>uv run pytest tests</code>: pytest for the test directory .</li>
+<li><code>-v --cov=src/backend</code>: targeting the entire directory.</li>
+<li><code>--cov-report=xml</code>: make the report as a xml file.</li>
+<li><code>--cov-fail-under=80</code>: under 80 is a fail.</li>
+</ul>
+</li>
+</ul>
+<h4 id="test-it-locally">Test it locally</h4>
+<p>run it in /src/backend</p>
+<pre tabindex="0"><code>uv run pytest tests/ -v --cov=src/backend --cov-report=xml --cov-fail-under=80
+</code></pre><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> Built study-tracker-backend @ file:///workspaces/devops-study-app/src/backend
+</span></span><span class="line"><span class="cl">Uninstalled <span class="m">1</span> package in 9ms
+</span></span><span class="line"><span class="cl">░░░░░░░░░░░░░░░░░░░░ <span class="o">[</span>0/1<span class="o">]</span> Installing wheels...                                           warning: Failed to hardlink files<span class="p">;</span> falling back to full copy. This may lead to degraded performance.
+</span></span><span class="line"><span class="cl">         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+</span></span><span class="line"><span class="cl">         If this is intentional, <span class="nb">set</span> <span class="sb">`</span><span class="nb">export</span> <span class="nv">UV_LINK_MODE</span><span class="o">=</span>copy<span class="sb">`</span> or use <span class="sb">`</span>--link-mode<span class="o">=</span>copy<span class="sb">`</span> to suppress this warning.
+</span></span><span class="line"><span class="cl">Installed <span class="m">1</span> package in 32ms
+</span></span><span class="line"><span class="cl">ERROR: usage: pytest <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>file_or_dir<span class="o">]</span> <span class="o">[</span>file_or_dir<span class="o">]</span> <span class="o">[</span>...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">pytest: error: unrecognized arguments: --cov<span class="o">=</span>src/backend --cov-report<span class="o">=</span>xml --cov-fail-under<span class="o">=</span><span class="m">80</span>
+</span></span><span class="line"><span class="cl">  inifile: /workspaces/devops-study-app/src/backend/pyproject.toml
+</span></span><span class="line"><span class="cl">  rootdir: /workspaces/devops-study-app/src/backend
+</span></span></code></pre></div><h4 id="troubleshoot-1">Troubleshoot</h4>
+<p>The error here is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">error: unrecognized arguments: --cov
+</span></span></code></pre></div><p>We need to install pytest-cov</p>
+<pre tabindex="0"><code>uv add pytest-cov
+</code></pre><p>Now, the output is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">==================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">===================================</span>
+</span></span><span class="line"><span class="cl">platform linux -- Python 3.13.5, pytest-8.4.1, pluggy-1.6.0 -- /workspaces/devops-study-app/src/backend/.venv/bin/python3
+</span></span><span class="line"><span class="cl">cachedir: .pytest_cache
+</span></span><span class="line"><span class="cl">rootdir: /workspaces/devops-study-app/src/backend
+</span></span><span class="line"><span class="cl">configfile: pyproject.toml
+</span></span><span class="line"><span class="cl">plugins: anyio-4.9.0, asyncio-1.0.0, cov-6.2.1
+</span></span><span class="line"><span class="cl">asyncio: <span class="nv">mode</span><span class="o">=</span>Mode.STRICT, <span class="nv">asyncio_default_fixture_loop_scope</span><span class="o">=</span><span class="k">function</span>, <span class="nv">asyncio_default_test_loop_scope</span><span class="o">=</span><span class="k">function</span>
+</span></span><span class="line"><span class="cl">collected <span class="m">23</span> items
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tests/test_config.py::test_settings_default_values PASSED                          <span class="o">[</span>  4%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_config.py::test_settings_from_env PASSED                                <span class="o">[</span>  8%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_root PASSED                                               <span class="o">[</span> 13%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_create_session PASSED                                     <span class="o">[</span> 17%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_read_sessions_empty PASSED                                <span class="o">[</span> 21%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_read_sessions_all PASSED                                  <span class="o">[</span> 26%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_read_sessions_by_tag PASSED                               <span class="o">[</span> 30%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_read_stats PASSED                                         <span class="o">[</span> 34%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_read_stats_empty PASSED                                   <span class="o">[</span> 39%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_error_handling_create_session PASSED                      <span class="o">[</span> 43%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_error_handling_read_sessions PASSED                       <span class="o">[</span> 47%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_error_handling_read_sessions_by_tag PASSED                <span class="o">[</span> 52%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_error_handling_read_stats PASSED                          <span class="o">[</span> 56%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_main_function PASSED                                      <span class="o">[</span> 60%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_save_session PASSED                                    <span class="o">[</span> 65%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_save_multiple_sessions PASSED                          <span class="o">[</span> 69%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_get_all_sessions PASSED                                <span class="o">[</span> 73%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_get_all_sessions_empty PASSED                          <span class="o">[</span> 78%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_get_sessions_by_tag PASSED                             <span class="o">[</span> 82%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_get_statistics PASSED                                  <span class="o">[</span> 86%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_get_statistics_empty PASSED                            <span class="o">[</span> 91%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_create_and_read_sessions PASSED                        <span class="o">[</span> 95%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tests/test_storage.py::test_file_not_exists_handling PASSED                        <span class="o">[</span>100%<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">=====================================</span> tests <span class="nv">coverage</span> <span class="o">=====================================</span>
+</span></span><span class="line"><span class="cl">____________________ coverage: platform linux, python 3.13.5-final-0 _____________________
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Coverage XML written to file coverage.xml
+</span></span><span class="line"><span class="cl">Required <span class="nb">test</span> coverage of 80% reached. Total coverage: 98.55%
+</span></span><span class="line"><span class="cl"><span class="o">===================================</span> <span class="m">23</span> passed in 1.50s <span class="o">===================================</span>
+</span></span></code></pre></div><p>We got 98.55%.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 +++
 date = '2025-06-30T21:49:42Z'
 draft = false
-title = 'DevOps Study app: GitHub Actions- Part 2'
+title = 'DevOps Study app: GitHub Actions- Back-end Part 1'
 author = 'Moriel Mauni'
 tags = [" "]
 categories = [" "]
