@@ -8,6 +8,8 @@ categories = [" "]
 description = " "
 +++
 
+The project GitHub repository: [https://github.com/MorielMauni/devops-study-app]
+
 Adding the test files:
 
 conftest.py
