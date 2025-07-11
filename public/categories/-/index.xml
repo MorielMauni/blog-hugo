@@ -6,7 +6,35 @@
     <description>Recent content in   on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 10 Jul 2025 21:19:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Jul 2025 09:02:57 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virtual Machine in Arch Linux</title>
+      <link>http://localhost:1313/posts/2025/june/vm/</link>
+      <pubDate>Fri, 11 Jul 2025 09:02:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/june/vm/</guid>
+      
+      <description>&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
+&lt;p&gt;I moved fully to Linux (Arch BTW), and sometimes I need to use Windows for work (like opening RDP files).&lt;/p&gt;
+&lt;h3 id=&#34;check-virtualization-is-enabled&#34;&gt;Check virtualization is enabled&lt;/h3&gt;
+&lt;p&gt;Check if you can virtualization- work on any CPU:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;egrep -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;(vmx|svm)&amp;#39;&lt;/span&gt; /proc/cpuinfo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;If the output &amp;gt; 0 we OK.&lt;/li&gt;
+&lt;li&gt;If the output = 0 we need to enable virtualization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tech-stack&#34;&gt;Tech stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;QEMU: The emulator.&lt;/li&gt;
+&lt;li&gt;libvirt-daemon: runs virtualization in the background.&lt;/li&gt;
+&lt;li&gt;bridge-utils: impotent networking dependencies.&lt;/li&gt;
+&lt;li&gt;Virt-Manager: GUI to manage all the above.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;First. sync the package manager:&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>DevOps Study app: Automate Realese creation</title>
       <link>http://localhost:1313/posts/2025/june/cicd_release/</link>
