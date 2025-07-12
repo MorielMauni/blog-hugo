@@ -3,22 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/-/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/-/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/june/cicd_dockerimage/</loc>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-07-11T09:02:57+00:00</lastmod>
+    <lastmod>2025-07-12T21:38:39+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/june/vm/</loc>
     <lastmod>2025-07-11T09:02:57+00:00</lastmod>
