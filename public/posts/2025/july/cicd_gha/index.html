@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps study app: GitHub Actions- Part 1 | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps study app: GitHub Actions- Part 1 | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps study app: GitHub Actions- Part 1 | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps study app: GitHub Actions- Part 1 | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps study app: GitHub Actions- Part 1 | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/july/cicd_gha/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-06-29T21:01:25Z />
+    <meta property="article:published_time" content=2025-06-29T21:01:25Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/cicd_gha/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps study app: GitHub Actions- Part 1",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-06-29",
+        "description": " ",
+        "wordCount":  908 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-06-29",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/cicd_gha/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps study app: GitHub Actions- Part 1">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-29T21:01:25+00:00">
+    <meta property="article:modified_time" content="2025-06-29T21:01:25+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps study app: GitHub Actions- Part 1">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/july/cicd_gha/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps study app: GitHub Actions- Part 1</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-06-29T21:01:25&#43;00:00" itemprop="datePublished"> 29 Jun 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cicd">CI/CD</a>
+          <ul>
+            <li><a href="#ci">CI</a></li>
+            <li><a href="#cd">CD</a></li>
+          </ul>
+        </li>
+        <li><a href="#tools">Tools:</a></li>
+        <li><a href="#idea-behind-the-tool">Idea behind the tool</a></li>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#creating-docker-composeyaml">Creating docker-compose.yaml</a></li>
+        <li><a href="#git-repository-configuration">Git repository configuration</a></li>
+        <li><a href="#linting-python-with-ruff">Linting Python with Ruff</a></li>
+        <li><a href="#creating-a-new-branch">Creating a new branch</a></li>
+        <li><a href="#github-action">GitHub Action</a>
+          <ul>
+            <li><a href="#creating-the-action">Creating the action:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#i-will-continue-more-as-i-go---">I will continue more as I go :-) .</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h3 id="cicd">CI/CD</h3>
+<h4 id="ci">CI</h4>
+<p>Continuous Integration &ndash;&gt; is our code ready to deploy? &ndash;&gt; linting, testing, and scanning.</p>
+<h4 id="cd">CD</h4>
+<p>Continuous Deployment &ndash;&gt; Deploy code as safely, quickly, and easily as possible &ndash;&gt; GitOps.</p>
+<h3 id="tools">Tools:</h3>
+<ol>
+<li>Jenkins: using groovy.</li>
+<li>GitLab: using YAML.</li>
+<li>Azure DevOps: using YAML.</li>
+</ol>
+<h3 id="idea-behind-the-tool">Idea behind the tool</h3>
+<p>There is an event &ndash;&gt; Trigger a script.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p><a href="https://docs.github.com/en/actions/get-started/quickstart">GitHub Actions</a> is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.</p>
+<p>You can configure a GitHub Actions <strong>workflow</strong> to be triggered when an <strong>event</strong> occurs in your repository, such as a pull request being opened or an issue being created. Your workflow contains one or more <strong>jobs</strong> which can run in sequential order or in parallel. Each job will run inside its own virtual machine <strong>runner</strong>, or inside a container, and has one or more <strong>steps</strong> that either run a script that you define or run an <strong>action</strong>, which is a reusable extension that can simplify your workflow.</p>
+<h3 id="creating-docker-composeyaml">Creating docker-compose.yaml</h3>
+<p>Let&rsquo;s install docker-compose:</p>
+<pre tabindex="0"><code>mise use docker-compose
+</code></pre><p>/docker-compose.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./src/backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">Dockerfile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;22112:22112&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./src/backend/data/:/app/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DATA_DIR=/app/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1000:1000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./src/frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">Dockerfile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;22111:22111&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">API_URL=http://backend:22112</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1000:1000&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Defining 2 containers: backend and frontend.</li>
+<li><strong>Build</strong>: tells Docker how to build the image:
+<ul>
+<li><strong>context</strong>: The folder where Docker looks for the files to build the image.</li>
+<li><strong>dockerfile</strong>: use the dockerfile that&rsquo;s inside the folder in the context.</li>
+<li><strong>ports</strong>: exposes ports.</li>
+<li><strong>volumes</strong>: mounts a local folder <code>./src/backend/data</code> to <code>/app/data</code> inside the container.</li>
+<li><strong>environment</strong>: sets an environment variable in the container.</li>
+<li><strong>user</strong>: runs the container as UID and GID 1000 (user app we made).</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-repository-configuration">Git repository configuration</h3>
+<p>In the git repository:
+&ndash;&gt; Settings.
+&ndash;&gt; [x] Automatically delete head branches.
+&ndash;&gt; Rules:
+&ndash;&gt;  Rulesets:
+&ndash;&gt; Add a new  rulesets.
+- Ruleset name: Main
+- Enforcement status: Active.
+- Bypass: if we still want to commit to main.
+- Target branches: default branch.
+- Rules:
+- [x] Require a pull request before merging
+- [ x] Request pull request review from Copilot</p>
+<p><strong>NOW</strong> no one can push to main, only with pull requests.</p>
+<h3 id="linting-python-with-ruff">Linting Python with Ruff</h3>
+<p><a href="https://github.com/astral-sh/ruff">Ruff</a>: An extremely fast Python linter and code formatter, written in Rust.</p>
+<p>Install ruff:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mise use ruff
+</span></span></code></pre></div><p>And with UV is needed:
+/src/backend</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add ruff
+</span></span></code></pre></div><p>don&rsquo;t forget to: <code>uv sync</code></p>
+<p>Let&rsquo;s run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ruff check
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ruff check
+</span></span><span class="line"><span class="cl">All checks passed!
+</span></span></code></pre></div><p>We going to add this to the .pre-commit-config.yaml:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/astral-sh/ruff-pre-commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Ruff version.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l">v0.12.1</span><span class="w"> </span><span class="c"># Check for your version with &#39;ruff --version&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Run the linter.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">ruff</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Run the formatter.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">ruff-format</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>ruff: check syntax.</li>
+<li>ruff-format: check formatting.</li>
+</ul>
+<h3 id="creating-a-new-branch">Creating a new branch</h3>
+<p>Creating a new branch and switching to him:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git switch -c ci/add-ruff-linting
+</span></span></code></pre></div><p>Now if we commit with an error, ruff will prevent it.
+Example: made an error just to show, on the commit ruff can see the syntax error:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">src/backend/src/backend/main.py:3:9: SyntaxError: Simple statements must be separated by newlines or semicolons
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="p">|</span> from fastapi import FastAPI, HTTPException, Query
+</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="p">|</span> from fastapi.middleware.cors import CORSMiddleware
+</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="p">|</span> immport uvicorn
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>         ^
+</span></span><span class="line"><span class="cl"><span class="m">4</span> <span class="p">|</span> import logging
+</span></span><span class="line"><span class="cl"><span class="m">5</span> <span class="p">|</span> from typing import List, Optional
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Found <span class="m">1</span> error.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ruff format..............................................................Failed
+</span></span><span class="line"><span class="cl">- hook id: ruff-format
+</span></span><span class="line"><span class="cl">- <span class="nb">exit</span> code: <span class="m">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">error: Failed to parse src/backend/src/backend/main.py:3:9: Simple statements must be separated by newlines or semicolons
+</span></span></code></pre></div><p>Now, when I fixed the &ldquo;error&rdquo;, the commit going through:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ci<span class="o">(</span>ruff<span class="o">)</span>: adding ruff to the ci
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ruff <span class="o">(</span>legacy <span class="nb">alias</span><span class="o">)</span>..................................<span class="o">(</span>no files to check<span class="o">)</span>Skipped
+</span></span><span class="line"><span class="cl">ruff format..........................................<span class="o">(</span>no files to check<span class="o">)</span>Skipped
+</span></span><span class="line"><span class="cl">commitizen check.........................................................Passed
+</span></span><span class="line"><span class="cl">ruff <span class="o">(</span>legacy <span class="nb">alias</span><span class="o">)</span>..................................<span class="o">(</span>no files to check<span class="o">)</span>Skipped
+</span></span><span class="line"><span class="cl">ruff format..........................................<span class="o">(</span>no files to check<span class="o">)</span>Skipped
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>ci/add-ruff-linting bf98c65<span class="o">]</span> ci<span class="o">(</span>ruff<span class="o">)</span>: adding ruff to the ci
+</span></span><span class="line"><span class="cl"> <span class="m">2</span> files changed, <span class="m">10</span> insertions<span class="o">(</span>+<span class="o">)</span>
+</span></span></code></pre></div><h3 id="github-action">GitHub Action</h3>
+<h4 id="creating-the-action">Creating the action:</h4>
+<p>First, we going to create a directory:</p>
+<pre tabindex="0"><code>mkdir -p .github/workflows
+</code></pre><p>And create backend-tests.yaml file &ndash;&gt; a GitHub Action workflow file.
+/.github/workflows/backend-tests.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Backend Tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">check_paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">outputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">should_run</span><span class="p">:</span><span class="w"> </span><span class="l">${{ steps.filter.outputs.backend }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">dorny/paths-filter@v3.0.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">filter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filters</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">            backend:
+</span></span></span><span class="line"><span class="cl"><span class="sd">              - &#39;src/backend/**&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              - &#39;.github/workflows/backend-tests.yaml&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Test Backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l">check_paths</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">${{ needs.check_paths.outputs.should_run == &#39;true&#39; }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">defaults</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">./src/backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install UV</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">astral-sh/setup-uv@v5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Python</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">uv python install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install dependencies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv sync --locked --dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Lint with Ruff</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv run ruff check --output-format=github --target-version=py313 src tests
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv run ruff format --diff --check --target-version=py313 src tests</span><span class="w">
+</span></span></span></code></pre></div><p><a href="https://github.com/marketplace">GitHub Action Marketplace</a>:
+<a href="https://github.com/marketplace/actions/paths-changes-filter">Paths Changes Filter</a>.
+<a href="https://github.com/marketplace/actions/checkout">Checkout V4</a>.
+<a href="https://github.com/marketplace/actions/astral-sh-setup-uv">astral-sh/setup-uv</a>.</p>
+<ul>
+<li>
+<p><strong>name</strong>: just the name.</p>
+</li>
+<li>
+<p><strong>on</strong>:  The trigger</p>
+<ul>
+<li><strong>pull_request</strong>:</li>
+</ul>
+</li>
+<li>
+<p><strong>jobs</strong>: every job made out of steps.</p>
+<ul>
+<li><strong>name of the job</strong>:
+<ul>
+<li><strong>runs-on</strong>: what kind of container we want to use (ubuntu-latest most of times).</li>
+<li><strong>steps</strong>:</li>
+<li><strong>outputs</strong>:
+<ul>
+<li><strong>should_run</strong>:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>needs.check_paths.outputs.should_run == &rsquo;true&rsquo;</strong>: checking if &ldquo;check_path&rdquo; outputs &ldquo;should_run&rdquo; is true, everything going to be activate.</p>
+</li>
+<li>
+<p><strong>defaults</strong>: make a default to run on everything</p>
+<ul>
+<li><strong>run</strong>:
+<ul>
+<li><strong>working-directory</strong>: path/to/dir.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now we pushed a new pull request.</p>
+<p>We get this error in Test-backend:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Run uv run ruff check --output-format<span class="o">=</span>github --target-version<span class="o">=</span>py313 src tests
+</span></span><span class="line"><span class="cl">Error: tests:1:1: E902 No such file or directory <span class="o">(</span>os error 2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Error: Process completed with <span class="nb">exit</span> code 1.
+</span></span></code></pre></div><p><img src="/images/cicd-git-1.jpg" alt="CI-1"></p>
+<p>We need to create a <code>tests</code> directory under <code>/src/backend</code>. and <code>touch tests/temp</code> a file inside.
+Now the CI will work good.</p>
+<p><img src="/images/cicd-git-2.jpg" alt="CI-2"></p>
+<h2 id="i-will-continue-more-as-i-go---">I will continue more as I go :-) .</h2>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

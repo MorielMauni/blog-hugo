@@ -6,13 +6,52 @@
     <description>Recent content in   on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 13 Jul 2025 21:44:06 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/-/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Jul 2025 23:22:09 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/-/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cicd_gha 5</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_gha-5/</link>
+      <title>&#34;Getting&#34; more RAM</title>
+      <link>http://localhost:1313/posts/2025/july/ram/</link>
+      <pubDate>Tue, 15 Jul 2025 23:22:09 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/july/ram/</guid>
+      
+      <description>&lt;p&gt;Need more RAM?&lt;/p&gt;
+&lt;p&gt;We can get memory from the SSD and make it a RAM memory.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-dont-install-read-first-&#34;&gt;!!! Don&amp;rsquo;t install, READ FIRST !!!&lt;/h2&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;h3 id=&#34;method-1-swap-file&#34;&gt;Method 1: Swap file&lt;/h3&gt;
+&lt;p&gt;Post installation is better, don&amp;rsquo;t need to mount anything and the creation is easy.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo dd if=/dev/zero of=/swapfile bs=1M count=17408 status=progress
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;dd&lt;/strong&gt;: disk duplicator tool
+&lt;ul&gt;
+&lt;li&gt;if: input file (zeroed bytes).&lt;/li&gt;
+&lt;li&gt;specify a directory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;of:  output file path (must be under &lt;code&gt;/&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;out put directory.&lt;/li&gt;
+&lt;li&gt;must to be  under / (root)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;bs: block size.&lt;/li&gt;
+&lt;li&gt;count: total MBs to allocate- binary &lt;a href=&#34;https://www.gbmb.org/gb-to-mb&#34;&gt;GB to MB&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;status: shows live progress during creation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Permissions:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>DevOps Study app: GitHub Container Image- Part 2</title>
+      <link>http://localhost:1313/posts/2025/july/cicd_gha-5/</link>
       <pubDate>Sun, 13 Jul 2025 21:44:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_gha-5/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_gha-5/</guid>
       
       <description>&lt;h3 id=&#34;front-end--back-end&#34;&gt;Front-end + Back-end&lt;/h3&gt;
 &lt;p&gt;We switch to main and pull &amp;ndash;&amp;gt; then let&amp;rsquo;s create a new branch &lt;code&gt;feat/add-docker-image-frontend&lt;/code&gt;.&lt;/p&gt;
@@ -149,10 +188,10 @@ Now we going now &lt;code&gt;uv sync&lt;/code&gt; and &lt;code&gt;git status&lt;
     
     <item>
       <title>DevOps study app: GitHub Container Image</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_dockerimage/</link>
+      <link>http://localhost:1313/posts/2025/july/cicd_dockerimage/</link>
       <pubDate>Sat, 12 Jul 2025 21:38:39 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_dockerimage/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_dockerimage/</guid>
       
       <description>&lt;h3 id=&#34;building-and-pushing-images&#34;&gt;Building and pushing images&lt;/h3&gt;
 &lt;p&gt;We switch to main and pull &amp;ndash;&amp;gt; then let&amp;rsquo;s create a new branch &lt;code&gt;feat/add-docker-image-pushing&lt;/code&gt;.&lt;/p&gt;
@@ -207,10 +246,10 @@ Now we going now &lt;code&gt;uv sync&lt;/code&gt; and &lt;code&gt;git status&lt;
     
     <item>
       <title>Virtual Machine in Arch Linux</title>
-      <link>http://localhost:1313/posts/2025/june/vm/</link>
+      <link>http://localhost:1313/posts/2025/july/vm/</link>
       <pubDate>Fri, 11 Jul 2025 09:02:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/vm/</guid>
+      <guid>http://localhost:1313/posts/2025/july/vm/</guid>
       
       <description>&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
 &lt;p&gt;I moved fully to Linux (Arch BTW), and sometimes I need to use Windows for work (like opening RDP files).&lt;/p&gt;
@@ -296,10 +335,10 @@ Release Please automates CHANGELOG generation, the creation of GitHub releases, 
     
     <item>
       <title>DevOps Study app: GitHub Actions- Front-end</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_gha-4/</link>
+      <link>http://localhost:1313/posts/2025/july/cicd_gha-4/</link>
       <pubDate>Wed, 09 Jul 2025 20:24:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_gha-4/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_gha-4/</guid>
       
       <description>&lt;p&gt;The project GitHub repository: [https://github.com/MorielMauni/devops-study-app]&lt;/p&gt;
 &lt;p&gt;Adding the test files:&lt;/p&gt;
@@ -544,10 +583,10 @@ Release Please automates CHANGELOG generation, the creation of GitHub releases, 
     
     <item>
       <title>DevOps Study app: GitHub Actions- Back-end Part 2</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_gha-3/</link>
+      <link>http://localhost:1313/posts/2025/july/cicd_gha-3/</link>
       <pubDate>Tue, 08 Jul 2025 20:16:52 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_gha-3/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_gha-3/</guid>
       
       <description>&lt;p&gt;We going to continue were we left and push the last adds, and on GitHub we going to see a new pull request that will run with an error:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Run marocchino/sticky-pull-request-comment@v2
@@ -561,10 +600,10 @@ Error: Resource not accessible by integration
     
     <item>
       <title>Return from vacation</title>
-      <link>http://localhost:1313/posts/2025/june/return/</link>
+      <link>http://localhost:1313/posts/2025/july/return/</link>
       <pubDate>Mon, 07 Jul 2025 19:00:53 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/return/</guid>
+      <guid>http://localhost:1313/posts/2025/july/return/</guid>
       
       <description>&lt;p&gt;So I took a long weekend with my family. We had huge fun.
 We returned on Sunday and started to do some laundry because we don&amp;rsquo;t have any cloths left.&lt;/p&gt;
@@ -574,10 +613,10 @@ We returned on Sunday and started to do some laundry because we don&amp;rsquo;t 
     
     <item>
       <title>Taking the weekend off</title>
-      <link>http://localhost:1313/posts/2025/june/weekend/</link>
+      <link>http://localhost:1313/posts/2025/july/weekend/</link>
       <pubDate>Wed, 02 Jul 2025 19:20:27 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/weekend/</guid>
+      <guid>http://localhost:1313/posts/2025/july/weekend/</guid>
       
       <description>&lt;p&gt;It&amp;rsquo;s important to take some time off, let this fly around you.
 This weekend it&amp;rsquo;s my wife birthday and we going to a little vacation with our little boy.
@@ -588,10 +627,10 @@ Just me, her, and him with good view and great food.&lt;/p&gt;
     
     <item>
       <title>DevOps Study app: GitHub Actions- Back-end Part 1</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_gha-2/</link>
+      <link>http://localhost:1313/posts/2025/july/cicd_gha-2/</link>
       <pubDate>Mon, 30 Jun 2025 21:49:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_gha-2/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_gha-2/</guid>
       
       <description>&lt;h3 id=&#34;tests&#34;&gt;Tests&lt;/h3&gt;
 &lt;h4 id=&#34;__-init__py&#34;&gt;__ init__.py&lt;/h4&gt;
@@ -1135,10 +1174,10 @@ Just me, her, and him with good view and great food.&lt;/p&gt;
     
     <item>
       <title>DevOps study app: GitHub Actions- Part 1</title>
-      <link>http://localhost:1313/posts/2025/june/cicd_gha/</link>
+      <link>http://localhost:1313/posts/2025/july/cicd_gha/</link>
       <pubDate>Sun, 29 Jun 2025 21:01:25 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2025/june/cicd_gha/</guid>
+      <guid>http://localhost:1313/posts/2025/july/cicd_gha/</guid>
       
       <description>&lt;h3 id=&#34;cicd&#34;&gt;CI/CD&lt;/h3&gt;
 &lt;h4 id=&#34;ci&#34;&gt;CI&lt;/h4&gt;

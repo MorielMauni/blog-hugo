@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps Study app: GitHub Actions- Front-end | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps Study app: GitHub Actions- Front-end | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps Study app: GitHub Actions- Front-end | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps Study app: GitHub Actions- Front-end | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps Study app: GitHub Actions- Front-end | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/july/cicd_gha-4/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-07-09T20:24:16Z />
+    <meta property="article:published_time" content=2025-07-09T20:24:16Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/cicd_gha-4/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps Study app: GitHub Actions- Front-end",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-07-09",
+        "description": " ",
+        "wordCount":  1207 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-07-09",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/cicd_gha-4/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps Study app: GitHub Actions- Front-end">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-09T20:24:16+00:00">
+    <meta property="article:modified_time" content="2025-07-09T20:24:16+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps Study app: GitHub Actions- Front-end">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/july/cicd_gha-4/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps Study app: GitHub Actions- Front-end</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-07-09T20:24:16&#43;00:00" itemprop="datePublished"> 9 Jul 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents"></nav>
+    </details>
+            <div class="page-content">
+                <p>The project GitHub repository: [https://github.com/MorielMauni/devops-study-app]</p>
+<p>Adding the test files:</p>
+<p>conftest.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytest</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">template_rendered</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">frontend.main</span> <span class="kn">import</span> <span class="n">app</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@contextmanager</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">captured_templates</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Context manager to track templates rendered by the Flask app.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Allows test to assert on which templates were rendered and their contexts.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recorded</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">recorded</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">template_rendered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">recorded</span>
+</span></span><span class="line"><span class="cl">    <span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template_rendered</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@pytest.fixture</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test client for the Flask application&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;TESTING&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">client</span>
+</span></span></code></pre></div><p>test_main.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">responses</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">conftest</span> <span class="kn">import</span> <span class="n">captured_templates</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">frontend.main</span> <span class="kn">import</span> <span class="n">app</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_index_page</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the index route when API returns sessions&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Sample response data that mimics what the backend would return</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sample_sessions</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;12345&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-04-23T10:15:30Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Python&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;67890&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-04-22T14:20:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;AWS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API response for sessions</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/sessions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">=</span><span class="n">sample_sessions</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Use the captured_templates context manager to verify rendered template</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">captured_templates</span><span class="p">(</span><span class="n">app</span><span class="p">)</span> <span class="k">as</span> <span class="n">templates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check the response</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check that the correct template was rendered</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">templates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template</span><span class="p">,</span> <span class="n">context</span> <span class="o">=</span> <span class="n">templates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&#34;index.html&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check that sessions were passed to the template with correct formatting</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rendered_sessions</span> <span class="o">=</span> <span class="n">context</span><span class="p">[</span><span class="s2">&#34;sessions&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">rendered_sessions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Verify first session data</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;id&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;12345&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;minutes&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">45</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;tag&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Python&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;formatted_date&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;2025-04-23 10:15&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Verify the sessions are sorted by timestamp (newest first)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&#34;timestamp_obj&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&gt;</span> <span class="n">rendered_sessions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&#34;timestamp_obj&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_index_page_api_error</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the index route when API returns an error&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API response to return an error</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/sessions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="s2">&#34;Internal server error&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">captured_templates</span><span class="p">(</span><span class="n">app</span><span class="p">)</span> <span class="k">as</span> <span class="n">templates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check the response</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check that the correct template was rendered with empty sessions</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">templates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template</span><span class="p">,</span> <span class="n">context</span> <span class="o">=</span> <span class="n">templates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&#34;index.html&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">&#34;sessions&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_add_session_valid</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test adding a valid study session&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API response for creating a session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/sessions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;abcde&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-04-24T09:30:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a POST request to add a new session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/add_session&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="s2">&#34;60&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Docker&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify redirect to index page</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">302</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Location&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify the API was called with correct payload</span>
+</span></span><span class="line"><span class="cl">    <span class="n">request</span> <span class="o">=</span> <span class="n">responses</span><span class="o">.</span><span class="n">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">request</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;Request body should not be None&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Docker&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_add_session_invalid_minutes</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test adding a study session with invalid minutes&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a POST request with invalid minutes (non-numeric)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/add_session&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="s2">&#34;invalid&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Docker&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify redirect to index page</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">302</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Location&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_add_session_empty_tag</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test adding a study session with empty tag&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a POST request with empty tag</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/add_session&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="s2">&#34;30&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify redirect to index page</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">302</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Location&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_add_session_zero_minutes</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test adding a study session with zero minutes&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a POST request with zero minutes</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/add_session&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Docker&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify redirect to index page</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">302</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Location&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_add_session_api_error</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test adding a session when API returns an error&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API to return an error</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/sessions&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="s2">&#34;Server error&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a POST request to add a new session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/add_session&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;minutes&#34;</span><span class="p">:</span> <span class="s2">&#34;45&#34;</span><span class="p">,</span> <span class="s2">&#34;tag&#34;</span><span class="p">:</span> <span class="s2">&#34;Terraform&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify redirect to index page despite API error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">302</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;Location&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_health_endpoint_api_healthy</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the health endpoint when the API is healthy&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API health endpoint to return success</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/health&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;healthy&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a GET request to the health endpoint</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/health&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify response</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;status&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;healthy&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;api_connectivity&#34;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@responses.activate</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_health_endpoint_api_down</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Test the health endpoint when the API is down&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mock the API health endpoint to return a connection error</span>
+</span></span><span class="line"><span class="cl">    <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;http://localhost:22112/health&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">body</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">RequestException</span><span class="p">(</span><span class="s2">&#34;Connection error&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Send a GET request to the health endpoint</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/health&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Verify response - should return 503 when API is down</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">503</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;status&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;unhealthy&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&#34;api_connectivity&#34;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span>
+</span></span></code></pre></div><p>add dependencies:</p>
+<pre tabindex="0"><code>uv add pytest pytest_asyncio responses
+</code></pre><p>Now when we run <code>pytest</code> we get:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">==================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">===================================</span>
+</span></span><span class="line"><span class="cl">platform linux -- Python 3.13.5, pytest-8.4.1, pluggy-1.6.0                               
+</span></span><span class="line"><span class="cl">rootdir: /workspaces/devops-study-app/src/frontend                                        
+</span></span><span class="line"><span class="cl">configfile: pyproject.toml                                                                
+</span></span><span class="line"><span class="cl">plugins: asyncio-1.0.0                                                                    
+</span></span><span class="line"><span class="cl">asyncio: <span class="nv">mode</span><span class="o">=</span>Mode.STRICT, <span class="nv">asyncio_default_fixture_loop_scope</span><span class="o">=</span>None, <span class="nv">asyncio_default_test_loop_scope</span><span class="o">=</span><span class="k">function</span>                                                                        
+</span></span><span class="line"><span class="cl">collected <span class="m">9</span> items                                                                         
+</span></span><span class="line"><span class="cl">                                                                                          
+</span></span><span class="line"><span class="cl">tests/test_main.py .........                                                       <span class="o">[</span>100%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">                                                                                          
+</span></span><span class="line"><span class="cl"><span class="o">===================================</span> <span class="m">9</span> passed in 0.31s <span class="o">====================================</span>
+</span></span></code></pre></div><p>Let&rsquo;s add another uv dependency:</p>
+<pre tabindex="0"><code>uv add pytest-cov
+</code></pre><p>/.github/workflows/frontend-test.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Frontend Tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">check_paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">outputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">should_run</span><span class="p">:</span><span class="w"> </span><span class="l">${{ steps.filter.outputs.frontend }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">dorny/paths-filter@v3.0.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">filter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filters</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">            frontend:
+</span></span></span><span class="line"><span class="cl"><span class="sd">              - &#39;src/frontend/**&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              - &#39;.github/workflows/frontend-tests.yaml&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Test Frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l">check_paths</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">${{ needs.check_paths.outputs.should_run == &#39;true&#39; }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">defaults</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l">./src/frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install UV</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">astral-sh/setup-uv@v5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Python</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">uv python install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install dependencies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv sync --locked --dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Lint with Ruff</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv run ruff check --output-format=github --target-version=py313 src tests
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv run ruff format --diff --check --target-version=py313 src tests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run tests with coverage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          uv run pytest tests/ -v --cov=src/frontend --cov-report=xml --cov-fail-under=80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Upload coverage report</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/upload-artifact@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend-coverage-report</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./src/frontend/coverage.xml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">${{ always() }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Coverage Report</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">irongut/CodeCoverageSummary@v1.3.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">./src/frontend/coverage.xml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">badge</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l">markdown</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l">both</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Add Coverage PR Comment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">marocchino/sticky-pull-request-comment@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l">github.event_name == &#39;pull_request&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">header</span><span class="p">:</span><span class="w"> </span><span class="l">frontend-test-coverage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">recreate</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">code-coverage-results.md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">docker build -t frontend-app:latest .</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Trivy vulnerability scanner</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">aquasecurity/trivy-action@0.30.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image-ref</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;frontend-app:latest&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;table&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">exit-code</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># exit-code: &#39;1&#39; # Fail the workflow if vulnerabilities are found.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ignore-unfixed</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">vuln-type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;os,library&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;CRITICAL,HIGH&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>Let&rsquo;s run the tests:</p>
+<pre tabindex="0"><code>uv run pytest tests/ -v --cov=src/frontend --cov-report=xml --cov-fail-under=80
+</code></pre><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">=================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">===================================</span>
+</span></span><span class="line"><span class="cl">platform linux -- Python 3.13.5, pytest-8.4.1, pluggy-1.6.0 -- /workspaces/devops-study-app/src/frontend/.venv/bin/python3                                                          
+</span></span><span class="line"><span class="cl">cachedir: .pytest_cache                                                                   
+</span></span><span class="line"><span class="cl">rootdir: /workspaces/devops-study-app/src/frontend                                        
+</span></span><span class="line"><span class="cl">configfile: pyproject.toml                                                                
+</span></span><span class="line"><span class="cl">plugins: asyncio-1.0.0, cov-6.2.1                                                         
+</span></span><span class="line"><span class="cl">asyncio: <span class="nv">mode</span><span class="o">=</span>Mode.STRICT, <span class="nv">asyncio_default_fixture_loop_scope</span><span class="o">=</span>None, <span class="nv">asyncio_default_test_loop_scope</span><span class="o">=</span><span class="k">function</span>                                                                        
+</span></span><span class="line"><span class="cl">collected <span class="m">9</span> items                                                                         
+</span></span><span class="line"><span class="cl">                                                                                          
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_index_page PASSED                                         <span class="o">[</span> 11%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_index_page_api_error PASSED                               <span class="o">[</span> 22%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_add_session_valid PASSED                                  <span class="o">[</span> 33%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_add_session_invalid_minutes PASSED                        <span class="o">[</span> 44%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_add_session_empty_tag PASSED                              <span class="o">[</span> 55%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_add_session_zero_minutes PASSED                           <span class="o">[</span> 66%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_add_session_api_error PASSED                              <span class="o">[</span> 77%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_health_endpoint_api_healthy PASSED                        <span class="o">[</span> 88%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">tests/test_main.py::test_health_endpoint_api_down PASSED                           <span class="o">[</span>100%<span class="o">]</span> 
+</span></span><span class="line"><span class="cl">                                                                                          
+</span></span><span class="line"><span class="cl"><span class="o">=====================================</span> tests <span class="nv">coverage</span> <span class="o">=====================================</span>
+</span></span><span class="line"><span class="cl">____________________ coverage: platform linux, python 3.13.5-final-0 _____________________
+</span></span><span class="line"><span class="cl">                                                                                          
+</span></span><span class="line"><span class="cl">Coverage XML written to file coverage.xml                                                 
+</span></span><span class="line"><span class="cl">Required <span class="nb">test</span> coverage of 80% reached. Total coverage: 96.05%                             
+</span></span><span class="line"><span class="cl"><span class="o">===================================</span> <span class="m">9</span> passed in 0.35s <span class="o">====================================</span>
+</span></span></code></pre></div><p>Let&rsquo;s fix the dependencies:</p>
+<pre tabindex="0"><code>uv add pytest pytest-cov responses ruff --dev 
+</code></pre><p>pyproject.toml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;study-tracker-frontend&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.0.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;Frontend for DevOps Study Tracker application&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">authors</span> <span class="p">=</span> <span class="p">[{</span> <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;Mischa van den Burg&#34;</span><span class="p">,</span> <span class="nx">email</span> <span class="p">=</span> <span class="s2">&#34;mischa@gmail.com&#34;</span> <span class="p">}]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.13&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;flask&gt;=3.1.1&#34;</span><span class="p">,</span> <span class="s2">&#34;requests&gt;=2.32.4&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">.</span><span class="nx">scripts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">study-tracker-frontend</span> <span class="p">=</span> <span class="s2">&#34;frontend.main:main&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">hatch</span><span class="p">.</span><span class="nx">build</span><span class="p">.</span><span class="nx">targets</span><span class="p">.</span><span class="nx">wheel</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">packages</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;src/frontend&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">build-system</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requires</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;hatchling&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">build-backend</span> <span class="p">=</span> <span class="s2">&#34;hatchling.build&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependency-groups</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dev</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;pytest&gt;=8.4.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;pytest-cov&gt;=6.2.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;responses&gt;=0.25.7&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ruff&gt;=0.12.2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>If we check the build it&rsquo;s still 49 MB.</p>
+<p>Now, we can commit, push, squash and merge.</p>
+<p><img src="/images/cicd-testfronend.jpg" alt="GitHub-5"></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
