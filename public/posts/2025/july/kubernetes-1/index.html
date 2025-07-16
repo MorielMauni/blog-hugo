@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps Study app: Setting up Kubernetes | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="DevOps Study app: Setting up Kubernetes | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="DevOps Study app: Setting up Kubernetes | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="DevOps Study app: Setting up Kubernetes | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="DevOps Study app: Setting up Kubernetes | Moriel&#39;s Mauni blog" />
+<meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
+
+<meta name="description" content=" ">
+<meta itemprop="description" content=" " />
+<meta property="og:description" content=" " />
+<meta name="twitter:description" content=" " />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/2025/july/kubernetes-1/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-07-16T15:30:18Z />
+    <meta property="article:published_time" content=2025-07-16T15:30:18Z />
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/kubernetes-1/" />
+
+    
+    <meta property="og:article:author" content="Moriel Mauni" />
+    <meta property="article:author" content="Moriel Mauni" />
+    <meta name="author" content="Moriel Mauni" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps Study app: Setting up Kubernetes",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-07-16",
+        "description": " ",
+        "wordCount":  1703 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-07-16",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Moriel\u0027s Mauni blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.147.8">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/2025/july/kubernetes-1/">
+  <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
+  <meta property="og:title" content="DevOps Study app: Setting up Kubernetes">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-16T15:30:18+00:00">
+    <meta property="article:modified_time" content="2025-07-16T15:30:18+00:00">
+    <meta property="article:tag" content=" ">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps Study app: Setting up Kubernetes">
+  <meta name="twitter:description" content="">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/2025/july/kubernetes-1/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps Study app: Setting up Kubernetes</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-07-16T15:30:18&#43;00:00" itemprop="datePublished"> 16 Jul 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#k3d">K3D</a></li>
+      </ul>
+    </li>
+    <li><a href="#manifest">Manifest</a>
+      <ul>
+        <li><a href="#dev-directory">dev directory</a></li>
+        <li><a href="#backend-directory">backend directory</a>
+          <ul>
+            <li><a href="#frontend-directory">frontend directory</a></li>
+          </ul>
+        </li>
+        <li><a href="#base-directory">Base directory</a>
+          <ul>
+            <li><a href="#kustomization">kustomization</a></li>
+            <li><a href="#backend">backend</a></li>
+            <li><a href="#frontend">frontend</a></li>
+          </ul>
+        </li>
+        <li><a href="#make-the-images-for-kubernetes">Make the images for Kubernetes</a>
+          <ul>
+            <li><a href="#bash-script">Bash script</a></li>
+          </ul>
+        </li>
+        <li><a href="#task-with-mise">Task with mise</a></li>
+        <li><a href="#minimal-cluster-script">Minimal cluster script</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>First of all, let&rsquo;s switch to main and pull.</p>
+<h3 id="k3d">K3D</h3>
+<p><a href="https://k3d.io/stable/">K3D</a> is a lightweight wrapper to run <a href="https://github.com/rancher/k3s">k3s</a> (Rancher Lab’s minimal Kubernetes distribution) in docker.</p>
+<pre tabindex="0"><code>mise use k3d kubectl k9s
+</code></pre><p>Let&rsquo;s check everything is running ok with</p>
+<pre tabindex="0"><code>k3d cluster create mycluster
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">INFO<span class="o">[</span>0000<span class="o">]</span> Prep: Network
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0000<span class="o">]</span> Created network <span class="s1">&#39;k3d-mycluster&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0000<span class="o">]</span> Created image volume k3d-mycluster-images
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0000<span class="o">]</span> Starting new tools node...
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0000<span class="o">]</span> Pulling image <span class="s1">&#39;ghcr.io/k3d-io/k3d-tools:5.8.3&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0001<span class="o">]</span> Creating node <span class="s1">&#39;k3d-mycluster-server-0&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0002<span class="o">]</span> Starting node <span class="s1">&#39;k3d-mycluster-tools&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0003<span class="o">]</span> Pulling image <span class="s1">&#39;docker.io/rancher/k3s:v1.31.5-k3s1&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0009<span class="o">]</span> Creating LoadBalancer <span class="s1">&#39;k3d-mycluster-serverlb&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0010<span class="o">]</span> Pulling image <span class="s1">&#39;ghcr.io/k3d-io/k3d-proxy:5.8.3&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0013<span class="o">]</span> Using the k3d-tools node to gather environment information
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0013<span class="o">]</span> HostIP: using network gateway 172.20.0.1 address
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0013<span class="o">]</span> Starting cluster <span class="s1">&#39;mycluster&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0013<span class="o">]</span> Starting servers...
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0013<span class="o">]</span> Starting node <span class="s1">&#39;k3d-mycluster-server-0&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0017<span class="o">]</span> All agents already running.
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0017<span class="o">]</span> Starting helpers...
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0017<span class="o">]</span> Starting node <span class="s1">&#39;k3d-mycluster-serverlb&#39;</span>
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0023<span class="o">]</span> Injecting records <span class="k">for</span> hostAliases <span class="o">(</span>incl. host.k3d.internal<span class="o">)</span> and <span class="k">for</span> <span class="m">2</span> network members into CoreDNS configmap...
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0025<span class="o">]</span> Cluster <span class="s1">&#39;mycluster&#39;</span> created successfully!
+</span></span><span class="line"><span class="cl">INFO<span class="o">[</span>0025<span class="o">]</span> You can now use it like this:
+</span></span><span class="line"><span class="cl">kubectl cluster-info
+</span></span></code></pre></div><p><strong>Remember</strong>: we are using Docker (the images we made) inside of Docker (dev-container).</p>
+<h2 id="manifest">Manifest</h2>
+<h3 id="dev-directory">dev directory</h3>
+<p>make a new directory in the root named <code>kubernetes</code>.</p>
+<p>/kubernetes/dev/kustomization.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">namespace.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">namePrefix</span><span class="p">:</span><span class="w"> </span><span class="l">dev-</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">images</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
+</span></span></span></code></pre></div><p>/kubernetes/dev/namespace.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Resources:
+<ul>
+<li>The namespace.yaml.</li>
+<li>Reads the backend and frontend directories.</li>
+</ul>
+</li>
+<li>Apply the namespace <code>study-app</code>.</li>
+<li>Have a name prefix: everything going to have <code>dev-</code> in front of it.</li>
+<li>Images:
+<ul>
+<li>both backend and frontend getting a new name &ldquo;dev&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<h3 id="backend-directory">backend directory</h3>
+<p>dev/backend/kustomization.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">../../base/backend</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Points to the <code>/manifest/base/backend</code>.</li>
+</ul>
+<h4 id="frontend-directory">frontend directory</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">../../base/frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Patch for the frontend deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">patches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">target</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">patch</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">      - op: replace
+</span></span></span><span class="line"><span class="cl"><span class="sd">        path: /spec/template/spec/containers/0/env
+</span></span></span><span class="line"><span class="cl"><span class="sd">        value:
+</span></span></span><span class="line"><span class="cl"><span class="sd">          - name: DEBUG
+</span></span></span><span class="line"><span class="cl"><span class="sd">            value: &#34;true&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          - name: API_URL
+</span></span></span><span class="line"><span class="cl"><span class="sd">            value: &#34;http://dev-backend:22112&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Points to the <code>/manifest/base/frontend</code>.</li>
+<li>Patches:
+<ul>
+<li>Target the deployment.</li>
+<li>Replace environment variables:
+<ul>
+<li>DEBUG to true.</li>
+<li>Change the API_URL to <code>http://dev-backend:22112</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="base-directory">Base directory</h3>
+<h4 id="kustomization">kustomization</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">frontend</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Reading the backend and frontend directories.</li>
+</ul>
+<h4 id="backend">backend</h4>
+<p>deployment.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">backend:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">22112</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;512Mi&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;128Mi&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>The tag new is going to change from <code>latest</code> to <code>dev</code> like we saw above.</li>
+<li>1 replica.</li>
+<li>Expose port 22112.</li>
+<li>Giving resources:
+<ul>
+<li>Memory.</li>
+<li>CPU.</li>
+</ul>
+</li>
+</ul>
+<p>service.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">22112</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Creating a Load-Balancer service on port 22112.</li>
+</ul>
+<h4 id="frontend">frontend</h4>
+<p>deployment.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">frontend:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">22111</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">API_URL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://backend:22112&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;512Mi&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;128Mi&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>1 replica.</li>
+<li>The tag new is going to change from <code>latest</code> to <code>dev</code> like we saw above.</li>
+<li>Expose port 22111.</li>
+<li>Giving resources:
+<ul>
+<li>Memory.</li>
+<li>CPU.</li>
+</ul>
+</li>
+</ul>
+<p>kustomization.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">deployment.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">service.yaml</span><span class="w">
+</span></span></span></code></pre></div><p>service.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">study-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">22111</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>Creating a Load-Balancer service on port 22111.</li>
+</ul>
+<h3 id="make-the-images-for-kubernetes">Make the images for Kubernetes</h3>
+<p>In the manifest, we wrote on images named <code>backend:dev</code> and <code>frontend:dev</code> and we don&rsquo;t have them.
+As DevOps engineer, we want the making of the images well be automated- we going to use a script for that.</p>
+<p>First, let&rsquo;s make a k3d-config.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">k3d.io/v1alpha5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Simple</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">study-app-cluster</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">agents</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">k3s</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">extraArgs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">arg</span><span class="p">:</span><span class="w"> </span>--<span class="l">disable=traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">nodeFilters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">server:*</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>In K3D we can define clusters in a yaml file:
+<ul>
+<li>1 server.</li>
+<li>1 agent.</li>
+<li>K3S:
+<ul>
+<li>disable traefik: (reverse proxy) to all servers.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="bash-script">Bash script</h4>
+<p>kubernetes/setup_cluster_local</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Colors for better output</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GREEN</span><span class="o">=</span><span class="s1">&#39;\033[0;32m&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RED</span><span class="o">=</span><span class="s1">&#39;\033[0;31m&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">YELLOW</span><span class="o">=</span><span class="s1">&#39;\033[1;33m&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NC</span><span class="o">=</span><span class="s1">&#39;\033[0m&#39;</span> <span class="c1"># No Color</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Script directory</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SCRIPT_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span><span class="nb">cd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BASE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$SCRIPT_DIR</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CLUSTER_NAME</span><span class="o">=</span><span class="s2">&#34;study-app-cluster&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">DevOps Study App - Kubernetes Deployment Helper</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">This script will set up a k3d cluster and deploy the study app.</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check for required tools</span>
+</span></span><span class="line"><span class="cl">check_dependency<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> ! <span class="nb">command</span> -v <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">Error: </span><span class="nv">$1</span><span class="s2"> is not installed. Please install it before proceeding.</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Checking dependencies...&#34;</span>
+</span></span><span class="line"><span class="cl">check_dependency k3d
+</span></span><span class="line"><span class="cl">check_dependency kubectl
+</span></span><span class="line"><span class="cl">check_dependency docker
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">All dependencies are installed.</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check if cluster exists</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> k3d cluster list <span class="p">|</span> grep -q <span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Cluster </span><span class="nv">$CLUSTER_NAME</span><span class="s2"> already exists.</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">read</span> -p <span class="s2">&#34;Do you want to delete and recreate it? (y/n): &#34;</span> -r
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$REPLY</span> <span class="o">=</span>~ ^<span class="o">[</span>Yy<span class="o">]</span>$ <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Deleting existing cluster...&#34;</span>
+</span></span><span class="line"><span class="cl">    k3d cluster delete <span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Using existing cluster.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create cluster if it doesn&#39;t exist</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> ! k3d cluster list <span class="p">|</span> grep -q <span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Creating k3d cluster using config file...&#34;</span>
+</span></span><span class="line"><span class="cl">  k3d cluster create --config <span class="s2">&#34;</span><span class="nv">$SCRIPT_DIR</span><span class="s2">/k3d-config.yaml&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Cluster created successfully!</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Configure kubectl to use the cluster</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Configuring kubectl to use the cluster...&#34;</span>
+</span></span><span class="line"><span class="cl">kubectl config use-context k3d-<span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Build Docker images</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Building Docker images...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Building backend image...&#34;</span>
+</span></span><span class="line"><span class="cl">docker build -t backend:dev -f <span class="s2">&#34;</span><span class="nv">$BASE_DIR</span><span class="s2">/src/backend/Dockerfile&#34;</span> <span class="s2">&#34;</span><span class="nv">$BASE_DIR</span><span class="s2">/src/backend&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Building frontend image...&#34;</span>
+</span></span><span class="line"><span class="cl">docker build -t frontend:dev -f <span class="s2">&#34;</span><span class="nv">$BASE_DIR</span><span class="s2">/src/frontend/Dockerfile&#34;</span> <span class="s2">&#34;</span><span class="nv">$BASE_DIR</span><span class="s2">/src/frontend&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import images into k3d</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Importing images into k3d...&#34;</span>
+</span></span><span class="line"><span class="cl">k3d image import backend:dev -c <span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">k3d image import frontend:dev -c <span class="s2">&#34;</span><span class="nv">$CLUSTER_NAME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Deploy the application using kustomize</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Deploying application using kustomize...&#34;</span>
+</span></span><span class="line"><span class="cl">kubectl apply -k <span class="s2">&#34;</span><span class="nv">$SCRIPT_DIR</span><span class="s2">/manifests/dev&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Wait for pods to be ready</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Waiting for pods to be ready...&#34;</span>
+</span></span><span class="line"><span class="cl">kubectl <span class="nb">wait</span> --for<span class="o">=</span><span class="nv">condition</span><span class="o">=</span>Ready pods --all -n study-app --timeout<span class="o">=</span>120s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get service info</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Application deployed successfully!</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Getting service information...&#34;</span>
+</span></span><span class="line"><span class="cl">kubectl get services -n study-app
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Function to wait for LoadBalancer IP assignment and get URL</span>
+</span></span><span class="line"><span class="cl">get_service_url<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">service_name</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">max_attempts</span><span class="o">=</span><span class="m">30</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">attempt</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;Waiting for </span><span class="nv">$service_name</span><span class="s2"> external IP...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="o">[</span> <span class="nv">$attempt</span> -le <span class="nv">$max_attempts</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> ip
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> port
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">ip</span><span class="o">=</span><span class="k">$(</span>kubectl get svc <span class="s2">&#34;</span><span class="nv">$service_name</span><span class="s2">&#34;</span> -n study-app -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[0].ip}&#39;</span> 2&gt;/dev/null<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">port</span><span class="o">=</span><span class="k">$(</span>kubectl get svc <span class="s2">&#34;</span><span class="nv">$service_name</span><span class="s2">&#34;</span> -n study-app -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.ports[0].port}&#39;</span> 2&gt;/dev/null<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$ip</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$port</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;http://</span><span class="nv">$ip</span><span class="s2">:</span><span class="nv">$port</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -n <span class="s2">&#34;.&#34;</span>
+</span></span><span class="line"><span class="cl">    sleep <span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="o">((</span>attempt++<span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">Could not get external IP for </span><span class="nv">$service_name</span><span class="s2"> after </span><span class="nv">$max_attempts</span><span class="s2"> attempts</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get frontend and backend service URLs</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FRONTEND_URL</span><span class="o">=</span><span class="k">$(</span>get_service_url <span class="s2">&#34;dev-frontend&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKEND_URL</span><span class="o">=</span><span class="k">$(</span>get_service_url <span class="s2">&#34;dev-backend&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;\n</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Access your application via LoadBalancer external IPs:</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$FRONTEND_URL</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$BACKEND_URL</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;Frontend: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="nv">$FRONTEND_URL</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;Backend API: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="nv">$BACKEND_URL</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;Backend health check: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="nv">$BACKEND_URL</span><span class="s2">/health</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;\n</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">Could not determine service URLs. Please check the service status:</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">kubectl get svc -n study-app</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract service ports for port-forwarding instructions</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FRONTEND_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl get svc dev-frontend -n study-app -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.ports[0].port}&#39;</span> 2&gt;/dev/null<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKEND_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl get svc dev-backend -n study-app -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.ports[0].port}&#39;</span> 2&gt;/dev/null<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;\n</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Alternative access via port-forwarding (for local development):</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;To access via port-forwarding, run these commands in separate terminals:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">kubectl port-forward svc/dev-frontend -n study-app </span><span class="nv">$FRONTEND_PORT</span><span class="s2">:</span><span class="nv">$FRONTEND_PORT</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">kubectl port-forward svc/dev-backend -n study-app </span><span class="nv">$BACKEND_PORT</span><span class="s2">:</span><span class="nv">$BACKEND_PORT</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;Then access the application at:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;Frontend: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">http://localhost:</span><span class="nv">$FRONTEND_PORT</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;Backend API: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">http://localhost:</span><span class="nv">$BACKEND_PORT</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;Backend health check: </span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">http://localhost:</span><span class="nv">$BACKEND_PORT</span><span class="s2">/health</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;\nTo delete the cluster when finished:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">k3d cluster delete </span><span class="nv">$CLUSTER_NAME</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>Don&rsquo;t forget to <code>chmod +x setup_cluster_local</code>.</p>
+<p>What the script do:</p>
+<ol>
+<li>Check if all dependencies are installed.</li>
+<li>Create a cluster using the <code>k3d-config.yaml</code> file.</li>
+<li>Build images locally- with tag.</li>
+<li>Import the images to K3D.</li>
+<li>Applying the manifest.</li>
+<li>Creating the namespaces, and Load-Balancers.</li>
+</ol>
+<p>The script:</p>
+<ul>
+<li>Setting script directory- to use it with mise.</li>
+<li>Check for dependencies:
+<ul>
+<li>K3D.</li>
+<li>kubectl.</li>
+<li>docker.</li>
+</ul>
+</li>
+<li>Checking if cluster exists:
+<ul>
+<li>If it does, asking for delete and recreate.</li>
+<li>If don&rsquo;t exists, create it.</li>
+</ul>
+</li>
+<li>Configure kubectl to use in the cluster.</li>
+<li>Build Docker images:
+<ul>
+<li>Build back-end image.</li>
+<li>Build the front-end image.</li>
+</ul>
+</li>
+<li>Imports the images to K3D.</li>
+<li>Apply the app with Kustomize.</li>
+<li>Function for Load-Balancer:
+<ul>
+<li>Max attempts is 30.</li>
+<li>Getting all the information from kubectl:
+<ul>
+<li>IP.</li>
+<li>Port.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="task-with-mise">Task with mise</h3>
+<p>We can add out script to mise to work as an alias:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">task</span><span class="p">.</span><span class="nx">build</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;Script&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">run</span> <span class="p">=</span> <span class="s2">&#34;build&#34;</span>
+</span></span></code></pre></div><p>Or with file task</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c">#!.usr.bin/env bash</span>
+</span></span><span class="line"><span class="cl"><span class="c">#MISE description = &#34;Script&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">build</span>
+</span></span></code></pre></div><p><a href="https://mise.jdx.dev/tasks/">mise task documentation</a>.</p>
+<p>We going to use the File task option:</p>
+<pre tabindex="0"><code>[tasks.k8s-setup-local]
+description = &#34;Set up a basic Kubernetes cluster that builds the local images and applies them&#34;
+run = &#34;bash ./kubernetes/setup_cluster_local&#34;
+</code></pre><p>Now, if we do <code>mise run k8s-setup-local</code></p>
+<h3 id="minimal-cluster-script">Minimal cluster script</h3>
+<p>Let&rsquo;s add a script for a minimal script that&rsquo;s only creates a cluster:</p>
+<pre tabindex="0"><code>#!/bin/bash
+set -e
+
+# Colors for better output
+GREEN=&#39;\033[0;32m&#39;
+RED=&#39;\033[0;31m&#39;
+YELLOW=&#39;\033[1;33m&#39;
+NC=&#39;\033[0m&#39; # No Color
+
+# Script directory
+SCRIPT_DIR=&#34;$(cd &#34;$(dirname &#34;${BASH_SOURCE[0]}&#34;)&#34; &amp;&amp; pwd)&#34;
+CLUSTER_NAME=&#34;study-app-cluster&#34;
+
+echo -e &#34;${GREEN}DevOps Study App - Minimal Kubernetes Cluster Setup${NC}&#34;
+echo -e &#34;${YELLOW}This script will set up a k3d cluster without deploying any applications.${NC}&#34;
+echo &#34;&#34;
+
+# Check for required tools
+check_dependency() {
+  if ! command -v &#34;$1&#34; &amp;&gt;/dev/null; then
+    echo -e &#34;${RED}Error: $1 is not installed. Please install it before proceeding.${NC}&#34;
+    exit 1
+  fi
+}
+
+echo &#34;Checking dependencies...&#34;
+check_dependency k3d
+check_dependency kubectl
+echo -e &#34;${GREEN}All dependencies are installed.${NC}&#34;
+echo &#34;&#34;
+
+# Check if cluster exists
+if k3d cluster list | grep -q &#34;$CLUSTER_NAME&#34;; then
+  echo -e &#34;${YELLOW}Cluster $CLUSTER_NAME already exists.${NC}&#34;
+  read -p &#34;Do you want to delete and recreate it? (y/n): &#34; -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo &#34;Deleting existing cluster...&#34;
+    k3d cluster delete &#34;$CLUSTER_NAME&#34;
+  else
+    echo &#34;Using existing cluster.&#34;
+  fi
+fi
+
+# Create cluster if it doesn&#39;t exist
+if ! k3d cluster list | grep -q &#34;$CLUSTER_NAME&#34;; then
+  echo &#34;Creating k3d cluster using config file...&#34;
+  k3d cluster create --config &#34;$SCRIPT_DIR/k3d-config.yaml&#34;
+  echo -e &#34;${GREEN}Cluster created successfully!${NC}&#34;
+fi
+
+# Configure kubectl to use the cluster
+echo &#34;Configuring kubectl to use the cluster...&#34;
+kubectl config use-context k3d-&#34;$CLUSTER_NAME&#34;
+
+echo -e &#34;\n${GREEN}Cluster is now ready!${NC}&#34;
+echo -e &#34;You can deploy applications manually or use one of the other setup scripts to deploy the study app.&#34;
+
+echo -e &#34;\nTo check your cluster nodes:&#34;
+echo -e &#34;${YELLOW}kubectl get nodes${NC}&#34;
+
+echo -e &#34;\nTo create the application namespace:&#34;
+echo -e &#34;${YELLOW}kubectl create namespace study-app${NC}&#34;
+
+echo -e &#34;\nTo delete the cluster when finished:&#34;
+echo -e &#34;${YELLOW}k3d cluster delete $CLUSTER_NAME${NC}&#34;
+</code></pre><p>Add it to mise.toml:</p>
+<pre tabindex="0"><code>[tasks.k8s-setup-minimal]
+description = &#34;Set up a basic Kubernetes cluster that builds the local images and applies them&#34;
+run = &#34;bash ./kubernetes/setup_cluster_minimal&#34;
+</code></pre>
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/MorielMauni" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/morielmauni/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="mailto:morielmauni@gmail.com" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Moriel Mauni.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

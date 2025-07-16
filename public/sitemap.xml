@@ -3,24 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/-/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/-/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2025/july/ram/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/july/kubernetes-1/</loc>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-07-15T23:22:09+00:00</lastmod>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-07-16T15:30:18+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/july/ram/</loc>
     <lastmod>2025-07-15T23:22:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/july/cicd_gha-5/</loc>

@@ -53,7 +53,7 @@
         },
         "datePublished": "2025-07-15",
         "description": " ",
-        "wordCount":  483 ,
+        "wordCount":  485 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-07-15",
         "image": {
@@ -307,7 +307,7 @@ EOF
 <pre tabindex="0"><code>sudo nvim /etc/systemd/zram-generator.conf
 </code></pre><p>zram-generator.conf</p>
 <pre tabindex="0"><code>[zram0]
-zram-size = 6G
+zram-size = ram / 2
 compression-algorithm = zstd
 </code></pre><h5 id="troubleshoot">Troubleshoot</h5>
 <p>If it&rsquo;s fails, create in manually</p>
@@ -338,7 +338,7 @@ free -h
 </span></span><span class="line"><span class="cl"><span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>Physical RAM<span class="p">|</span>~15 GB<span class="p">|</span>Actual installed RAM chips<span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>ZRAM Swap<span class="p">|</span>e.g. <span class="m">4</span> GB<span class="p">|</span>Compressed swap in RAM <span class="o">(</span>fast virtual swap<span class="o">)</span><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>ZRAM Swap<span class="p">|</span>e.g. 7.7 GB<span class="p">|</span>Compressed swap in RAM <span class="o">(</span>fast virtual swap<span class="o">)</span><span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>---<span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>Swap File<span class="p">|</span><span class="m">16</span> GB<span class="p">|</span>Swap space on SSD <span class="o">(</span>slower virtual swap<span class="o">)</span><span class="p">|</span>
 </span></span></code></pre></div>

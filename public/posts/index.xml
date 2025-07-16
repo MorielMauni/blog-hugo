@@ -6,7 +6,46 @@
     <description>Recent content in Posts on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 15 Jul 2025 23:22:09 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jul 2025 15:30:18 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps Study app: Setting up Kubernetes</title>
+      <link>http://localhost:1313/posts/2025/july/kubernetes-1/</link>
+      <pubDate>Wed, 16 Jul 2025 15:30:18 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/july/kubernetes-1/</guid>
+      
+      <description>&lt;p&gt;First of all, let&amp;rsquo;s switch to main and pull.&lt;/p&gt;
+&lt;h3 id=&#34;k3d&#34;&gt;K3D&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://k3d.io/stable/&#34;&gt;K3D&lt;/a&gt; is a lightweight wrapper to run &lt;a href=&#34;https://github.com/rancher/k3s&#34;&gt;k3s&lt;/a&gt; (Rancher Lab’s minimal Kubernetes distribution) in docker.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mise use k3d kubectl k9s
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s check everything is running ok with&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;k3d cluster create mycluster
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Prep: Network
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Created network &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Created image volume k3d-mycluster-images
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting new tools node...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Pulling image &lt;span class=&#34;s1&#34;&gt;&amp;#39;ghcr.io/k3d-io/k3d-tools:5.8.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0001&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Creating node &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster-server-0&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0002&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting node &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster-tools&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0003&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Pulling image &lt;span class=&#34;s1&#34;&gt;&amp;#39;docker.io/rancher/k3s:v1.31.5-k3s1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0009&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Creating LoadBalancer &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster-serverlb&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0010&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Pulling image &lt;span class=&#34;s1&#34;&gt;&amp;#39;ghcr.io/k3d-io/k3d-proxy:5.8.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0013&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Using the k3d-tools node to gather environment information
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0013&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; HostIP: using network gateway 172.20.0.1 address
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0013&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting cluster &lt;span class=&#34;s1&#34;&gt;&amp;#39;mycluster&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0013&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting servers...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0013&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting node &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster-server-0&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0017&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; All agents already running.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0017&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting helpers...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0017&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Starting node &lt;span class=&#34;s1&#34;&gt;&amp;#39;k3d-mycluster-serverlb&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0023&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Injecting records &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; hostAliases &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;incl. host.k3d.internal&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; and &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; network members into CoreDNS configmap...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0025&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Cluster &lt;span class=&#34;s1&#34;&gt;&amp;#39;mycluster&amp;#39;&lt;/span&gt; created successfully!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0025&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; You can now use it like this:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl cluster-info
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Remember&lt;/strong&gt;: we are using Docker (the images we made) inside of Docker (dev-container).&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>&#34;Getting&#34; more RAM</title>
       <link>http://localhost:1313/posts/2025/july/ram/</link>
