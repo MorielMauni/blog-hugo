@@ -131,7 +131,7 @@ sudo nvim /etc/systemd/zram-generator.conf
 zram-generator.conf
 ```
 [zram0]
-zram-size = 6G
+zram-size = ram / 2
 compression-algorithm = zstd
 ```
 
@@ -195,7 +195,7 @@ free -h
 |---|---|---|
 |Physical RAM|~15 GB|Actual installed RAM chips|
 |---|---|---|
-|ZRAM Swap|e.g. 6 GB|Compressed swap in RAM (fast virtual swap)|
+|ZRAM Swap|e.g. 7.7 GB|Compressed swap in RAM (fast virtual swap)|
 |---|---|---|
 |Swap File|16 GB|Swap space on SSD (slower virtual swap)|
 ```
