@@ -6,7 +6,33 @@
     <description>Recent content in   on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 16 Jul 2025 15:30:18 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/-/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jul 2025 20:33:36 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yazi- Terminal file manager</title>
+      <link>http://localhost:1313/posts/2025/july/yazi/</link>
+      <pubDate>Sun, 20 Jul 2025 20:33:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/july/yazi/</guid>
+      
+      <description>&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;I use the terminal for everything, and the more I can do, the stronger I get.
+As a DevOps, using the terminal for managing files is a must but sometimes you want to see the bigger picture.&lt;/p&gt;
+&lt;h3 id=&#34;yazi&#34;&gt;Yazi&lt;/h3&gt;
+&lt;p&gt;A fast terminal file manager written in Rust, based on async I/O.&lt;/p&gt;
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://yazi-rs.github.io/docs/installation&#34;&gt;Yazi installation docs&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;arch&#34;&gt;Arch:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;paru -S resvg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;brew&#34;&gt;Brew&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;debian&#34;&gt;Debian&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, if you type &lt;code&gt;yazi&lt;/code&gt; you can use it.
+I made an alias for &lt;code&gt;y&lt;/code&gt; so it will be easy.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>DevOps Study app: Setting up Kubernetes</title>
       <link>http://localhost:1313/posts/2025/july/kubernetes-1/</link>
