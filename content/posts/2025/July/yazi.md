@@ -40,6 +40,21 @@ brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagema
 apt install ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
 ```
 
+#### mise 
+Add this to ```mise.toml```:
+```toml 
+yazi = "latest"
+fzf = "latest"
+ripgrep = "latest"
+zoxide = "latest"
+fd = "latest"
+7zip = "latest"
+imagemagick = "latest"
+paru = "latest"
+ffmpeg = "latest"
+```
+**NOTE**: The ```imagemagick``` have long delay, like really long.
+
 Now, if you type ```yazi``` you can use it.
 I made an alias for ```y``` so it will be easy.
 
