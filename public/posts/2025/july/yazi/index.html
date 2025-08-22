@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Yazi- Terminal file manager | Moriel&#39;s Mauni blog</title>
-<meta property="og:title" content="Yazi- Terminal file manager | Moriel&#39;s Mauni blog" />
-<meta name="twitter:title" content="Yazi- Terminal file manager | Moriel&#39;s Mauni blog" />
-<meta itemprop="name" content="Yazi- Terminal file manager | Moriel&#39;s Mauni blog" />
-<meta name="application-name" content="Yazi- Terminal file manager | Moriel&#39;s Mauni blog" />
+<title itemprop="name">Yazi: Blazing fest terminal file manager | Moriel&#39;s Mauni blog</title>
+<meta property="og:title" content="Yazi: Blazing fest terminal file manager | Moriel&#39;s Mauni blog" />
+<meta name="twitter:title" content="Yazi: Blazing fest terminal file manager | Moriel&#39;s Mauni blog" />
+<meta itemprop="name" content="Yazi: Blazing fest terminal file manager | Moriel&#39;s Mauni blog" />
+<meta name="application-name" content="Yazi: Blazing fest terminal file manager | Moriel&#39;s Mauni blog" />
 <meta property="og:site_name" content="Moriel&#39;s Mauni blog" />
 
 <meta name="description" content=" ">
@@ -46,14 +46,14 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Yazi- Terminal file manager",
+        "headline": "Yazi: Blazing fest terminal file manager",
         "author": {
         "@type": "Person",
         "name": ""
         },
         "datePublished": "2025-07-20",
         "description": " ",
-        "wordCount":  397 ,
+        "wordCount":  438 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-07-20",
         "image": {
@@ -68,12 +68,12 @@
     </script>
 
 
-<meta name="generator" content="Hugo 0.147.8">
+<meta name="generator" content="Hugo 0.148.2">
 
     
     <meta property="og:url" content="http://localhost:1313/posts/2025/july/yazi/">
   <meta property="og:site_name" content="Moriel&#39;s Mauni blog">
-  <meta property="og:title" content="Yazi- Terminal file manager">
+  <meta property="og:title" content="Yazi: Blazing fest terminal file manager">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en_gb">
   <meta property="og:type" content="article">
@@ -86,7 +86,7 @@
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Yazi- Terminal file manager">
+  <meta name="twitter:title" content="Yazi: Blazing fest terminal file manager">
   <meta name="twitter:description" content="">
 
 
@@ -185,7 +185,7 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">Yazi- Terminal file manager</h1>
+                <h1 class="header-title">Yazi: Blazing fest terminal file manager</h1>
                 
                 
                 
@@ -209,6 +209,7 @@ stroke-linejoin="round" class="feather feather-home">
             <li><a href="#arch">Arch:</a></li>
             <li><a href="#brew">Brew</a></li>
             <li><a href="#debian">Debian</a></li>
+            <li><a href="#mise">mise</a></li>
           </ul>
         </li>
         <li><a href="#zshrc--bashrc-configuration">.zshrc / .bashrc configuration</a></li>
@@ -238,7 +239,19 @@ As a DevOps, using the terminal for managing files is a must but sometimes you w
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 </span></span></code></pre></div><h4 id="debian">Debian</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
-</span></span></code></pre></div><p>Now, if you type <code>yazi</code> you can use it.
+</span></span></code></pre></div><h4 id="mise">mise</h4>
+<p>Add this to <code>mise.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">yazi</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fzf</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ripgrep</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">zoxide</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fd</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">7</span><span class="nx">zip</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagemagick</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">paru</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ffmpeg</span> <span class="p">=</span> <span class="s2">&#34;latest&#34;</span>
+</span></span></code></pre></div><p><strong>NOTE</strong>: The <code>imagemagick</code> have long delay, like really long.</p>
+<p>Now, if you type <code>yazi</code> you can use it.
 I made an alias for <code>y</code> so it will be easy.</p>
 <h3 id="zshrc--bashrc-configuration">.zshrc / .bashrc configuration</h3>
 <p>Make yazi to cd to the directory you inside what you close it <code>q</code></p>

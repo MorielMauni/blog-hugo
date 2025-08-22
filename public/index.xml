@@ -6,9 +6,26 @@
     <description>Recent content in Home on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 20 Jul 2025 20:33:36 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Jul 2025 17:54:15 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Yazi- Terminal file manager</title>
+      <title>Life</title>
+      <link>http://localhost:1313/posts/2025/july/life/</link>
+      <pubDate>Tue, 22 Jul 2025 17:54:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/july/life/</guid>
+      
+      <description>&lt;h2 id=&#34;life&#34;&gt;Life.&lt;/h2&gt;
+&lt;p&gt;So life happened.&lt;/p&gt;
+&lt;p&gt;Got some bad news, and I need to take some hard choices to take care of my family.&lt;/p&gt;
+&lt;p&gt;We need to move houses, pay more for a smaller house &amp;ndash;&amp;gt; yes&amp;hellip;&lt;/p&gt;
+&lt;p&gt;I will update, I will make things, I just need time to make things right.&lt;/p&gt;
+&lt;p&gt;Thank you all,&lt;/p&gt;
+&lt;p&gt;Moriel&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Yazi: Blazing fest terminal file manager</title>
       <link>http://localhost:1313/posts/2025/july/yazi/</link>
       <pubDate>Sun, 20 Jul 2025 20:33:36 +0000</pubDate>
       
@@ -28,8 +45,8 @@ As a DevOps, using the terminal for managing files is a must but sometimes you w
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;debian&#34;&gt;Debian&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, if you type &lt;code&gt;yazi&lt;/code&gt; you can use it.
-I made an alias for &lt;code&gt;y&lt;/code&gt; so it will be easy.&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mise&#34;&gt;mise&lt;/h4&gt;
+&lt;p&gt;Add this to &lt;code&gt;mise.toml&lt;/code&gt;:&lt;/p&gt;</description>
       
     </item>
     
