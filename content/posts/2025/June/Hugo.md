@@ -8,7 +8,7 @@ categories = ["code"]
 description = "How to make a website using Hugo framework"
 +++
 
-### The Setup:
+### The Setup
 
 I'm working with DevPods, it's making my main setup clean, I don't need to install on it all the packages I use in all the projects. Also, the DevPod is connected to GitHub repository.
 
@@ -37,7 +37,7 @@ Then, a new directory will be created:
 cd <site-name>
 ```
 
-### Hugo directory tree:
+### Hugo directory tree
 
 ```
 └── <site-name>
@@ -67,33 +67,38 @@ cd themes
 ```
 
 Then, we going to clone the repository of the theme we want:
-```bash 
+
+```bash
 git clone htpps://github.com/UserName/GitRepo.git
 ```
 
 **For your information**: read the documentation, some repositories requires you to use it as Git submodule.
 
 To activate the theme we need to edit the hugo.toml file and add this line:
+
 ```toml
 theme = 'name-of-theme-dir'
 ```
 
-Now, for the first time, we can see our website with: 
-```bash 
+Now, for the first time, we can see our website with:
+
+```bash
 hugo server
 ```
 
 To view the website go to [http://localhost:1313](http://localhost:1313).
 
-### Create new content 
+### Create new content
 
 To create a new content web page, we will run the command:
-```bash 
+
+```bash
 hugo new <file-name>.md 
 ```
 
 It will create a file which is a Mark Down file with toml prefixes at the static
-```toml 
+
+```toml
 +++
 title =  'title'
 date: '2025-06-14T22:46:19Z'
@@ -103,7 +108,7 @@ draft: true
 
 **For your information**: the "draft" section is if the web page going to be live (false) or only to your eyes only (true).
 
-### Archetypes:
+### Archetypes
 
 ```
 +++
@@ -115,10 +120,11 @@ title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 
 This is the default of the meta-data, we can edit this so every time we will get what we want.
 
-We can create a new file in archetypes directories with the name of a directory we can give it a custom archetype. 
+We can create a new file in archetypes directories with the name of a directory we can give it a custom archetype.
 
-For example: 
+For example:
 archetypes / dir1.md
+
 ```
 +++
 date = '{{ .Date }}'
@@ -132,9 +138,10 @@ All the xxx.md files that will create under the dir1 going to have this meta-dat
 
 ### Taxonomies
 
-how to group content together in affiance way.  tags and categories. 
+how to group content together in affiance way.  tags and categories.
 
 in the meta-data
+
 ```
 tags = ["tag1", "tag2"]
 catagories = ["cat1", "cat2"]
@@ -142,11 +149,10 @@ catagories = ["cat1", "cat2"]
 
 We can create custom Taxonomies in the config.toml file
 one = "many"
+
 ```
 [taxonomies]
-	tag = "tag"
-	category = "catagory"
-	mood = "moods"
+ tag = "tag"
+ category = "catagory"
+ mood = "moods"
 ```
-
-
