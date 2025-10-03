@@ -7,33 +7,32 @@ tags = [" "]
 categories = [" "]
 description = " "
 +++
-
-
-[YouTube guide](https://www.youtube.com/watch?v=lNH4hHyqkVw).
-
 ### Install
+
 ```
 sudo apt install rclone
 ```
 
-### Activate configuration:
+### Activate configuration
+
 ```
 rclone config
 ```
 
-#### What to answer:
+#### What to answer
+
 - ```n```: new connection.
 - ```<name>```: name it.
 - ```Google Drive / "drive"```: search for entry.
-- ```clinet id```: enter for defualt. 
-- ```client secret```: enter for defualt. 
+- ```clinet id```: enter for defualt.
+- ```client secret```: enter for defualt.
 - ```scope```: 1 then enter.
-- ```service_acount_file```:  enter for defualt. 
+- ```service_acount_file```:  enter for defualt.
 - ```advance config```: N.
 - ```use auto config```: Y enter --> opens the browser.
-	-  If working with a server, type N.
-	- ```rclone authorize "drive"```: in the main machine.
-	- task the token that created and put in the server machine.
+ 	- If working with a server, type N. [Remote Setup docs](https://rclone.org/remote_setup/)
+ 	- ```rclone authorize "drive"```: in the main machine.
+ 	- task the token that created and put in the server machine.
 - ```team drive```: N.
 - In the ```Yes this is OK``` pick Y.
 - Pick Q.
@@ -48,5 +47,4 @@ mkdir <mount_point> && sudo chmod 755 <mount_point>
 rclone mount <name-of-drive>: /path/to/mount_point
 ```
 
-
-
+[YouTube guide](https://www.youtube.com/watch?v=lNH4hHyqkVw).
