@@ -205,12 +205,12 @@ stroke-linejoin="round" class="feather feather-home">
   <ul>
     <li>
       <ul>
-        <li><a href="#the-setup">The Setup:</a></li>
+        <li><a href="#the-setup">The Setup</a></li>
         <li><a href="#making-a-new-website">Making a new website</a></li>
-        <li><a href="#hugo-directory-tree">Hugo directory tree:</a></li>
+        <li><a href="#hugo-directory-tree">Hugo directory tree</a></li>
         <li><a href="#themes">Themes</a></li>
         <li><a href="#create-new-content">Create new content</a></li>
-        <li><a href="#archetypes">Archetypes:</a></li>
+        <li><a href="#archetypes">Archetypes</a></li>
         <li><a href="#taxonomies">Taxonomies</a></li>
       </ul>
     </li>
@@ -218,7 +218,7 @@ stroke-linejoin="round" class="feather feather-home">
 </nav>
     </details>
             <div class="page-content">
-                <h3 id="the-setup">The Setup:</h3>
+                <h3 id="the-setup">The Setup</h3>
 <p>I&rsquo;m working with DevPods, it&rsquo;s making my main setup clean, I don&rsquo;t need to install on it all the packages I use in all the projects. Also, the DevPod is connected to GitHub repository.</p>
 <p>Every DevPod need a .devcontainer.json file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -231,7 +231,7 @@ stroke-linejoin="round" class="feather feather-home">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new website &lt;site-name&gt;
 </span></span></code></pre></div><p>Then, a new directory will be created:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> &lt;site-name&gt;
-</span></span></code></pre></div><h3 id="hugo-directory-tree">Hugo directory tree:</h3>
+</span></span></code></pre></div><h3 id="hugo-directory-tree">Hugo directory tree</h3>
 <pre tabindex="0"><code>└── &lt;site-name&gt;
     ├── archetypes # Define data about content
     │   └── default.md
@@ -268,7 +268,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="nx">draft</span><span class="err">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="err">+++</span>
 </span></span></code></pre></div><p><strong>For your information</strong>: the &ldquo;draft&rdquo; section is if the web page going to be live (false) or only to your eyes only (true).</p>
-<h3 id="archetypes">Archetypes:</h3>
+<h3 id="archetypes">Archetypes</h3>
 <pre tabindex="0"><code>+++
 date = &#39;{{ .Date }}&#39;
 draft = true
@@ -293,9 +293,9 @@ catagories = [&#34;cat1&#34;, &#34;cat2&#34;]
 </code></pre><p>We can create custom Taxonomies in the config.toml file
 one = &ldquo;many&rdquo;</p>
 <pre tabindex="0"><code>[taxonomies]
-	tag = &#34;tag&#34;
-	category = &#34;catagory&#34;
-	mood = &#34;moods&#34;
+ tag = &#34;tag&#34;
+ category = &#34;catagory&#34;
+ mood = &#34;moods&#34;
 </code></pre>
             </div>
         </article></main>

@@ -6,7 +6,124 @@
     <description>Recent content in   on Moriel&#39;s Mauni blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 22 Jul 2025 17:54:15 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Oct 2025 20:07:11 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible but in Windows</title>
+      <link>http://localhost:1313/posts/2025/october/ansible/</link>
+      <pubDate>Mon, 27 Oct 2025 20:07:11 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/october/ansible/</guid>
+      
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=73pgFXLYrfk&amp;amp;embeds_referring_euri=https%3A%2F%2Fwww.perplexity.ai%2F&amp;amp;embeds_referring_origin=https%3A%2F%2Fwww.perplexity.ai&amp;amp;source_ve_path=MjM4NTE&#34;&gt;Ansible for Windows&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;controller&#34;&gt;Controller&lt;/h3&gt;
+&lt;p&gt;Ansible needs &lt;strong&gt;Linux&lt;/strong&gt; as a controller (Control Node).&lt;/p&gt;
+&lt;p&gt;When Linux server wants to &amp;ldquo;talk&amp;rdquo; with Windows server it use WinRM (Remote connect to another server).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WinRM&lt;/strong&gt;: management protocol used by Windows to remotely communicate with another server.&lt;/p&gt;
+&lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
+&lt;h4 id=&#34;linux&#34;&gt;Linux&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ansible installed: 2.9 above &lt;a href=&#34;https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html&#34;&gt;Install Docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Python3&lt;/li&gt;
+&lt;li&gt;pywinrm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;PowerShell 3.0 above&lt;/li&gt;
+&lt;li&gt;.NET 4.0 and above&lt;/li&gt;
+&lt;li&gt;WinRM Listener should be active&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;ansible-on-wsl&#34;&gt;Ansible on WSL&lt;/h4&gt;
+&lt;p&gt;==NTA Project==&lt;/p&gt;
+&lt;p&gt;Switch to root&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>rclone: use cloud providers on UNIX</title>
+      <link>http://localhost:1313/posts/2025/october/rclone/</link>
+      <pubDate>Fri, 03 Oct 2025 00:03:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/october/rclone/</guid>
+      
+      <description>&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install rclone
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;activate-configuration&#34;&gt;Activate configuration&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rclone config
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;what-to-answer&#34;&gt;What to answer&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;n&lt;/code&gt;: new connection.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;: name it.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Google Drive / &amp;quot;drive&amp;quot;&lt;/code&gt;: search for entry.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clinet id&lt;/code&gt;: enter for defualt.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client secret&lt;/code&gt;: enter for defualt.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scope&lt;/code&gt;: 1 then enter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;service_acount_file&lt;/code&gt;:  enter for defualt.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;advance config&lt;/code&gt;: N.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;use auto config&lt;/code&gt;: Y enter &amp;ndash;&amp;gt; opens the browser.
+&lt;ul&gt;
+&lt;li&gt;If working with a server, type N. &lt;a href=&#34;https://rclone.org/remote_setup/&#34;&gt;Remote Setup docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone authorize &amp;quot;drive&amp;quot;&lt;/code&gt;: in the main machine.&lt;/li&gt;
+&lt;li&gt;task the token that created and put in the server machine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;team drive&lt;/code&gt;: N.&lt;/li&gt;
+&lt;li&gt;In the &lt;code&gt;Yes this is OK&lt;/code&gt; pick Y.&lt;/li&gt;
+&lt;li&gt;Pick Q.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;mount-the-drive&#34;&gt;Mount the drive&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir &amp;lt;mount_point&amp;gt; &amp;amp;&amp;amp; sudo chmod 755 &amp;lt;mount_point&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rclone mount &amp;lt;name-of-drive&amp;gt;: /path/to/mount_point
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=lNH4hHyqkVw&#34;&gt;YouTube guide&lt;/a&gt;.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>PowerShell script to auto genetare signatures- Part 1</title>
+      <link>http://localhost:1313/posts/2025/september/outlook/</link>
+      <pubDate>Tue, 09 Sep 2025 19:25:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/september/outlook/</guid>
+      
+      <description>&lt;h3 id=&#34;the-mission&#34;&gt;The Mission&lt;/h3&gt;
+&lt;p&gt;So I got a task from my team leader to make a new and better script to &amp;ldquo;Auto create signatures for Oultlook&amp;rdquo;.
+I had to know some things before I start doing things, like understanding what I need to do to make it work.&lt;/p&gt;
+&lt;h3 id=&#34;old-script&#34;&gt;Old script&lt;/h3&gt;
+&lt;p&gt;The old script is really a mess. The only comments are lines of code the writer didn&amp;rsquo;t want.&lt;/p&gt;
+&lt;h4 id=&#34;the-steps&#34;&gt;The steps:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Checking that there is an Outlook profile.&lt;/li&gt;
+&lt;li&gt;Setting up the variables from Active Directory.&lt;/li&gt;
+&lt;li&gt;Checking there is a directory &amp;lsquo;/APPDATA/Microsoft/Signatures&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Checking the path to the template- .docx file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;activation&#34;&gt;Activation&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Open the template.docx file.&lt;/li&gt;
+&lt;li&gt;Replace the variables in the template with the values from the Active Directory.&lt;/li&gt;
+&lt;li&gt;Save it in the path &amp;lsquo;APPDATAT/Microsoft/Signatures&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h4&gt;
+&lt;p&gt;I didn&amp;rsquo;t only read the script, I tried to mess up with Outlook a little bit.
+I noticed that when I create a signature there are 3 files created:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Server died</title>
+      <link>http://localhost:1313/posts/2025/august/server/</link>
+      <pubDate>Tue, 05 Aug 2025 21:11:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025/august/server/</guid>
+      
+      <description>&lt;h3 id=&#34;hi-friends&#34;&gt;Hi friends!&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s been sometime.&lt;/p&gt;
+&lt;p&gt;After a weel and a half of searching for a new home, We are packaging out self in boxes for the move.
+I played little bit with talescale and then when I did &amp;ndash;node-exit some apps died on me - like my dear Nextcloud that&amp;rsquo;s hold everything for us for the past 3 years.
+Today, I couldn&amp;rsquo;t ssh into the machine and I saw it&amp;rsquo;s froze. After a reboot it&amp;rsquo;s only rebooted to bios.
+So have app I host on my Home-lab is gone. BUT! I have all the manifets and I can re-host it with no problem.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Life</title>
       <link>http://localhost:1313/posts/2025/july/life/</link>

@@ -3,24 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/-/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/-/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/october/ansible/</loc>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2025/july/life/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-07-22T17:54:15+00:00</lastmod>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-10-27T20:07:11+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/october/rclone/</loc>
+    <lastmod>2025-10-03T00:03:50+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/september/outlook/</loc>
+    <lastmod>2025-09-09T19:25:26+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/august/server/</loc>
+    <lastmod>2025-08-05T21:11:45+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025/july/life/</loc>
     <lastmod>2025-07-22T17:54:15+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2025/july/yazi/</loc>

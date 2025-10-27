@@ -14,7 +14,7 @@
       
       <guid>http://localhost:1313/posts/2025/june/hugo/</guid>
       
-      <description>&lt;h3 id=&#34;the-setup&#34;&gt;The Setup:&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;the-setup&#34;&gt;The Setup&lt;/h3&gt;
 &lt;p&gt;I&amp;rsquo;m working with DevPods, it&amp;rsquo;s making my main setup clean, I don&amp;rsquo;t need to install on it all the packages I use in all the projects. Also, the DevPod is connected to GitHub repository.&lt;/p&gt;
 &lt;p&gt;Every DevPod need a .devcontainer.json file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
