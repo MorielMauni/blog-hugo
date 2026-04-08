@@ -17,17 +17,20 @@ prompt("message");
 ```
 
 To save the information inside a variable:
+
 ```js
 var variableName = variableValue;
 var variableName = "variableValue";
 ```
 
 Save user input inside a variable
+
 ```js
 var yourName = prompt("message");
 ```
 
 Write strings with variables
+
 ```js
 alert("Hello " + yourName + ", My name is " + myName);
 ```
@@ -36,36 +39,38 @@ alert("Hello " + yourName + ", My name is " + myName);
 
 Switch variables `a`and `b`:
 
-My solution: 
+My solution:
+
 ```js
 function test() {
-	var a = "3";
-	var b = "8";
-	
-	//
-	var c = "3";
-    var a = "8";
-    var b = c;
-	//
-	
-	console.log("a is" + a);
-	console.log("b is" + b);
+ var a = "3";
+ var b = "8";
+ 
+ //
+ var c = "3";
+  var a = "8";
+  var b = c;
+ //
+ 
+ console.log("a is" + a);
+ console.log("b is" + b);
 }
 ```
 
-Teacher solution: 
+Teacher solution:
+
 ```js
 function test() {
-	var a = "3";
-	var b = "8";
-	
-	//
-	var c = a;
-    a = b;
-    b = c;
-	//
-	
-	console.log("a is" + a);
-	console.log("b is" + b);
+ var a = "3";
+ var b = "8";
+ 
+ //
+ var c = a;
+  a = b;
+  b = c;
+ //
+ 
+ console.log("a is" + a);
+ console.log("b is" + b);
 }
 ```
