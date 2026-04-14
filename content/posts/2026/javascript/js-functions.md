@@ -1,24 +1,25 @@
 +++
 date = '2026-04-14T09:44:42Z'
 draft = false
-title = 'Js Functions'
+title = 'JavaScript: Functions'
 author = 'Moriel Mauni'
 tags = [" "]
 categories = [" "]
 description = " "
 +++
 
-### First things first:
+### First things first
+
 Sorry for 2 days without uploading, I have no internet due to the provider being an idiot.
 
-### Functions 
+### Functions
 
 [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions): Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.
 
 ```js
 function name() {
-	do;
-	do;
+ do;
+ do;
 }
 
 // Call the function
@@ -27,9 +28,10 @@ name();
 
 #### Challenge
 
-https://stanford.edu/~cpiech/karel/ide.html
+<https://stanford.edu/~cpiech/karel/ide.html>
 
 Help Karel to go to top right: 15x15
+
 ```js
 /**
  * Welcome to the Stanford Karel IDE.
@@ -150,8 +152,8 @@ function turnUpLeft() {
 
 ```js
 function exampleFunction(argument) {
-	var cost = argument;
-	// do something with cost
+ var cost = argument;
+ // do something with cost
 }
 
 exampleFunction(argument);
@@ -160,19 +162,21 @@ exampleFunction(argument);
 #### Challenge
 
 Create a function that buy bottles from argument based on money it have.
+
 ```js
 var startMoney = 10
 var bottleCost = 1.5
 
 function buyBottles(bottles) {
-	var leftMoney = startMoney - (bottles * bottleCost);
-	alert("You bought " + bottles + " bottles, and have " + leftMoney + "$ left");
+ var leftMoney = startMoney - (bottles * bottleCost);
+ alert("You bought " + bottles + " bottles, and have " + leftMoney + "$ left");
 }
 
 buyBottles(3);
 ```
 
 In this challenge, you are going to create a function that tells us how many days, weeks and months we have left if we live until 90 years old.
+
 ```js
 function lifeInWeeks(age) {
     
@@ -194,7 +198,7 @@ function lifeInWeeks(age) {
 
 ```js
 function exampleFunction(number) {
-	return number + 1;
+ return number + 1;
 }
 
 var newNumber = exampleFunction(number);
@@ -203,6 +207,7 @@ var newNumber = exampleFunction(number);
 #### Challenge
 
 Make a BMI calculator.
+
 ```
          Weight(kg)
 BMI =  --------------
@@ -229,6 +234,7 @@ bmi should equal 20 when it's rounded to the nearest whole number.
 ```
 
 Other options
+
 ```js
 function bmiCalculator(weight, height) {
     var bmi = weight / (Math.pow(height, 2));
