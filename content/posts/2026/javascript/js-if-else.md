@@ -8,9 +8,10 @@ categories = ["Code"]
 description = " "
 +++
 
-### if and else
+## if and else
 
-[if()]([https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)): The **`if...else`** statement executes a statement if a specified condition is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). If the condition is [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), another statement in the optional `else` clause will be executed.
+[if]: The `if...else` statement executes a statement if a specified condition is truthy.
+If the condition is falsy, another statement in the optional `else` clause will be executed.
 
 ```js
 if (something === something) { // To check equlity in data types use "==="
