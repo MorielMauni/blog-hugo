@@ -3,8 +3,8 @@ date = '2026-04-15T16:45:24Z'
 draft = false
 title = 'JavaScript: "if" and "else" statements'
 author = 'Moriel Mauni'
-tags = [" "]
-categories = [" "]
+tags = ["JavaScript"]
+categories = ["Code"]
 description = " "
 +++
 
@@ -14,21 +14,21 @@ description = " "
 
 ```js
 if (something === something) { // To check equlity in data types use "==="
-	do();
+ do();
 }   else {
-	doThat();
+ doThat();
 }
 ```
 
 ```js
 if (something > something) { // <
-	do();
+ do();
 }   else {
-	doThat();
+ doThat();
 }
 ```
 
-### Combining comparators 
+### Combining comparators
 
 - **&&**: AND.
 - **||**: OR.
@@ -36,13 +36,13 @@ if (something > something) { // <
 
 ```js
 if (something > 70 && something <= 10) {
-	do();
+ do();
 }
 if (something != 2) {
-	do();
+ do();
 }
 }   else {
-	doThat();
+ doThat();
 }
 ```
 
@@ -55,26 +55,24 @@ var output = [];
 var count = 1;
 
 function fizzBuzz() {
-	// If (X%3=0) and (X%5=0) then FizzBuzz
-	if (count % 3 === 0 && count % 5 === 0) {
-		output.push("FizzBuzz");
-	}
-	// If [X%3=0] then Fizz
-	else if (count % 3 === 0) {
-		output.push("Fizz");
-	}
-	// If [X%5=0] then Buzz
-	else if (count % 5 === 0) {
-		output.push("Buzz");
-	}
-	// Else count
-	else {
-		output.push(count);
-	}
+ // If (X%3=0) and (X%5=0) then FizzBuzz
+ if (count % 3 === 0 && count % 5 === 0) {
+  output.push("FizzBuzz");
+ }
+ // If [X%3=0] then Fizz
+ else if (count % 3 === 0) {
+  output.push("Fizz");
+ }
+ // If [X%5=0] then Buzz
+ else if (count % 5 === 0) {
+  output.push("Buzz");
+ }
+ // Else count
+ else {
+  output.push(count);
+ }
 
-	count++;
+ count++;
     console.log(output);
 }
 ```
-
-
